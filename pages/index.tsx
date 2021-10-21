@@ -1,8 +1,11 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Heading } from "@chakra-ui/react";
+import { Heading, IconButton, useColorMode } from "@chakra-ui/react";
+import { SunIcon, MoonIcon } from "@heroicons/react/outline";
 
 const Home: NextPage = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
+
   return (
     <div>
       <Head>
@@ -15,6 +18,13 @@ const Home: NextPage = () => {
       </Head>
 
       <Heading>DevKit</Heading>
+      <IconButton
+        onClick={toggleColorMode}
+        icon={colorMode === "light" ? <SunIcon /> : <MoonIcon />}
+        variant={"ghost"}
+        ml={8}
+        aria-label={"Toggle Color Mode"}
+      />
     </div>
   );
 };
