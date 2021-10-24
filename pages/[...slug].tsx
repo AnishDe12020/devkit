@@ -54,7 +54,7 @@ export const getStaticPaths = () => {
   console.log(paths);
 
   return {
-    paths: [{ params: { slug: ["/"] } }],
+    paths,
     fallback: false,
   };
 };

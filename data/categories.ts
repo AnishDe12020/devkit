@@ -17,7 +17,7 @@ const categories: Category[] = [
     id: 2,
     name: "Tools",
     children: [tool1, tool2, tool3],
-    slug: "/tools",
+    slug: "tools",
   },
 ];
 

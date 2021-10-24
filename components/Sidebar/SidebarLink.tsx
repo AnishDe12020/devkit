@@ -18,6 +18,8 @@ const SidebarLink = ({
   const secondaryBg = useColorModeValue("green.300", "green.700");
   const secondaryColor = useColorModeValue("green.800", "green.200");
 
+  href = href === "///" ? "/" : href;
+
   return (
     <NextLink href={href} passHref>
       <Link
