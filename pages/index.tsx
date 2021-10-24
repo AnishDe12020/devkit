@@ -2,8 +2,10 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Sidebar from "@/components/Sidebar";
 import categories from "@/data/categories";
+import components from "@/data/components";
 
 const Home: NextPage = () => {
+  const ToolComponent = components[0].component;
   return (
     <div>
       <Head>
@@ -16,6 +18,8 @@ const Home: NextPage = () => {
       </Head>
 
       <Sidebar categories={categories} />
+
+      <ToolComponent />
     </div>
   );
 };

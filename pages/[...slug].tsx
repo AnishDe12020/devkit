@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Sidebar from "@/components/Sidebar";
 import categories from "@/data/categories";
@@ -20,13 +20,18 @@ const Home: NextPage = () => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps<{ slug: string[] }> = async ({
+  params,
+}) => {
+  const category = params?.slug[0];
+  const tool = params?.slug[1];
+
   return {
     props: {},
   };
 };
 
-export const getStaticPaths = () => {
+export const getStaticPaths: GetStaticPaths = () => {
   const paths = categories
     .map((category) =>
       category.children
