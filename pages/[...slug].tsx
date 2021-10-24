@@ -2,8 +2,22 @@ import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Sidebar from "@/components/Sidebar";
 import categories from "@/data/categories";
+import dynamic from "next/dynamic";
+import { ReactNode } from "react";
+import capitalize from "@/utils/capitalize";
 
-const Home: NextPage = () => {
+interface ToolsPageProps {
+  category: string;
+  tool: string;
+}
+
+const Tools: NextPage = ({ category, tool }) => {
+  console.log(category, tool);
+
+  const ToolComponent = dynamic(
+    () => import(`../components/Tools/${category}/${tool}`)
+  );
+
   return (
     <div>
       <Head>
@@ -16,23 +30,29 @@ const Home: NextPage = () => {
       </Head>
 
       <Sidebar categories={categories} />
+
+      <ToolComponent />
     </div>
   );
 };
 
-export const getStaticProps: GetStaticProps<{ slug: string[] }> = async ({
-  params,
-}) => {
-  const category = params?.slug[0];
-  const tool = params?.slug[1];
+export const getStaticProps: GetStaticProps<
+  ToolsPageProps,
+  { slug: string[] }
+> = async ({ params }) => {
+  const category = capitalize(params!.slug[0]);
+  const tool = capitalize(params!.slug[1]);
 
   return {
-    props: {},
+    props: {
+      category,
+      tool,
+    },
   };
 };
 
 export const getStaticPaths: GetStaticPaths = () => {
-  const paths = categories
+  let paths = categories
     .map((category) =>
       category.children
         .map((tool) => ({
@@ -44,12 +64,10 @@ export const getStaticPaths: GetStaticPaths = () => {
     )
     .flat();
 
-  console.log(paths);
-
   return {
     paths,
     fallback: false,
   };
 };
 
-export default Home;
+export default Tools;
