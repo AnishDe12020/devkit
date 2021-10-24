@@ -1,8 +1,23 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { Heading } from "@chakra-ui/react";
+import categories from "@/data/categories";
 
 const About: NextPage = () => {
+  const paths = categories
+    .map((category) =>
+      category.children
+        .map((tool) => ({
+          params: {
+            slug: [category.slug, tool.slug],
+          },
+        }))
+        .flat()
+    )
+    .flat();
+
+  console.log(paths);
+
   return (
     <div>
       <Head>

@@ -38,25 +38,4 @@ export const getStaticProps = async () => {
   };
 };
 
-export const getStaticPaths = () => {
-  const paths = categories
-    .map((category) =>
-      category.children
-        .map((tool) => ({
-          params: {
-            slug: [category.slug, tool.slug],
-          },
-        }))
-        .flat()
-    )
-    .flat();
-
-  console.log(paths);
-
-  return {
-    paths: [{ params: { slug: ["/"] } }],
-    fallback: false,
-  };
-};
-
 export default Home;

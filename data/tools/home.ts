@@ -1,10 +1,11 @@
 import { Tool } from "@/data/types";
 
 const home: Tool = {
-  title: "Home",
+  id: 1,
+  name: "Home",
   description: "This is the home page",
   componentFileName: "Home",
-  route: "/",
+  slug: "",
 };
 
 export default home;

@@ -1,12 +1,14 @@
 export interface Tool {
-  title: string;
+  id: number;
+  name: string;
   description: string;
   componentFileName: string;
-  route: string;
+  slug: string;
 }
 
 export interface Category {
   id: number;
   name: string;
   children: Tool[];
+  slug: string;
 }

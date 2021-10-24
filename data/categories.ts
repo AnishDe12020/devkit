@@ -7,6 +7,7 @@ const categories: Category[] = [
     id: 1,
     name: "Home",
     children: [home],
+    slug: "/",
   },
 ];
 
