@@ -3,7 +3,6 @@ import Head from "next/head";
 import Sidebar from "@/components/Sidebar";
 import categories from "@/data/categories";
 import dynamic from "next/dynamic";
-import { ReactNode } from "react";
 import capitalize from "@/utils/capitalize";
 
 interface ToolsPageProps {
@@ -11,7 +10,7 @@ interface ToolsPageProps {
   tool: string;
 }
 
-const Tools: NextPage = ({ category, tool }) => {
+const Tools: NextPage<ToolsPageProps> = ({ category, tool }) => {
   console.log(category, tool);
 
   const ToolComponent = dynamic(
