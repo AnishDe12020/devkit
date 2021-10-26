@@ -19,7 +19,7 @@ const Sidebar = ({ categories }: SidebarProps): JSX.Element => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    <Box ml={8}>
+    <Box>
       <Flex alignItems="center">
         <Heading>DevKit</Heading>
         <IconButton
