@@ -3,6 +3,7 @@ import Head from "next/head";
 import Sidebar from "@/components/Sidebar";
 import categories from "@/data/categories";
 import HomeComponent from "@/components/HomeComponent";
+import { Flex } from "@chakra-ui/react";
 
 const Home: NextPage = () => {
   return (
@@ -16,9 +17,11 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Sidebar categories={categories} />
+      <Flex ml={8} mt={10}>
+        <Sidebar categories={categories} />
 
-      <HomeComponent />
+        <HomeComponent />
+      </Flex>
     </div>
   );
 };
