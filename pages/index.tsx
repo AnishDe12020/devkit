@@ -18,9 +18,9 @@ const Home: NextPage = () => {
       </Head>
 
       <Flex ml={8} mt={10}>
-        <Sidebar categories={categories} />
+        <Sidebar w="20vw" categories={categories} />
 
-        <HomeComponent />
+        <HomeComponent w="80vw" />
       </Flex>
     </div>
   );

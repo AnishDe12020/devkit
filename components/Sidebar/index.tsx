@@ -13,13 +13,16 @@ import SidebarLink from "@/components/Sidebar/SidebarLink";
 
 interface SidebarProps {
   categories: Category[];
+  [x: string]: any;
 }
 
-const Sidebar = ({ categories }: SidebarProps): JSX.Element => {
+const Sidebar = (props: SidebarProps): JSX.Element => {
   const { colorMode, toggleColorMode } = useColorMode();
 
+  const { categories, ...otherProps } = props;
+
   return (
-    <Box>
+    <Box {...otherProps}>
       <Flex alignItems="center">
         <Heading>DevKit</Heading>
         <IconButton
