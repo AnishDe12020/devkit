@@ -4,6 +4,7 @@ import Sidebar from "@/components/Sidebar";
 import categories from "@/data/categories";
 import dynamic from "next/dynamic";
 import capitalize from "@/utils/capitalize";
+import { Flex, Box } from "@chakra-ui/react";
 
 interface ToolsPageProps {
   category: string;
@@ -28,9 +29,12 @@ const Tools: NextPage<ToolsPageProps> = ({ category, tool }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Sidebar categories={categories} />
-
-      <ToolComponent />
+      <Flex ml={8} mt={10}>
+        <Sidebar w="20vw" categories={categories} />
+        <Box w="80vw">
+          <ToolComponent />
+        </Box>
+      </Flex>
     </div>
   );
 };
