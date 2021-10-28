@@ -5,9 +5,9 @@ import categories from "@/data/categories";
 
 const About: NextPage = () => {
   const paths = categories
-    .map((category) =>
+    .map(category =>
       category.children
-        .map((tool) => ({
+        .map(tool => ({
           params: {
             slug: [category.slug, tool.slug],
           },

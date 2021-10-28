@@ -12,8 +12,6 @@ interface ToolsPageProps {
 }
 
 const Tools: NextPage<ToolsPageProps> = ({ category, tool }) => {
-  console.log(category, tool);
-
   const ToolComponent = dynamic(
     () => import(`../components/Tools/${category}/${tool}`)
   );
@@ -56,9 +54,9 @@ export const getStaticProps: GetStaticProps<
 
 export const getStaticPaths: GetStaticPaths = () => {
   let paths = categories
-    .map((category) =>
+    .map(category =>
       category.children
-        .map((tool) => ({
+        .map(tool => ({
           params: {
             slug: [category.slug, tool.slug],
           },

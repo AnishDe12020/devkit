@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { FiSun, FiMoon } from "react-icons/fi";
 import SidebarLink from "@/components/Sidebar/SidebarLink";
+import { useRouter } from "next/router";
 
 interface SidebarProps {
   categories: Category[];
@@ -18,6 +19,8 @@ interface SidebarProps {
 
 const Sidebar = (props: SidebarProps): JSX.Element => {
   const { colorMode, toggleColorMode } = useColorMode();
+
+  const router = useRouter();
 
   const { categories, ...otherProps } = props;
 
@@ -34,17 +37,17 @@ const Sidebar = (props: SidebarProps): JSX.Element => {
         />
       </Flex>
       <Box mt={4}>
-        {categories.map((category) => (
+        {categories.map(category => (
           <Box mt={2} key={category.id}>
             <VStack align="start">
               <Text fontSize="3xl" fontWeight="semibold">
                 {category.name}
               </Text>
-              {category.children.map((tool) => (
+              {category.children.map(tool => (
                 <SidebarLink
                   key={tool.id}
                   href={`/${category.slug}/${tool.slug}`}
-                  active={tool.slug === "/" ? true : false}
+                  active={tool.slug === router.query?.slug?.[1]}
                 >
                   {tool.name}
                 </SidebarLink>
