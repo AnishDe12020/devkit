@@ -11,6 +11,7 @@ import {
 import { FiSun, FiMoon } from "react-icons/fi";
 import SidebarLink from "@/components/Sidebar/SidebarLink";
 import { useRouter } from "next/router";
+import HomeLink from "@/components/Sidebar/HomeLink";
 
 interface SidebarProps {
   categories: Category[];
@@ -36,11 +37,12 @@ const Sidebar = (props: SidebarProps): JSX.Element => {
           aria-label={"Toggle Color Mode"}
         />
       </Flex>
-      <Box mt={4}>
+      <Flex mt={4} flexDir={"column"}>
+        <HomeLink />
         {categories.map(category => (
           <Box mt={2} key={category.id}>
             <VStack align="start">
-              <Text fontSize="3xl" fontWeight="semibold">
+              <Text fontSize="3xl" ml={2} fontWeight="semibold">
                 {category.name}
               </Text>
               {category.children.map(tool => (
@@ -55,7 +57,7 @@ const Sidebar = (props: SidebarProps): JSX.Element => {
             </VStack>
           </Box>
         ))}
-      </Box>
+      </Flex>
     </Box>
   );
 };
