@@ -1,17 +1,10 @@
 import { Category } from "@/data/types";
-import {
-  Box,
-  Text,
-  Heading,
-  IconButton,
-  useColorMode,
-  Flex,
-  VStack,
-} from "@chakra-ui/react";
+import { Box, Heading, IconButton, useColorMode, Flex } from "@chakra-ui/react";
 import { FiSun, FiMoon } from "react-icons/fi";
-import SidebarLink from "@/components/Sidebar/SidebarLink";
 import { useRouter } from "next/router";
 import HomeLink from "@/components/Sidebar/HomeLink";
+
+import CategoryComponent from "@/components/Sidebar/Category";
 
 interface SidebarProps {
   categories: Category[];
@@ -38,24 +31,9 @@ const Sidebar = (props: SidebarProps): JSX.Element => {
         />
       </Flex>
       <Flex mt={4} flexDir={"column"}>
-        <HomeLink />
+        <HomeLink active={"/" === router.query?.slug} />
         {categories.map(category => (
-          <Box mt={2} key={category.id}>
-            <VStack align="start">
-              <Text fontSize="3xl" ml={2} fontWeight="semibold">
-                {category.name}
-              </Text>
-              {category.children.map(tool => (
-                <SidebarLink
-                  key={tool.id}
-                  href={`/${category.slug}/${tool.slug}`}
-                  active={tool.slug === router.query?.slug?.[1]}
-                >
-                  {tool.name}
-                </SidebarLink>
-              ))}
-            </VStack>
-          </Box>
+          <CategoryComponent key={category.id} category={category} />
         ))}
       </Flex>
     </Box>
