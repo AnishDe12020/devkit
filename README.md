@@ -1,34 +1,28 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# DevKit
+DevKit is a simple progressive-web-application with tools a developer needs when coding. The project is completely free and open-source and does not need one to sign-up or provide it with any data, in fact we don't have a backend!!! 
 
-## Getting Started
+> Note: This project is in a very early stage of development with only a few tools as of now but the core developer, that is me and contributors are making it better day-by-day
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
+# Contributing
+First let us go through the project structure - 
+```
+/components
+    /Tools
+        /<ToolCategory>
+            /<Tool>
+/data
+    /categories.ts
+    /tools
+        /<Tool>
+/pages
+    /[...slug].tsx // This is the page where all the tools live. The tool details are obtained from the slug and the respective component for that tool is dynamically imported and shown on the right-side of the sidebar
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The `data` folder components metadata about all the tools and tool categories.
+The `components` folder contains some universal components for the apps and tool-specific components. There is one master component per tool which is mounted to the page when the tool is requested for.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+When adding a new tool, firstly put in the metadata of the tool in the `data/tools/<category>` directory by creating a typescript file (javascript is allowed but will be converted into typescript sooner or later by a maintainer or contributor and is usually not recommended) there. Then the `categories.ts` file needs to be filled up (refer to the other categories to understand. This will be soon documented in deep.). Now, a master component needs to be made. `components/Tools/<category>/<tool>` is the syntax. Note that the category must match the directory name field in the categories file and the tool must correspond to the `componentFileName` field.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Before opening a pull request, please manually test your code.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Happy contributing!!!
