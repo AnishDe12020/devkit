@@ -5,15 +5,19 @@ import categories from "@/data/categories";
 import dynamic from "next/dynamic";
 import capitalize from "@/utils/capitalize";
 import { Flex, Box } from "@chakra-ui/react";
+import { Category, Tool } from "@/data/types";
 
 interface ToolsPageProps {
-  category: string;
-  tool: string;
+  categoryFolderName: string;
+  toolFileName: string;
 }
 
-const Tools: NextPage<ToolsPageProps> = ({ category, tool }) => {
+const Tools: NextPage<ToolsPageProps> = ({
+  categoryFolderName,
+  toolFileName,
+}) => {
   const ToolComponent = dynamic(
-    () => import(`../components/Tools/${category}/${tool}`)
+    () => import(`../components/Tools/${categoryFolderName}/${toolFileName}`)
   );
 
   return (
@@ -41,13 +45,24 @@ export const getStaticProps: GetStaticProps<
   ToolsPageProps,
   { slug: string[] }
 > = async ({ params }) => {
-  const category = capitalize(params!.slug[0]);
-  const tool = capitalize(params!.slug[1]);
+  const categoryObject: Category = categories.find(category => {
+    return category.slug === params!.slug[0];
+  }) as Category;
+
+  const categoryFolderName: string = categoryObject.directory;
+
+  const toolObject: Tool = categoryObject.children.find(tool => {
+    return tool.slug === params!.slug[1];
+  }) as Tool;
+
+  const toolFileName: string = toolObject.componentFileName;
+
+  console.log(categoryFolderName, toolFileName);
 
   return {
     props: {
-      category,
-      tool,
+      categoryFolderName,
+      toolFileName,
     },
   };
 };

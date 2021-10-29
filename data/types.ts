@@ -11,4 +11,5 @@ export interface Category {
   name: string;
   children: Tool[];
   slug: string;
+  directory: string;
 }
