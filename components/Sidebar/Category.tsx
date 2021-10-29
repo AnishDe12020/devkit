@@ -8,7 +8,7 @@ interface CategoryProps {
 }
 
 const CategoryComponent = ({ category }: CategoryProps): JSX.Element => {
-  const categoryTitle = useColorModeValue("green.600", "green.300");
+  const categoryTitle = useColorModeValue("gray.800", "gray.200");
   const router = useRouter();
   return (
     <Box mt={2}>
