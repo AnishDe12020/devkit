@@ -3,17 +3,23 @@ import { useState } from "react";
 
 const Gradient = (): JSX.Element => {
   const [gradientCSS, setGradientCSS] = useState<string>(
-    "linear(to-r, green.200, pink.500)"
+    "linear(to right, green.200, pink.500)"
   );
   return (
     <Box>
       <Center>
-        <Flex flexDir="column">
+        <Flex flexDir="column" w="4xl">
           <Heading>Gradient Generator</Heading>
-          <Box w="100%" h="200px" bgGradient={gradientCSS} mt={12} />
+          <Box
+            w="100%"
+            h="400px"
+            bgGradient={gradientCSS}
+            mt={12}
+            borderRadius={16}
+          />
           <Input
             mt={8}
-            placeholder="Enter raw css"
+            placeholder="Enter raw css. E.g: linear(to right, green.200, pink.500)"
             onChange={e => setGradientCSS(e.target.value)}
           />
         </Flex>
