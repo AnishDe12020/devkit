@@ -9,6 +9,7 @@ import {
   SliderFilledTrack,
   SliderThumb,
   Button,
+  Grid,
 } from "@chakra-ui/react";
 import { useState, FormEvent } from "react";
 
@@ -55,6 +56,7 @@ const Gradient = (): JSX.Element => {
       <Center>
         <Flex flexDir="column" w="4xl">
           <Heading>Gradient Generator</Heading>
+
           <Box
             w="100%"
             h="400px"
@@ -81,17 +83,21 @@ const Gradient = (): JSX.Element => {
             </SliderTrack>
             <SliderThumb />
           </Slider>
-          {gradientColors.map((color, index) => (
-            <Input
-              key={index}
-              mt={8}
-              type="color"
-              value={color}
-              onChange={e => handleColorUpdate(e.target.value, index)}
-            />
-          ))}
+          <Grid templateColumns="repeat(2, 1fr)" gap={6}>
+            {gradientColors.map((color, index) => (
+              <Input
+                key={index}
+                mt={8}
+                type="color"
+                value={color}
+                onChange={e => handleColorUpdate(e.target.value, index)}
+                cursor="pointer"
+              />
+            ))}
+          </Grid>
           <Button
             onClick={() => setGradientColors([...gradientColors, "#000000"])}
+            mt={8}
           >
             Add Color
           </Button>
