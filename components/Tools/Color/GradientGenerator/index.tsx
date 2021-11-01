@@ -26,14 +26,14 @@ const Gradient = (): JSX.Element => {
   const handleDirectionUpdate = (value: number): void => {
     setGradientDirection(value);
     setGradientCSS(
-      `linear-gradient(${gradientDirection}deg, ${gradientColors.join(", ")})`
+      `linear(${gradientDirection}deg, ${gradientColors.join(", ")})`
     );
   };
 
   const handleColorUpdate = (value: string, index: number): void => {
     setGradientColors(gradientColors.map((c, i) => (i === index ? value : c)));
     setGradientCSS(
-      `linear-gradient(${gradientDirection}deg, ${gradientColors.join(", ")})`
+      `linear(${gradientDirection}deg, ${gradientColors.join(", ")})`
     );
   };
 
