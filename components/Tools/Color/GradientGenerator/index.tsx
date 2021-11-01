@@ -10,7 +10,7 @@ import {
   SliderThumb,
   Button,
 } from "@chakra-ui/react";
-import { useState, useEffect } from "react";
+import { useState, FormEvent } from "react";
 
 const Gradient = (): JSX.Element => {
   const [gradientCSS, setGradientCSS] = useState<string>(
@@ -22,14 +22,22 @@ const Gradient = (): JSX.Element => {
     "#00ff00",
   ]);
 
-  useEffect(() => {
-    console.log(gradientCSS);
+  const handleDirectionUpdate = (value: number): void => {
+    setGradientDirection(value);
     setGradientCSS(
       `linear-gradient(${gradientDirection}deg, ${gradientColors.join(", ")})`
     );
-  }, [gradientDirection, gradientColors]);
+  };
 
-  useEffect(() => {
+  const handleColorUpdate = (value: string, index: number): void => {
+    setGradientColors(gradientColors.map((c, i) => (i === index ? value : c)));
+    setGradientCSS(
+      `linear-gradient(${gradientDirection}deg, ${gradientColors.join(", ")})`
+    );
+  };
+
+  const handleCSSUpdate = (value: string): void => {
+    setGradientCSS(value);
     let direction = gradientCSS.split("(")[1].split("deg")[0];
     let colors = gradientCSS.split("deg")[1].split(",");
     colors.shift();
@@ -40,7 +48,7 @@ const Gradient = (): JSX.Element => {
     });
     setGradientDirection(parseInt(direction));
     setGradientColors(colors);
-  }, [gradientCSS]);
+  };
 
   return (
     <Box>
@@ -58,14 +66,15 @@ const Gradient = (): JSX.Element => {
             mt={8}
             placeholder="Enter raw css. E.g: linear(to right, #ff0000, #00ff00)"
             value={gradientCSS}
-            onChange={e => setGradientCSS(e.target.value)}
+            onChange={e => handleCSSUpdate(e.target.value)}
           />
           <Slider
             mt={4}
             min={0}
             max={360}
             value={gradientDirection}
-            onChange={value => setGradientDirection(value)}
+            onChange={value => handleDirectionUpdate(value)}
+            focusThumbOnChange={false}
           >
             <SliderTrack>
               <SliderFilledTrack />
@@ -78,13 +87,7 @@ const Gradient = (): JSX.Element => {
               mt={8}
               type="color"
               value={color}
-              onChange={e =>
-                setGradientColors(
-                  gradientColors.map((c, i) =>
-                    i === index ? e.target.value : c
-                  )
-                )
-              }
+              onChange={e => handleColorUpdate(e.target.value, index)}
             />
           ))}
           <Button
