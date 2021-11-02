@@ -12,46 +12,66 @@ import {
   Grid,
   Text,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Color from "@/components/Tools/Color/GradientGenerator/Color";
 
+interface IGradient {
+  css: string;
+  colors: string[];
+  direction: number;
+}
+
 const Gradient = (): JSX.Element => {
-  const [gradientCSS, setGradientCSS] = useState<string>(
-    "linear(90deg, #ff008c, #d30916);"
-  );
-  const [gradientDirection, setGradientDirection] = useState<number>(90);
-  const [gradientColors, setGradientColors] = useState<string[]>([
-    "#ff008c",
-    "#d30916",
-  ]);
-
-  const handleDirectionUpdate = (value: number): void => {
-    setGradientDirection(value);
-    setGradientCSS(
-      `linear(${gradientDirection}deg, ${gradientColors.join(", ")})`
-    );
-  };
-
-  const handleColorUpdate = (value: string, index: number): void => {
-    setGradientColors(gradientColors.map((c, i) => (i === index ? value : c)));
-    setGradientCSS(
-      `linear(${gradientDirection}deg, ${gradientColors.join(", ")})`
-    );
-  };
+  const [gradient, setGradient] = useState<IGradient>({
+    css: "linear(90deg, #ff008c, #d30916);",
+    colors: ["#ff008c", "#d30916"],
+    direction: 90,
+  });
 
   const handleCSSUpdate = (value: string): void => {
-    setGradientCSS(value);
-    let direction = gradientCSS.split("(")[1].split("deg")[0];
-    let colors = gradientCSS.split("deg")[1].split(",");
+    let direction: number = value
+      .split("(")[1]
+      .split("deg")[0] as unknown as number;
+    let colors: string[] = value.split("deg")[1].split(",");
     colors.shift();
     colors.forEach((color, index) => {
       color = color.trim();
       color = color.replace(")", "");
       colors[index] = color;
     });
-    console.log(colors);
-    setGradientDirection(parseInt(direction));
-    setGradientColors(colors);
+    setGradient({
+      direction,
+      colors,
+      css: value,
+    });
+  };
+
+  const handleColorUpdate = (value: string, index: number): void => {
+    const colors: string[] = gradient.colors.map((c, i) =>
+      i === index ? value : c
+    );
+    setGradient({
+      ...gradient,
+      css: `linear(${gradient.direction}deg, ${colors.join(", ")})`,
+      colors,
+    });
+  };
+
+  const handleDirectionUpdate = (value: number): void => {
+    setGradient({
+      ...gradient,
+      css: `linear(${value}deg, ${gradient.colors.join(", ")})`,
+      direction: value,
+    });
+  };
+
+  const handleAddColor = (): void => {
+    const colors: string[] = [...gradient.colors, "#000000"];
+    setGradient({
+      ...gradient,
+      colors,
+      css: `linear(${gradient.direction}deg, ${colors.join(", ")})`,
+    });
   };
 
   return (
@@ -65,7 +85,7 @@ const Gradient = (): JSX.Element => {
           <Box
             w="100%"
             h="400px"
-            bgGradient={gradientCSS}
+            bgGradient={gradient.css}
             mt={12}
             borderRadius={16}
           />
@@ -73,7 +93,7 @@ const Gradient = (): JSX.Element => {
             <Text my={2}>Raw CSS</Text>
             <Input
               placeholder="Enter raw css. E.g: linear(to right, #ff0000, #00ff00)"
-              value={gradientCSS}
+              value={gradient.css}
               onChange={e => handleCSSUpdate(e.target.value)}
             />
           </Box>
@@ -82,18 +102,18 @@ const Gradient = (): JSX.Element => {
             <Slider
               min={0}
               max={360}
-              value={gradientDirection}
+              value={gradient.direction}
               onChange={value => handleDirectionUpdate(value)}
               focusThumbOnChange={false}
             >
               <SliderTrack>
-                <SliderFilledTrack bgGradient={gradientCSS} />
+                <SliderFilledTrack bgGradient={gradient.css} />
               </SliderTrack>
-              <SliderThumb bgGradient={gradientCSS}></SliderThumb>
+              <SliderThumb bgGradient={gradient.css}></SliderThumb>
             </Slider>
           </Box>
           <Grid templateColumns="repeat(2, 1fr)" gap={6}>
-            {gradientColors.map((color, index) => (
+            {gradient.colors.map((color, index) => (
               <Color
                 color={color}
                 index={index}
@@ -102,10 +122,7 @@ const Gradient = (): JSX.Element => {
               />
             ))}
           </Grid>
-          <Button
-            onClick={() => setGradientColors([...gradientColors, "#000000"])}
-            mt={8}
-          >
+          <Button onClick={handleAddColor} mt={8}>
             Add Color
           </Button>
         </Flex>
