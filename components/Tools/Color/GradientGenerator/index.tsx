@@ -12,8 +12,9 @@ import {
   Grid,
   Text,
 } from "@chakra-ui/react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Color from "@/components/Tools/Color/GradientGenerator/Color";
+import { useRouter } from "next/router";
 
 interface IGradient {
   css: string;
@@ -22,10 +23,23 @@ interface IGradient {
 }
 
 const Gradient = (): JSX.Element => {
+  const router = useRouter();
+
+  let colors: string[] | undefined = (router.query.colors as string)?.split(
+    "-"
+  ) as string[];
+  colors = colors?.map(color => color.trim());
+  colors = colors?.map(color => `#${color}`);
+  let direction: number | undefined = parseInt(
+    router.query?.direction as string
+  );
+
   const [gradient, setGradient] = useState<IGradient>({
-    css: "linear(90deg, #ff008c, #d30916);",
-    colors: ["#ff008c", "#d30916"],
-    direction: 90,
+    css: `linear(${direction ? direction : 90}deg, ${
+      colors ? colors.join(", ") : "#ff008c, #d30916"
+    });`,
+    colors: colors ? colors : ["#ff008c", "#d30916"],
+    direction: direction ? direction : 90,
   });
 
   const handleCSSUpdate = (value: string): void => {
