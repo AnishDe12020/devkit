@@ -12,17 +12,19 @@ import {
   Grid,
   InputGroup,
   InputRightAddon,
+  Text,
+  FormLabel,
 } from "@chakra-ui/react";
 import { useState } from "react";
 
 const Gradient = (): JSX.Element => {
   const [gradientCSS, setGradientCSS] = useState<string>(
-    "linear(90deg, #ff0000, #00ff00)"
+    "linear(90deg, #373F51, #008DD5);"
   );
   const [gradientDirection, setGradientDirection] = useState<number>(90);
   const [gradientColors, setGradientColors] = useState<string[]>([
-    "#ff0000",
-    "#00ff00",
+    "#373F51",
+    "#008DD5",
   ]);
 
   const handleDirectionUpdate = (value: number): void => {
@@ -69,41 +71,48 @@ const Gradient = (): JSX.Element => {
             mt={12}
             borderRadius={16}
           />
-          <Input
-            mt={8}
-            placeholder="Enter raw css. E.g: linear(to right, #ff0000, #00ff00)"
-            value={gradientCSS}
-            onChange={e => handleCSSUpdate(e.target.value)}
-          />
-          <Slider
-            mt={4}
-            min={0}
-            max={360}
-            value={gradientDirection}
-            onChange={value => handleDirectionUpdate(value)}
-            focusThumbOnChange={false}
-          >
-            <SliderTrack>
-              <SliderFilledTrack />
-            </SliderTrack>
-            <SliderThumb />
-          </Slider>
+          <Box mt={8}>
+            <Text my={2}>Raw CSS</Text>
+            <Input
+              placeholder="Enter raw css. E.g: linear(to right, #ff0000, #00ff00)"
+              value={gradientCSS}
+              onChange={e => handleCSSUpdate(e.target.value)}
+            />
+          </Box>
+          <Box mt={4}>
+            <Text>Gradient Direction</Text>
+            <Slider
+              min={0}
+              max={360}
+              value={gradientDirection}
+              onChange={value => handleDirectionUpdate(value)}
+              focusThumbOnChange={false}
+            >
+              <SliderTrack>
+                <SliderFilledTrack bgGradient={gradientCSS} />
+              </SliderTrack>
+              <SliderThumb bgGradient={gradientCSS}></SliderThumb>
+            </Slider>
+          </Box>
           <Grid templateColumns="repeat(2, 1fr)" gap={6}>
             {gradientColors.map((color, index) => (
-              <InputGroup mt={8} key={index}>
-                <Input
-                  type="color"
-                  value={color}
-                  onChange={e => handleColorUpdate(e.target.value, index)}
-                  cursor="pointer"
-                  variant="filled"
-                />
-                <Center>
-                  <InputRightAddon alignContent="center">
-                    {color}
-                  </InputRightAddon>
-                </Center>
-              </InputGroup>
+              <Flex flexDirection="column" mt={4} key={index}>
+                <Text my={2}>Color {index + 1}</Text>
+                <InputGroup>
+                  <Input
+                    type="color"
+                    value={color}
+                    onChange={e => handleColorUpdate(e.target.value, index)}
+                    cursor="pointer"
+                    variant="filled"
+                  />
+                  <Center>
+                    <InputRightAddon alignContent="center">
+                      {color}
+                    </InputRightAddon>
+                  </Center>
+                </InputGroup>
+              </Flex>
             ))}
           </Grid>
           <Button
