@@ -10,12 +10,10 @@ import {
   SliderThumb,
   Button,
   Grid,
-  InputGroup,
-  InputRightAddon,
   Text,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import Color from "./Color";
+import Color from "@/components/Tools/Color/GradientGenerator/Color";
 
 const Gradient = (): JSX.Element => {
   const [gradientCSS, setGradientCSS] = useState<string>(
