@@ -19,12 +19,12 @@ import { useState } from "react";
 
 const Gradient = (): JSX.Element => {
   const [gradientCSS, setGradientCSS] = useState<string>(
-    "linear(90deg, #373F51, #008DD5);"
+    "linear(90deg, #ff008c, #d30916);"
   );
   const [gradientDirection, setGradientDirection] = useState<number>(90);
   const [gradientColors, setGradientColors] = useState<string[]>([
-    "#373F51",
-    "#008DD5",
+    "#ff008c",
+    "#d30916",
   ]);
 
   const handleDirectionUpdate = (value: number): void => {
@@ -96,7 +96,7 @@ const Gradient = (): JSX.Element => {
           </Box>
           <Grid templateColumns="repeat(2, 1fr)" gap={6}>
             {gradientColors.map((color, index) => (
-              <Flex flexDirection="column" mt={4} key={index}>
+              <Box mt={4} key={index}>
                 <Text my={2}>Color {index + 1}</Text>
                 <InputGroup>
                   <Input
@@ -112,7 +112,7 @@ const Gradient = (): JSX.Element => {
                     </InputRightAddon>
                   </Center>
                 </InputGroup>
-              </Flex>
+              </Box>
             ))}
           </Grid>
           <Button
