@@ -13,9 +13,9 @@ import {
   InputGroup,
   InputRightAddon,
   Text,
-  FormLabel,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import Color from "./Color";
 
 const Gradient = (): JSX.Element => {
   const [gradientCSS, setGradientCSS] = useState<string>(
@@ -96,23 +96,12 @@ const Gradient = (): JSX.Element => {
           </Box>
           <Grid templateColumns="repeat(2, 1fr)" gap={6}>
             {gradientColors.map((color, index) => (
-              <Box mt={4} key={index}>
-                <Text my={2}>Color {index + 1}</Text>
-                <InputGroup>
-                  <Input
-                    type="color"
-                    value={color}
-                    onChange={e => handleColorUpdate(e.target.value, index)}
-                    cursor="pointer"
-                    variant="filled"
-                  />
-                  <Center>
-                    <InputRightAddon alignContent="center">
-                      {color}
-                    </InputRightAddon>
-                  </Center>
-                </InputGroup>
-              </Box>
+              <Color
+                color={color}
+                index={index}
+                key={index}
+                handleColorUpdate={handleColorUpdate}
+              />
             ))}
           </Grid>
           <Button
