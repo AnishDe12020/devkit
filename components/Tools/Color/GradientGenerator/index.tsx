@@ -10,8 +10,10 @@ import {
   SliderThumb,
   Button,
   Grid,
+  InputGroup,
+  InputRightAddon,
 } from "@chakra-ui/react";
-import { useState, FormEvent } from "react";
+import { useState } from "react";
 
 const Gradient = (): JSX.Element => {
   const [gradientCSS, setGradientCSS] = useState<string>(
@@ -47,6 +49,7 @@ const Gradient = (): JSX.Element => {
       color = color.replace(")", "");
       colors[index] = color;
     });
+    console.log(colors);
     setGradientDirection(parseInt(direction));
     setGradientColors(colors);
   };
@@ -55,7 +58,9 @@ const Gradient = (): JSX.Element => {
     <Box>
       <Center>
         <Flex flexDir="column" w="4xl">
-          <Heading>Gradient Generator</Heading>
+          <Center>
+            <Heading>Gradient Generator</Heading>
+          </Center>
 
           <Box
             w="100%"
@@ -85,14 +90,20 @@ const Gradient = (): JSX.Element => {
           </Slider>
           <Grid templateColumns="repeat(2, 1fr)" gap={6}>
             {gradientColors.map((color, index) => (
-              <Input
-                key={index}
-                mt={8}
-                type="color"
-                value={color}
-                onChange={e => handleColorUpdate(e.target.value, index)}
-                cursor="pointer"
-              />
+              <InputGroup mt={8} key={index}>
+                <Input
+                  type="color"
+                  value={color}
+                  onChange={e => handleColorUpdate(e.target.value, index)}
+                  cursor="pointer"
+                  variant="filled"
+                />
+                <Center>
+                  <InputRightAddon alignContent="center">
+                    {color}
+                  </InputRightAddon>
+                </Center>
+              </InputGroup>
             ))}
           </Grid>
           <Button
