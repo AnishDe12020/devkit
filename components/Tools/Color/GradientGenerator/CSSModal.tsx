@@ -11,6 +11,7 @@ import {
   Flex,
   useDisclosure,
   useClipboard,
+  chakra,
 } from "@chakra-ui/react";
 import { ReactNode } from "react";
 import { FiCopy } from "react-icons/fi";
@@ -25,6 +26,14 @@ interface CSSModalProps {
   colors: string[];
   direction: number;
 }
+
+const ChakraCodeMirror = chakra(CodeMirror, {
+  baseStyle: {
+    width: "100%",
+    height: "100%",
+    fontSize: "lg",
+  },
+});
 
 const CSSModal = ({
   colors,
@@ -52,7 +61,7 @@ background: -ms-linear-gradient(${direction}deg, ${colors.join(", ")});`;
           <ModalCloseButton />
           <ModalBody>
             <Flex>
-              <CodeMirror
+              <ChakraCodeMirror
                 value={css}
                 options={{
                   readOnly: true,
