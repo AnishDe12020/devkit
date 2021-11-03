@@ -15,6 +15,7 @@ import {
 import { useState } from "react";
 import Color from "@/components/Tools/Color/GradientGenerator/Color";
 import { useRouter } from "next/router";
+import CSSModal from "./CSSModal";
 
 interface IGradient {
   css: string;
@@ -139,6 +140,13 @@ const Gradient = (): JSX.Element => {
           <Button onClick={handleAddColor} mt={8}>
             Add Color
           </Button>
+
+          <Box mt={4}>
+            <Heading size="lg">Export</Heading>
+            <CSSModal colors={gradient.colors} direction={gradient.direction}>
+              Copy CSS
+            </CSSModal>
+          </Box>
         </Flex>
       </Center>
     </Box>
