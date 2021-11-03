@@ -49,8 +49,6 @@ background: -o-linear-gradient(${direction}deg, ${colors.join(", ")});
 background: -moz-linear-gradient(${direction}deg, ${colors.join(", ")});
 background: -ms-linear-gradient(${direction}deg, ${colors.join(", ")});`;
 
-  console.log(css);
-
   const downloadCSS = () => {
     const fileName = "gradient.css";
     const blob = new Blob([css], { type: "text/css" });

@@ -3,7 +3,6 @@ import Head from "next/head";
 import Sidebar from "@/components/Sidebar";
 import categories from "@/data/categories";
 import dynamic from "next/dynamic";
-import capitalize from "@/utils/capitalize";
 import { Flex, Box } from "@chakra-ui/react";
 import { Category, Tool } from "@/data/types";
 
@@ -56,8 +55,6 @@ export const getStaticProps: GetStaticProps<
   }) as Tool;
 
   const toolFileName: string = toolObject.componentFileName;
-
-  console.log(categoryFolderName, toolFileName);
 
   return {
     props: {
