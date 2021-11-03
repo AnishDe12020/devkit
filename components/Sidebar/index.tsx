@@ -31,7 +31,7 @@ const Sidebar = (props: SidebarProps): JSX.Element => {
         />
       </Flex>
       <Flex mt={4} flexDir={"column"}>
-        <HomeLink active={"/" === router.query?.slug} />
+        <HomeLink active={undefined === router.query?.slug} />
         {categories.map(category => (
           <CategoryComponent key={category.id} category={category} />
         ))}
