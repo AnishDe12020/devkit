@@ -18,11 +18,8 @@ import { saveAs } from "file-saver";
 
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material.css";
+import "codemirror/mode/css/css";
 import { UnControlled as CodeMirror } from "react-codemirror2";
-
-if (typeof window !== "undefined") {
-  import("codemirror/mode/css/css");
-}
 
 interface CSSModalProps {
   children: ReactNode;
