@@ -12,10 +12,11 @@ import {
   Grid,
   Text,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Color from "@/components/Tools/Color/GradientGenerator/Color";
 import { useRouter } from "next/router";
-import CSSModal from "./CSSModal";
+import { exportComponentAsPNG } from "react-component-export-image";
+import CSSModal from "@/components/Tools/Color/GradientGenerator/CSSModal";
 
 interface IGradient {
   css: string;
@@ -42,6 +43,8 @@ const Gradient = (): JSX.Element => {
     colors: colors ? colors : ["#ff008c", "#d30916"],
     direction: direction ? direction : 90,
   });
+
+  const gradientComponentRef = useRef<HTMLDivElement>(null);
 
   const handleCSSUpdate = (value: string): void => {
     let direction: number = value
@@ -89,6 +92,12 @@ const Gradient = (): JSX.Element => {
     });
   };
 
+  const handleDownloadAsPng = (): void => {
+    exportComponentAsPNG(gradientComponentRef, {
+      fileName: "gradient.png",
+    });
+  };
+
   return (
     <Box>
       <Center>
@@ -96,13 +105,13 @@ const Gradient = (): JSX.Element => {
           <Center>
             <Heading>Gradient Generator</Heading>
           </Center>
-
           <Box
             w="100%"
             h="400px"
             bgGradient={gradient.css}
             mt={12}
             borderRadius={16}
+            ref={gradientComponentRef}
           />
           <Box mt={8}>
             <Text my={2}>Raw CSS</Text>
@@ -143,9 +152,12 @@ const Gradient = (): JSX.Element => {
 
           <Box mt={4}>
             <Heading size="lg">Export</Heading>
-            <CSSModal colors={gradient.colors} direction={gradient.direction}>
-              Copy CSS
-            </CSSModal>
+            <Flex mt={2}>
+              <CSSModal colors={gradient.colors} direction={gradient.direction}>
+                CSS
+              </CSSModal>
+              <Button onClick={handleDownloadAsPng}>Dowload PNG</Button>
+            </Flex>
           </Box>
         </Flex>
       </Center>
