@@ -3,7 +3,6 @@ import {
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton,
   Button,
@@ -14,7 +13,8 @@ import {
   chakra,
 } from "@chakra-ui/react";
 import { ReactNode } from "react";
-import { FiCopy } from "react-icons/fi";
+import { FiCopy, FiDownload } from "react-icons/fi";
+import { saveAs } from "file-saver";
 
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material.css";
@@ -49,6 +49,15 @@ background: -o-linear-gradient(${direction}deg, ${colors.join(", ")});
 background: -moz-linear-gradient(${direction}deg, ${colors.join(", ")});
 background: -ms-linear-gradient(${direction}deg, ${colors.join(", ")});`;
 
+  console.log(css);
+
+  const downloadCSS = () => {
+    const fileName = "gradient.css";
+    const blob = new Blob([css], { type: "text/css" });
+
+    saveAs(blob, fileName);
+  };
+
   const { hasCopied, onCopy } = useClipboard(css);
   return (
     <>
@@ -57,10 +66,10 @@ background: -ms-linear-gradient(${direction}deg, ${colors.join(", ")});`;
       <Modal isOpen={isOpen} onClose={onClose} size="2xl">
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>CSS</ModalHeader>
+          <ModalHeader />
           <ModalCloseButton />
-          <ModalBody>
-            <Flex>
+          <ModalBody mt={4}>
+            <Flex flexDir="column">
               <ChakraCodeMirror
                 value={css}
                 options={{
@@ -72,18 +81,21 @@ background: -ms-linear-gradient(${direction}deg, ${colors.join(", ")});`;
                 }}
               />
 
-              <IconButton
-                icon={<FiCopy />}
-                onClick={onCopy}
-                aria-label="Copy Gradient CSS"
-              />
+              <Flex my={4} justifyContent="end">
+                <IconButton
+                  icon={<FiDownload />}
+                  aria-label="Download Gradient CSS"
+                  onClick={downloadCSS}
+                  mr={4}
+                />
+                <IconButton
+                  icon={<FiCopy />}
+                  onClick={onCopy}
+                  aria-label="Copy Gradient CSS"
+                />
+              </Flex>
             </Flex>
           </ModalBody>
-          <ModalFooter>
-            <Button mr={3} onClick={onClose}>
-              Close
-            </Button>
-          </ModalFooter>
         </ModalContent>
       </Modal>
     </>
