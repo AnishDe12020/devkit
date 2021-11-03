@@ -12,13 +12,13 @@ import {
   Grid,
   Text,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Color from "@/components/Tools/Color/GradientGenerator/Color";
 import { useRouter } from "next/router";
-// import CSSModal from "./CSSModal";
 import dynamic from "next/dynamic";
 
 const CSSModal = dynamic(() => import("./CSSModal"), { ssr: false });
+const ExportAsPng = dynamic(() => import("./ExportAsPng"), { ssr: false });
 
 interface IGradient {
   css: string;
@@ -28,6 +28,8 @@ interface IGradient {
 
 const Gradient = (): JSX.Element => {
   const router = useRouter();
+
+  const gradientComponentRef = useRef<HTMLDivElement>(null);
 
   let colors: string[] | undefined = (router.query.colors as string)?.split(
     "-"
@@ -106,6 +108,7 @@ const Gradient = (): JSX.Element => {
             bgGradient={gradient.css}
             mt={12}
             borderRadius={16}
+            ref={gradientComponentRef}
           />
           <Box mt={8}>
             <Text my={2}>Raw CSS</Text>
@@ -146,9 +149,12 @@ const Gradient = (): JSX.Element => {
 
           <Box mt={4}>
             <Heading size="lg">Export</Heading>
-            <CSSModal colors={gradient.colors} direction={gradient.direction}>
-              Copy CSS
-            </CSSModal>
+            <Flex>
+              <CSSModal colors={gradient.colors} direction={gradient.direction}>
+                Copy CSS
+              </CSSModal>
+              <ExportAsPng gradientComponentRef={gradientComponentRef} />
+            </Flex>
           </Box>
         </Flex>
       </Center>
