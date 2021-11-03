@@ -13,7 +13,7 @@ import {
   chakra,
 } from "@chakra-ui/react";
 import { ReactNode } from "react";
-import { FiCopy, FiDownload } from "react-icons/fi";
+import { FiCopy, FiDownload, FiCheck } from "react-icons/fi";
 import { saveAs } from "file-saver";
 
 import "codemirror/lib/codemirror.css";
@@ -89,9 +89,10 @@ background: -ms-linear-gradient(${direction}deg, ${colors.join(", ")});`;
                   mr={4}
                 />
                 <IconButton
-                  icon={<FiCopy />}
+                  icon={hasCopied ? <FiCheck /> : <FiCopy />}
                   onClick={onCopy}
                   aria-label="Copy Gradient CSS"
+                  bgColor={hasCopied ? "green.500" : undefined}
                 />
               </Flex>
             </Flex>
