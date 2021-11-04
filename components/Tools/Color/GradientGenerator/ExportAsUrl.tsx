@@ -1,3 +1,4 @@
+import CopyIconButton from "@/components/Common/CopyIconButton";
 import {
   Button,
   Modal,
@@ -8,12 +9,10 @@ import {
   ModalCloseButton,
   Textarea,
   Flex,
-  IconButton,
   useClipboard,
   useDisclosure,
 } from "@chakra-ui/react";
 import { ReactNode } from "react";
-import { FiCopy, FiCheck } from "react-icons/fi";
 
 interface ExportAsUrlProps {
   colors: string[];
@@ -23,7 +22,11 @@ interface ExportAsUrlProps {
 
 const BASE_URL = "https://devkit.vercel.app/color/gradient-generator";
 
-const ExportAsUrl = ({ colors, direction, children }: ExportAsUrlProps) => {
+const ExportAsUrl = ({
+  colors,
+  direction,
+  children,
+}: ExportAsUrlProps): JSX.Element => {
   colors = colors.map(color => color.replace("#", ""));
   const url = `${BASE_URL}?colors=${colors.join("-")}&direction=${direction}`;
 
@@ -41,11 +44,10 @@ const ExportAsUrl = ({ colors, direction, children }: ExportAsUrlProps) => {
           <ModalBody>
             <Flex flexDir="column">
               <Textarea isReadOnly>{url}</Textarea>
-              <IconButton
-                icon={hasCopied ? <FiCheck /> : <FiCopy />}
-                aria-label="Copy URL"
-                onClick={onCopy}
-                bgColor={hasCopied ? "green.500" : undefined}
+              <CopyIconButton
+                ariaLabel="Copy URL"
+                onCopy={onCopy}
+                hasCopied={hasCopied}
                 mt={4}
               />
             </Flex>

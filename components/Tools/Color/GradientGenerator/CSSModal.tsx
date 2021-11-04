@@ -13,13 +13,14 @@ import {
   chakra,
 } from "@chakra-ui/react";
 import { ReactNode } from "react";
-import { FiCopy, FiDownload, FiCheck } from "react-icons/fi";
+import { FiDownload } from "react-icons/fi";
 import { saveAs } from "file-saver";
 
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material.css";
 import "codemirror/mode/css/css";
 import { UnControlled as CodeMirror } from "react-codemirror2";
+import CopyIconButton from "@/components/Common/CopyIconButton";
 
 interface CSSModalProps {
   children: ReactNode;
@@ -86,11 +87,10 @@ background: -ms-linear-gradient(${direction}deg, ${colors.join(", ")});`;
                   onClick={downloadCSS}
                   mr={4}
                 />
-                <IconButton
-                  icon={hasCopied ? <FiCheck /> : <FiCopy />}
-                  onClick={onCopy}
-                  aria-label="Copy Gradient CSS"
-                  bgColor={hasCopied ? "green.500" : undefined}
+                <CopyIconButton
+                  ariaLabel="Copy CSS"
+                  onCopy={onCopy}
+                  hasCopied={hasCopied}
                 />
               </Flex>
             </Flex>
