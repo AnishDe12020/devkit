@@ -16,6 +16,7 @@ import { useState, useRef } from "react";
 import Color from "@/components/Tools/Color/GradientGenerator/Color";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
+import ExportAsUrl from "./ExportAsUrl";
 
 const CSSModal = dynamic(() => import("./CSSModal"), { ssr: false });
 const ExportAsPng = dynamic(() => import("./ExportAsPng"), { ssr: false });
@@ -154,6 +155,12 @@ const Gradient = (): JSX.Element => {
                 Copy CSS
               </CSSModal>
               <ExportAsPng gradientComponentRef={gradientComponentRef} />
+              <ExportAsUrl
+                colors={gradient.colors}
+                direction={gradient.direction}
+              >
+                Export as URL
+              </ExportAsUrl>
             </Flex>
           </Box>
         </Flex>
