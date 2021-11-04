@@ -15,9 +15,9 @@ import {
 import { ReactNode } from "react";
 
 interface ExportAsUrlProps {
+  children: ReactNode;
   colors: string[];
   direction: number;
-  children: ReactNode;
 }
 
 const BASE_URL = "https://devkit.vercel.app/color/gradient-generator";
@@ -36,7 +36,7 @@ const ExportAsUrl = ({
   return (
     <>
       <Button onClick={onOpen}>{children}</Button>
-      <Modal isOpen={isOpen} onClose={onClose} h="2xl">
+      <Modal isOpen={isOpen} onClose={onClose} size="2xl">
         <ModalOverlay />
         <ModalContent>
           <ModalHeader />

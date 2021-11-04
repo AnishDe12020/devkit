@@ -16,7 +16,7 @@ const Tools: NextPage<ToolsPageProps> = ({
   toolFileName,
 }) => {
   const ToolComponent = dynamic(
-    () => import(`../components/Tools/${categoryFolderName}/${toolFileName}`)
+    () => import(`@/components/Tools/${categoryFolderName}/${toolFileName}`)
   );
 
   return (

@@ -16,10 +16,16 @@ import { useState, useRef } from "react";
 import Color from "@/components/Tools/Color/GradientGenerator/Color";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
-import ExportAsUrl from "./ExportAsUrl";
+import ExportAsUrl from "@/components/Tools/Color/GradientGenerator/ExportAsUrl";
 
-const CSSModal = dynamic(() => import("./CSSModal"), { ssr: false });
-const ExportAsPng = dynamic(() => import("./ExportAsPng"), { ssr: false });
+const CSSModal = dynamic(
+  () => import("@/components/Tools/Color/GradientGenerator/CSSModal"),
+  { ssr: false }
+);
+const ExportAsPng = dynamic(
+  () => import("@/components/Tools/Color/GradientGenerator/ExportAsPng"),
+  { ssr: false }
+);
 
 interface IGradient {
   css: string;
@@ -150,17 +156,17 @@ const Gradient = (): JSX.Element => {
 
           <Box mt={4}>
             <Heading size="lg">Export</Heading>
-            <Flex>
-              <CSSModal colors={gradient.colors} direction={gradient.direction}>
-                Copy CSS
-              </CSSModal>
-              <ExportAsPng gradientComponentRef={gradientComponentRef} />
+            <Flex mt={2}>
               <ExportAsUrl
                 colors={gradient.colors}
                 direction={gradient.direction}
               >
                 Export as URL
               </ExportAsUrl>
+              <CSSModal colors={gradient.colors} direction={gradient.direction}>
+                Copy CSS
+              </CSSModal>
+              <ExportAsPng gradientComponentRef={gradientComponentRef} />
             </Flex>
           </Box>
         </Flex>
