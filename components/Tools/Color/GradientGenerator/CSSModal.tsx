@@ -26,6 +26,7 @@ interface CSSModalProps {
   children: ReactNode;
   colors: string[];
   direction: number;
+  [x: string]: any;
 }
 
 const ChakraCodeMirror = chakra(CodeMirror, {
@@ -36,11 +37,8 @@ const ChakraCodeMirror = chakra(CodeMirror, {
   },
 });
 
-const CSSModal = ({
-  colors,
-  direction,
-  children,
-}: CSSModalProps): JSX.Element => {
+const CSSModal = (props: CSSModalProps): JSX.Element => {
+  const { colors, direction, children, ...otherProps } = props;
   const { isOpen, onOpen, onClose } = useDisclosure();
   const css = `background: linear-gradient(${direction}deg, ${colors.join(
     ", "
@@ -60,7 +58,9 @@ background: -ms-linear-gradient(${direction}deg, ${colors.join(", ")});`;
   const { hasCopied, onCopy } = useClipboard(css);
   return (
     <>
-      <Button onClick={onOpen}>{children}</Button>
+      <Button onClick={onOpen} {...otherProps}>
+        {children}
+      </Button>
 
       <Modal isOpen={isOpen} onClose={onClose} size="2xl">
         <ModalOverlay />

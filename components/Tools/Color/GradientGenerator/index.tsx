@@ -11,6 +11,7 @@ import {
   Button,
   Grid,
   Text,
+  chakra,
 } from "@chakra-ui/react";
 import { useState, useRef } from "react";
 import Color from "@/components/Tools/Color/GradientGenerator/Color";
@@ -154,21 +155,25 @@ const Gradient = (): JSX.Element => {
             Add Color
           </Button>
 
-          <Box mt={4}>
-            <Heading size="lg">Export</Heading>
-            <Flex mt={2}>
-              <ExportAsUrl
-                colors={gradient.colors}
-                direction={gradient.direction}
-              >
-                Export as URL
-              </ExportAsUrl>
-              <CSSModal colors={gradient.colors} direction={gradient.direction}>
-                Copy CSS
-              </CSSModal>
-              <ExportAsPng gradientComponentRef={gradientComponentRef} />
-            </Flex>
-          </Box>
+          <chakra.hr mt={4} />
+
+          <Flex mt={4}>
+            <ExportAsUrl
+              colors={gradient.colors}
+              direction={gradient.direction}
+              mr={4}
+            >
+              Export as URL
+            </ExportAsUrl>
+            <CSSModal
+              colors={gradient.colors}
+              direction={gradient.direction}
+              mr={4}
+            >
+              Copy CSS
+            </CSSModal>
+            <ExportAsPng gradientComponentRef={gradientComponentRef} />
+          </Flex>
         </Flex>
       </Center>
     </Box>

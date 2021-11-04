@@ -4,18 +4,22 @@ import { RefObject } from "react";
 
 interface ExportAsPngProps {
   gradientComponentRef: RefObject<HTMLDivElement>;
+  [x: string]: any;
 }
 
-const ExportAsPng = ({
-  gradientComponentRef,
-}: ExportAsPngProps): JSX.Element => {
+const ExportAsPng = (props: ExportAsPngProps): JSX.Element => {
+  const { gradientComponentRef, ...otherProps } = props;
   const handleExport = () => {
     exportComponentAsPNG(gradientComponentRef, {
       fileName: "gradient.png",
     });
   };
 
-  return <Button onClick={handleExport}>Export PNG</Button>;
+  return (
+    <Button onClick={handleExport} {...otherProps}>
+      Export PNG
+    </Button>
+  );
 };
 
 export default ExportAsPng;

@@ -18,15 +18,14 @@ interface ExportAsUrlProps {
   children: ReactNode;
   colors: string[];
   direction: number;
+  [x: string]: any;
 }
 
 const BASE_URL = "https://devkit.vercel.app/color/gradient-generator";
 
-const ExportAsUrl = ({
-  colors,
-  direction,
-  children,
-}: ExportAsUrlProps): JSX.Element => {
+const ExportAsUrl = (props: ExportAsUrlProps): JSX.Element => {
+  let { colors, direction, children, ...otherProps } = props;
+
   colors = colors.map(color => color.replace("#", ""));
   const url = `${BASE_URL}?colors=${colors.join("-")}&direction=${direction}`;
 
@@ -35,7 +34,9 @@ const ExportAsUrl = ({
 
   return (
     <>
-      <Button onClick={onOpen}>{children}</Button>
+      <Button onClick={onOpen} {...otherProps}>
+        {children}
+      </Button>
       <Modal isOpen={isOpen} onClose={onClose} size="2xl">
         <ModalOverlay />
         <ModalContent>
