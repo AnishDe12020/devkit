@@ -11,6 +11,11 @@ import {
   Button,
   Grid,
   Text,
+  Tabs,
+  TabList,
+  TabPanels,
+  Tab,
+  TabPanel,
   chakra,
 } from "@chakra-ui/react";
 import { useState, useRef } from "react";
@@ -110,14 +115,41 @@ const Gradient = (): JSX.Element => {
             <Heading>Gradient Generator</Heading>
           </Center>
 
-          <Box
-            w="100%"
-            h="400px"
-            bgGradient={gradient.css}
-            mt={12}
-            borderRadius={16}
-            ref={gradientComponentRef}
-          />
+          <Tabs variant="solid-rounded">
+            <TabList>
+              <Tab>Box</Tab>
+              <Tab>Text</Tab>
+            </TabList>
+
+            <TabPanels>
+              <TabPanel>
+                <Box
+                  w="100%"
+                  h="400px"
+                  bgGradient={gradient.css}
+                  mt={12}
+                  borderRadius={16}
+                  ref={gradientComponentRef}
+                />
+              </TabPanel>
+              <TabPanel>
+                <Text
+                  w="100%"
+                  h="400px"
+                  bgGradient={gradient.css}
+                  fontSize={250}
+                  fontWeight="extrabold"
+                  bgClip="text"
+                  mt={12}
+                  ref={gradientComponentRef}
+                  textAlign="center"
+                >
+                  Text
+                </Text>
+              </TabPanel>
+            </TabPanels>
+          </Tabs>
+
           <Box mt={8}>
             <Text my={2}>Raw CSS</Text>
             <Input
