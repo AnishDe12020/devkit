@@ -30,7 +30,7 @@ const GradientPreview = ({
           w="100%"
           h="400px"
           bgGradient={gradientCSS}
-          mt={12}
+          mt={4}
           borderRadius={16}
           ref={gradientComponentRef}
         />
@@ -43,7 +43,7 @@ const GradientPreview = ({
           fontSize={250}
           fontWeight="extrabold"
           bgClip="text"
-          mt={12}
+          mt={4}
           textAlign="center"
         >
           Text
