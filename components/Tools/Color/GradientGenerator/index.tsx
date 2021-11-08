@@ -23,6 +23,7 @@ import Color from "@/components/Tools/Color/GradientGenerator/Color";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 import ExportAsUrl from "@/components/Tools/Color/GradientGenerator/ExportAsUrl";
+import GradientPreview from "./GradientPreview";
 
 const CSSModal = dynamic(
   () => import("@/components/Tools/Color/GradientGenerator/CSSModal"),
@@ -115,40 +116,10 @@ const Gradient = (): JSX.Element => {
             <Heading>Gradient Generator</Heading>
           </Center>
 
-          <Tabs variant="solid-rounded">
-            <TabList>
-              <Tab>Box</Tab>
-              <Tab>Text</Tab>
-            </TabList>
-
-            <TabPanels>
-              <TabPanel>
-                <Box
-                  w="100%"
-                  h="400px"
-                  bgGradient={gradient.css}
-                  mt={12}
-                  borderRadius={16}
-                  ref={gradientComponentRef}
-                />
-              </TabPanel>
-              <TabPanel>
-                <Text
-                  w="100%"
-                  h="400px"
-                  bgGradient={gradient.css}
-                  fontSize={250}
-                  fontWeight="extrabold"
-                  bgClip="text"
-                  mt={12}
-                  ref={gradientComponentRef}
-                  textAlign="center"
-                >
-                  Text
-                </Text>
-              </TabPanel>
-            </TabPanels>
-          </Tabs>
+          <GradientPreview
+            gradientCSS={gradient.css}
+            gradientComponentRef={gradientComponentRef}
+          />
 
           <Box mt={8}>
             <Text my={2}>Raw CSS</Text>
