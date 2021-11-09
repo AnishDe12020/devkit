@@ -1,11 +1,14 @@
+import EditableControls from "@/components/Common/EditableControls";
 import {
   Box,
-  Text,
   Tabs,
   TabList,
   TabPanels,
   Tab,
   TabPanel,
+  Editable,
+  EditablePreview,
+  EditableInput,
 } from "@chakra-ui/react";
 import { RefObject } from "react";
 
@@ -20,8 +23,8 @@ const GradientPreview = ({
 }: GradientPreviewProps): JSX.Element => (
   <Tabs variant="solid-rounded">
     <TabList>
-      <Tab>Box</Tab>
-      <Tab>Text</Tab>
+      <Tab borderRadius="md">Box</Tab>
+      <Tab borderRadius="md">Text</Tab>
     </TabList>
 
     <TabPanels>
@@ -36,18 +39,20 @@ const GradientPreview = ({
         />
       </TabPanel>
       <TabPanel>
-        <Text
-          w="100%"
-          h="400px"
-          bgGradient={gradientCSS}
-          fontSize={250}
-          fontWeight="extrabold"
-          bgClip="text"
-          mt={4}
+        <Editable
+          defaultValue="Text"
           textAlign="center"
+          mt={4}
+          fontWeight="bold"
+          fontSize="9xl"
+          textOverflow="ellipsis"
+          isPreviewFocusable={false}
+          wordBreak="break-word"
         >
-          Text
-        </Text>
+          <EditablePreview bgGradient={gradientCSS} bgClip="text" />
+          <EditableInput />
+          <EditableControls />
+        </Editable>
       </TabPanel>
     </TabPanels>
   </Tabs>
