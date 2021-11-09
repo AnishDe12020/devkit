@@ -16,12 +16,24 @@ const EditableControls = () => {
 
   return isEditing ? (
     <ButtonGroup justifyContent="center" size="sm">
-      <IconButton icon={<FiCheck />} {...getSubmitButtonProps()} />
-      <IconButton icon={<FiX />} {...getCancelButtonProps()} />
+      <IconButton
+        icon={<FiCheck />}
+        {...getSubmitButtonProps()}
+        aria-label="Submit"
+      />
+      <IconButton
+        icon={<FiX />}
+        {...getCancelButtonProps()}
+        aria-label="Cancel"
+      />
     </ButtonGroup>
   ) : (
     <Flex justifyContent="center">
-      <IconButton icon={<FiEdit />} {...getEditButtonProps()} />
+      <IconButton
+        icon={<FiEdit />}
+        {...getEditButtonProps()}
+        aria-label="Edit"
+      />
     </Flex>
   );
 };
