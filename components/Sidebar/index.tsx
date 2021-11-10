@@ -44,9 +44,7 @@ const Sidebar = (props: SidebarProps): JSX.Element => {
   return sideBarType === "desktop" ? (
     <Box {...otherProps}>
       <Flex alignItems="center">
-        <Heading>DevKit</Heading>
         <IconButton
-          ml={4}
           onClick={toggleColorMode}
           icon={colorMode === "light" ? <FiSun /> : <FiMoon />}
           aria-label={"Toggle Color Mode"}
@@ -72,9 +70,7 @@ const Sidebar = (props: SidebarProps): JSX.Element => {
           <Box ml={4} mt={4}>
             <Flex alignItems="center" justifyContent="space-between">
               <Flex>
-                <Heading>DevKit</Heading>
                 <IconButton
-                  ml={2}
                   onClick={toggleColorMode}
                   icon={colorMode === "light" ? <FiSun /> : <FiMoon />}
                   aria-label={"Toggle Color Mode"}
