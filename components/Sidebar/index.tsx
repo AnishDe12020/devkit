@@ -1,12 +1,9 @@
 import { Category } from "@/data/types";
 import {
   Box,
-  Heading,
   IconButton,
   Flex,
   Drawer,
-  DrawerBody,
-  DrawerHeader,
   useDisclosure,
   useColorMode,
   useBreakpointValue,

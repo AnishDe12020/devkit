@@ -1,7 +1,6 @@
 import {
   Input,
   InputLeftElement,
-  Icon,
   Box,
   InputGroup,
   IconButton,

@@ -1,26 +1,28 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
+echo "💻 Running pre-commit hook..."
+
 # Check Prettier standards
 yarn format ||
 (
-    echo "Prettier check failed. Run `yarn format:fix`, add and commit the changes.";
+    echo "🚨 Prettier check failed. Run `yarn format:fix`, add and commit the changes.";
     false;
 )
 
 # Check ESLint standards
 yarn lint ||
 (
-    echo "ESLint check failed. Run `yarn lint:fix`, add and commit the changes. Note that some things cannot be fixed my eslint automatically so you might have to fix those on your own.";
+    echo "🚨 ESLint check failed. Run `yarn lint:fix`, add and commit the changes. Note that some things cannot be fixed my eslint automatically so you might have to fix those on your own.";
     false;
 )
 
 # Check tsconfig standards
 yarn types:check ||
 (
-    echo "Type check failed. Please make the changes required above, add and commit the changes";
+    echo "🚨 Type check failed. Please make the changes required above, add and commit the changes";
     false;
 )
 
-echo "All check passed
+echo "✅ All check passed
         Committing..."

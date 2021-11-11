@@ -1,4 +1,4 @@
-import { Box, Heading, Center, Text } from "@chakra-ui/react";
+import { Box, Heading, Center } from "@chakra-ui/react";
 
 interface HomeComponentProps {
   [x: string]: any;
