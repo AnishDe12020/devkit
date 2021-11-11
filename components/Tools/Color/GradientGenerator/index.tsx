@@ -11,11 +11,7 @@ import {
   Button,
   Grid,
   Text,
-  Tabs,
-  TabList,
-  TabPanels,
-  Tab,
-  TabPanel,
+  HStack,
   chakra,
 } from "@chakra-ui/react";
 import { useState, useRef } from "react";
@@ -109,77 +105,75 @@ const Gradient = (): JSX.Element => {
   };
 
   return (
-    <Box>
-      <Center>
-        <Flex flexDir="column" w="4xl">
-          <Center>
-            <Heading>Gradient Generator</Heading>
-          </Center>
+    <Center>
+      <Flex flexDir="column" w="100%">
+        <Center>
+          <Heading>Gradient Generator</Heading>
+        </Center>
 
-          <GradientPreview
-            gradientCSS={gradient.css}
-            gradientComponentRef={gradientComponentRef}
+        <GradientPreview
+          gradientCSS={gradient.css}
+          gradientComponentRef={gradientComponentRef}
+        />
+
+        <Box mt={8}>
+          <Text my={2}>Raw CSS</Text>
+          <Input
+            placeholder="Enter raw css. E.g: linear(to right, #ff0000, #00ff00)"
+            value={gradient.css}
+            onChange={e => handleCSSUpdate(e.target.value)}
           />
-
-          <Box mt={8}>
-            <Text my={2}>Raw CSS</Text>
-            <Input
-              placeholder="Enter raw css. E.g: linear(to right, #ff0000, #00ff00)"
-              value={gradient.css}
-              onChange={e => handleCSSUpdate(e.target.value)}
+        </Box>
+        <Box mt={4}>
+          <Text>Gradient Direction</Text>
+          <Slider
+            min={0}
+            max={360}
+            value={gradient.direction}
+            onChange={value => handleDirectionUpdate(value)}
+            focusThumbOnChange={false}
+          >
+            <SliderTrack>
+              <SliderFilledTrack bgGradient={gradient.css} />
+            </SliderTrack>
+            <SliderThumb bgGradient={gradient.css}></SliderThumb>
+          </Slider>
+        </Box>
+        <Grid templateColumns="repeat(2, 1fr)" gap={6}>
+          {gradient.colors.map((color, index) => (
+            <Color
+              color={color}
+              index={index}
+              key={index}
+              handleColorUpdate={handleColorUpdate}
             />
-          </Box>
-          <Box mt={4}>
-            <Text>Gradient Direction</Text>
-            <Slider
-              min={0}
-              max={360}
-              value={gradient.direction}
-              onChange={value => handleDirectionUpdate(value)}
-              focusThumbOnChange={false}
-            >
-              <SliderTrack>
-                <SliderFilledTrack bgGradient={gradient.css} />
-              </SliderTrack>
-              <SliderThumb bgGradient={gradient.css}></SliderThumb>
-            </Slider>
-          </Box>
-          <Grid templateColumns="repeat(2, 1fr)" gap={6}>
-            {gradient.colors.map((color, index) => (
-              <Color
-                color={color}
-                index={index}
-                key={index}
-                handleColorUpdate={handleColorUpdate}
-              />
-            ))}
-          </Grid>
-          <Button onClick={handleAddColor} mt={8}>
-            Add Color
-          </Button>
+          ))}
+        </Grid>
+        <Button onClick={handleAddColor} mt={8}>
+          Add Color
+        </Button>
 
-          <chakra.hr mt={4} />
+        <chakra.hr mt={4} />
 
-          <Flex mt={4}>
-            <ExportAsUrl
-              colors={gradient.colors}
-              direction={gradient.direction}
-              mr={4}
-            >
-              Export as URL
-            </ExportAsUrl>
-            <CSSModal
-              colors={gradient.colors}
-              direction={gradient.direction}
-              mr={4}
-            >
-              Copy CSS
-            </CSSModal>
-            <ExportAsPng gradientComponentRef={gradientComponentRef} />
-          </Flex>
-        </Flex>
-      </Center>
-    </Box>
+        <HStack mt={4}>
+          <ExportAsUrl
+            colors={gradient.colors}
+            direction={gradient.direction}
+            mr={4}
+          >
+            Export as URL
+          </ExportAsUrl>
+          <CSSModal
+            colors={gradient.colors}
+            direction={gradient.direction}
+            mr={4}
+          >
+            Copy CSS
+          </CSSModal>
+          <ExportAsPng gradientComponentRef={gradientComponentRef} />
+        </HStack>
+      </Flex>
+    </Center>
   );
 };
 
