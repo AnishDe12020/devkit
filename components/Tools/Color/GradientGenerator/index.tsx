@@ -46,7 +46,7 @@ const Gradient = (): JSX.Element => {
   ) as string[];
   colors = colors?.map(color => color.trim());
   colors = colors?.map(color => `#${color}`);
-  let direction: number | undefined = parseInt(
+  const direction: number | undefined = parseInt(
     router.query?.direction as string
   );
 
@@ -59,10 +59,10 @@ const Gradient = (): JSX.Element => {
   });
 
   const handleCSSUpdate = (value: string): void => {
-    let direction: number = value
+    const direction: number = value
       .split("(")[1]
       .split("deg")[0] as unknown as number;
-    let colors: string[] = value.split("deg")[1].split(",");
+    const colors: string[] = value.split("deg")[1].split(",");
     colors.shift();
     colors.forEach((color, index) => {
       color = color.trim();
