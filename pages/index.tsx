@@ -1,9 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Sidebar from "@/components/Sidebar";
-import categories from "@/data/categories";
 import HomeComponent from "@/components/HomeComponent";
-import { Flex } from "@chakra-ui/react";
+import WithSidebar from "@/layouts/WithSidebar";
 
 const Home: NextPage = () => {
   return (
@@ -17,11 +15,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Flex ml={8} mt={10}>
-        <Sidebar w="20vw" categories={categories} />
-
-        <HomeComponent w="80vw" />
-      </Flex>
+      <WithSidebar title="Home">
+        <HomeComponent />
+      </WithSidebar>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import { Category } from "@/data/types";
-import SidebarLink from "@/components/Sidebar/SidebarLink";
+import SidebarLink from "@/components/SidebarContent/SidebarLink";
 import { Box, Text, VStack, useColorModeValue } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 

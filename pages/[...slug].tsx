@@ -1,10 +1,9 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
-import Sidebar from "@/components/Sidebar";
 import categories from "@/data/categories";
 import dynamic from "next/dynamic";
-import { Flex, Box } from "@chakra-ui/react";
 import { Category, Tool } from "@/data/types";
+import WithSidebar from "@/layouts/WithSidebar";
 
 interface ToolsPageProps {
   categoryFolderName: string;
@@ -30,12 +29,9 @@ const Tools: NextPage<ToolsPageProps> = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Flex ml={8} mt={10}>
-        <Sidebar w="20vw" categories={categories} />
-        <Box w="80vw">
-          <ToolComponent />
-        </Box>
-      </Flex>
+      <WithSidebar title="Tool">
+        <ToolComponent />
+      </WithSidebar>
     </div>
   );
 };
