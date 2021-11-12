@@ -14,4 +14,7 @@ module.exports = withPWA({
     defaultLocale: "en",
   },
   reactStrictMode: true,
+  experimental: {
+    esmExternals: false,
+  },
 });
