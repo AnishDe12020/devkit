@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.1](https://github.com/AnishDe12020/devkit/compare/v0.1.0...v0.1.1) (2021-11-12)
+
+
+### Features
+
+* **pwa:** added more meta tags for better compatiblity ([e8f5595](https://github.com/AnishDe12020/devkit/commits/e8f5595927fea9222d9e74a35c2fe5455fa2aa43))
+
+
+### Bug Fixes
+
+* **nextjs:** disabled esmModules to get rid of the occassional out of memory heap error ([3ae2b95](https://github.com/AnishDe12020/devkit/commits/3ae2b952e625f78bdcc149a4d71fc36149a7dcfc))
+
 ## 0.1.0 (2021-11-12)
 
 This is the first release using standard-version. Previous logs are not available.
