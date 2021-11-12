@@ -18,7 +18,8 @@
       "@/styles/*": ["styles/*"],
       "@/data/*": ["data/*"],
       "@/components/*": ["components/*"],
-      "@/utils/*": ["utils/*"]
+      "@/utils/*": ["utils/*"],
+      "@/layouts/*": ["layouts/*"]
     },
     "incremental": true
   },
