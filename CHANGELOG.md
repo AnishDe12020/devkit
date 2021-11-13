@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/AnishDe12020/devkit/compare/v0.1.1...v0.2.0) (2021-11-13)
+
+
+### Features
+
+* **sidebar:** added a close button to the sidebar in mobile view and it now spans across the screen ([230c391](https://github.com/AnishDe12020/devkit/commits/230c391edce6eec58504381b680e6754d9e66595))
+* **sidebar:** took a more responsive and better approach by using a sidebar layout ([ba9746d](https://github.com/AnishDe12020/devkit/commits/ba9746dfa74dc49a764a4b66e3fade75ade184d5))
+* **sidebar:** tool names show up on the header instead of inside the tool ([a3cda33](https://github.com/AnishDe12020/devkit/commits/a3cda33a9e4391f3b041d5a5f41318ed27e6eed7))
+
 ### [0.1.1](https://github.com/AnishDe12020/devkit/compare/v0.1.0...v0.1.1) (2021-11-12)
 
 
