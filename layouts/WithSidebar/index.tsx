@@ -8,6 +8,7 @@ import {
   Heading,
   useDisclosure,
   useColorMode,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import SidebarContent from "@/components/SidebarContent";
 import { FiMenu, FiMoon, FiSun } from "react-icons/fi";
@@ -54,6 +55,7 @@ const WithSidebar = ({ title, children }: WithSidebarProps): JSX.Element => {
               onClick={toggleColorMode}
               icon={colorMode === "light" ? <FiSun /> : <FiMoon />}
               aria-label={"Toggle Color Mode"}
+              size={useBreakpointValue({ base: "sm", md: "md" })}
             />
           </Flex>
         </Flex>
