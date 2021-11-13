@@ -6,19 +6,19 @@ interface SidebarLinkProps {
   href: string;
   active: boolean;
   children: ReactNode;
-  key: any;
+  key?: any;
+  [key: string]: any;
 }
 
 const SidebarLink = ({
   href,
   active,
   children,
+  ...otherProps
 }: SidebarLinkProps): JSX.Element => {
   const primaryColor = useColorModeValue("green.600", "green.400");
   const secondaryBg = useColorModeValue("green.300", "green.700");
   const secondaryColor = useColorModeValue("green.800", "green.200");
-
-  href = href === "///" ? "/" : href;
 
   return (
     <NextLink href={href} passHref>
@@ -28,7 +28,7 @@ const SidebarLink = ({
         px={3}
         py={2}
         ml={2}
-        w="48"
+        w={{ base: 60, md: 48 }}
         bg={active ? secondaryBg : undefined}
         fontWeight={active ? "semibold" : "normal"}
         color={active ? secondaryColor : primaryColor}
@@ -36,6 +36,7 @@ const SidebarLink = ({
           bg: secondaryBg,
           color: secondaryColor,
         }}
+        {...otherProps}
       >
         {children}
       </Link>
