@@ -23,11 +23,14 @@ const WithSidebar = ({ title, children }: WithSidebarProps): JSX.Element => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Box as="section" minH="100vh" mt={8} mr={4}>
-      <SidebarContent display={{ base: "none", md: "unset" }} />
-      <Drawer isOpen={isOpen} onClose={onClose} placement="left">
+      <SidebarContent
+        display={{ base: "none", md: "unset" }}
+        onClose={() => onClose}
+      />
+      <Drawer isOpen={isOpen} onClose={onClose} placement="left" size="full">
         <DrawerOverlay />
         <DrawerContent>
-          <SidebarContent w="full" borderRight="none" />
+          <SidebarContent w="full" borderRight="none" onClose={onClose} />
         </DrawerContent>
       </Drawer>
       <Box ml={{ base: 0, md: 60 }} transition=".3s ease">
