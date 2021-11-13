@@ -28,7 +28,7 @@ const SidebarContent = ({
       p={2}
       {...otherProps}
     >
-      <Flex justifyContent="flex-end" mr={8}>
+      <Flex justifyContent="flex-end" mr={12} mt={2}>
         <CloseButton
           display={{ base: "block", md: "none" }}
           onClick={onClose}
