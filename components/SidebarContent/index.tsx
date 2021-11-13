@@ -24,15 +24,17 @@ const SidebarContent = ({
       h="full"
       overflowX="hidden"
       overflowY="auto"
-      ml={8}
+      ml={{ base: 4, md: 8 }}
       p={2}
       {...otherProps}
     >
-      <Flex justifyContent="flex-end" mr={12} mt={2}>
-        <CloseButton
-          display={{ base: "block", md: "none" }}
-          onClick={onClose}
-        />
+      <Flex
+        display={{ base: "flex", md: "none" }}
+        justifyContent="flex-end"
+        mr={8}
+        mt={2}
+      >
+        <CloseButton onClick={onClose} />
       </Flex>
       <Flex mt={4} flexDir={"column"}>
         <HomeLink active={undefined === router.query?.slug} />

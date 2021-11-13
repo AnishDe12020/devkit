@@ -22,7 +22,12 @@ const WithSidebar = ({ title, children }: WithSidebarProps): JSX.Element => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
   return (
-    <Box as="section" minH="100vh" mt={8} mr={{ base: 0, md: 4 }}>
+    <Box
+      as="section"
+      minH="100vh"
+      mt={{ base: 2, md: 8 }}
+      mr={{ base: 0, md: 4 }}
+    >
       <SidebarContent
         display={{ base: "none", md: "unset" }}
         onClose={() => onClose}
