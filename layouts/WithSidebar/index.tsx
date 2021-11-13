@@ -13,7 +13,7 @@ import SidebarContent from "@/components/SidebarContent";
 import { FiMenu, FiMoon, FiSun } from "react-icons/fi";
 
 interface WithSidebarProps {
-  title: string;
+  title?: string;
   children: React.ReactNode;
 }
 
@@ -38,7 +38,9 @@ const WithSidebar = ({ title, children }: WithSidebarProps): JSX.Element => {
           px="4"
           h="14"
         >
-          <Heading display={{ base: "none", md: "block" }}>{title}</Heading>
+          <Heading display={{ base: "none", md: "block" }}>
+            {title || ""}
+          </Heading>
           <IconButton
             aria-label="Menu"
             display={{ base: "inline-flex", md: "none" }}

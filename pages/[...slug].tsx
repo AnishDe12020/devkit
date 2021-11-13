@@ -8,11 +8,13 @@ import WithSidebar from "@/layouts/WithSidebar";
 interface ToolsPageProps {
   categoryFolderName: string;
   toolFileName: string;
+  toolName: string;
 }
 
 const Tools: NextPage<ToolsPageProps> = ({
   categoryFolderName,
   toolFileName,
+  toolName,
 }: ToolsPageProps) => {
   const ToolComponent = dynamic(
     () => import(`@/components/Tools/${categoryFolderName}/${toolFileName}`)
@@ -29,7 +31,7 @@ const Tools: NextPage<ToolsPageProps> = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <WithSidebar title="Tool">
+      <WithSidebar title={toolName}>
         <ToolComponent />
       </WithSidebar>
     </div>
@@ -51,11 +53,13 @@ export const getStaticProps: GetStaticProps<
   }) as Tool;
 
   const toolFileName: string = toolObject.componentFileName;
+  const toolName: string = toolObject.name;
 
   return {
     props: {
       categoryFolderName,
       toolFileName,
+      toolName,
     },
   };
 };

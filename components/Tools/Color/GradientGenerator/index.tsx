@@ -1,7 +1,6 @@
 import {
   Box,
   Center,
-  Heading,
   Flex,
   Input,
   Slider,
@@ -107,10 +106,6 @@ const Gradient = (): JSX.Element => {
   return (
     <Center>
       <Flex flexDir="column" w="100%">
-        <Center>
-          <Heading>Gradient Generator</Heading>
-        </Center>
-
         <GradientPreview
           gradientCSS={gradient.css}
           gradientComponentRef={gradientComponentRef}
