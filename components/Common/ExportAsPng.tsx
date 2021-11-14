@@ -3,14 +3,14 @@ import { Button } from "@chakra-ui/react";
 import { RefObject } from "react";
 
 interface ExportAsPngProps {
-  gradientComponentRef: RefObject<HTMLDivElement>;
+  componentRef: RefObject<HTMLDivElement>;
   [x: string]: any;
 }
 
 const ExportAsPng = (props: ExportAsPngProps): JSX.Element => {
-  const { gradientComponentRef, ...otherProps } = props;
+  const { componentRef, ...otherProps } = props;
   const handleExport = () => {
-    exportComponentAsPNG(gradientComponentRef, {
+    exportComponentAsPNG(componentRef, {
       fileName: "gradient.png",
     });
   };

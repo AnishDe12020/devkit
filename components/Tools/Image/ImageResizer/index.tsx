@@ -13,6 +13,7 @@ import { useRef, useState, ChangeEvent } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import getAspectRatio from "@/utils/getAspectRatio";
 import Resizer from "react-image-file-resizer";
+import ExportAsPng from "@/components/Common/ExportAsPng";
 
 interface IImage {
   src?: string;
@@ -132,7 +133,7 @@ const ImageResizer = (): JSX.Element => {
             ogImage?.file as File,
             values.width,
             values.height,
-            "JPEG",
+            "PNG",
             100,
             0,
             (file: any) => {
@@ -233,6 +234,7 @@ const ImageResizer = (): JSX.Element => {
             )}
         </>
       )}
+      <ExportAsPng componentRef={resizedImageRef} />
     </Box>
   );
 };

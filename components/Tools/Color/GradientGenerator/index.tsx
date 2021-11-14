@@ -24,10 +24,9 @@ const CSSModal = dynamic(
   () => import("@/components/Tools/Color/GradientGenerator/CSSModal"),
   { ssr: false }
 );
-const ExportAsPng = dynamic(
-  () => import("@/components/Tools/Color/GradientGenerator/ExportAsPng"),
-  { ssr: false }
-);
+const ExportAsPng = dynamic(() => import("@/components/Common/ExportAsPng"), {
+  ssr: false,
+});
 
 interface IGradient {
   css: string;
@@ -165,7 +164,7 @@ const Gradient = (): JSX.Element => {
           >
             Copy CSS
           </CSSModal>
-          <ExportAsPng gradientComponentRef={gradientComponentRef} />
+          <ExportAsPng componentRef={gradientComponentRef} />
         </HStack>
       </Flex>
     </Center>
