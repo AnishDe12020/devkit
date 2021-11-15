@@ -3,9 +3,11 @@ import {
   Box,
   InputGroup,
   Button,
-  Image,
+  Image as ChakraImage,
   Text,
   Flex,
+  Alert,
+  AlertIcon,
   chakra,
 } from "@chakra-ui/react";
 import { FiUpload } from "react-icons/fi";
@@ -51,23 +53,27 @@ const ImageResizer = (): JSX.Element => {
         file,
       };
     });
-    console.log(file);
   };
 
   const handleOgImageLoad = (): void => {
     if (!ogImageRef.current) return;
     const ogImage = ogImageRef.current;
-    const { width, height } = ogImage;
-    const aspectRatio: number[] = getAspectRatio(width, height);
-    setOgImage(prev => ({ ...prev, width, height, aspectRatio }));
+    const { offsetWidth, offsetHeight } = ogImage;
+    const aspectRatio: number[] = getAspectRatio(offsetWidth, offsetHeight);
+    setOgImage(prev => ({ ...prev, offsetWidth, offsetHeight, aspectRatio }));
   };
 
   const handleResizedImageLoad = (): void => {
     if (!resizedImageRef.current) return;
     const resizedImage = resizedImageRef.current;
-    const { width, height } = resizedImage;
-    const aspectRatio: number[] = getAspectRatio(width, height);
-    setResizedImage(prev => ({ ...prev, width, height, aspectRatio }));
+    const { offsetWidth, offsetHeight } = resizedImage;
+    const aspectRatio: number[] = getAspectRatio(offsetWidth, offsetHeight);
+    setResizedImage(prev => ({
+      ...prev,
+      offsetWidth,
+      offsetHeight,
+      aspectRatio,
+    }));
   };
 
   return (
@@ -92,7 +98,7 @@ const ImageResizer = (): JSX.Element => {
       </InputGroup>
       <>
         {ogImage?.src && (
-          <Image
+          <ChakraImage
             src={ogImage.src}
             alt={ogImage.alt}
             ref={ogImageRef}
@@ -183,6 +189,7 @@ const ImageResizer = (): JSX.Element => {
                   mr={2}
                   type="number"
                   name="width"
+                  disabled={!ogImage?.src}
                 />
                 <ErrorMessage name="width" />
                 <chakra.span
@@ -198,20 +205,31 @@ const ImageResizer = (): JSX.Element => {
                   ml={2}
                   type="number"
                   name="height"
+                  disabled={!ogImage?.src}
                 />
                 <ErrorMessage name="height" />
               </InputGroup>
-              <Button ml={2} p={2} isLoading={isSubmitting} type="submit">
+              <Button
+                ml={2}
+                p={2}
+                isLoading={isSubmitting}
+                type="submit"
+                disabled={!ogImage?.src}
+              >
                 Resize
               </Button>
             </Flex>
+            <Alert status="info" mb={4} borderRadius={8}>
+              <AlertIcon />
+              Images can only be downscaled
+            </Alert>
           </Form>
         )}
       </Formik>
       {resizedImage && (
         <>
           {resizedImage?.src && (
-            <Image
+            <ChakraImage
               src={resizedImage.src}
               alt={resizedImage.alt}
               ref={resizedImageRef}
@@ -234,7 +252,10 @@ const ImageResizer = (): JSX.Element => {
             )}
         </>
       )}
-      <ExportAsPng componentRef={resizedImageRef} />
+      <ExportAsPng
+        componentRef={resizedImageRef}
+        disabled={!resizedImage?.src}
+      />
     </Box>
   );
 };
