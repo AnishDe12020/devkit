@@ -15,7 +15,11 @@ import { useRef, useState, ChangeEvent } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import getAspectRatio from "@/utils/getAspectRatio";
 import Resizer from "react-image-file-resizer";
-import ExportAsPng from "@/components/Common/ExportAsPng";
+import dynamic from "next/dynamic";
+
+const ExportAsPng = dynamic(() => import("@/components/Common/ExportAsPng"), {
+  ssr: false,
+});
 
 interface IImage {
   src?: string;
