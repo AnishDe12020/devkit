@@ -149,19 +149,11 @@ const Gradient = (): JSX.Element => {
 
         <chakra.hr mt={4} />
 
-        <HStack mt={4}>
-          <ExportAsUrl
-            colors={gradient.colors}
-            direction={gradient.direction}
-            mr={4}
-          >
+        <HStack mt={4} spacing={4}>
+          <ExportAsUrl colors={gradient.colors} direction={gradient.direction}>
             Export as URL
           </ExportAsUrl>
-          <CSSModal
-            colors={gradient.colors}
-            direction={gradient.direction}
-            mr={4}
-          >
+          <CSSModal colors={gradient.colors} direction={gradient.direction}>
             Copy CSS
           </CSSModal>
           <ExportAsPng componentRef={gradientComponentRef} />
