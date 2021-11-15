@@ -106,6 +106,8 @@ const ImageResizer = (): JSX.Element => {
             src={ogImage.src}
             alt={ogImage.alt}
             onLoad={handleOgImageLoad}
+            maxHeight="300px"
+            maxWidth="500px"
           />
         )}
         {ogImage?.height && ogImage?.width && ogImage?.aspectRatio && (
@@ -245,6 +247,8 @@ const ImageResizer = (): JSX.Element => {
               alt={resizedImage.alt}
               ref={resizedImageRef}
               onLoad={handleResizedImageLoad}
+              maxHeight="300px"
+              maxWidth="500px"
             />
           )}
           {resizedImage?.height &&
