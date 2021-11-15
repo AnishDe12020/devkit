@@ -8,7 +8,9 @@ import {
   Flex,
   Alert,
   AlertIcon,
+  HStack,
   chakra,
+  FormControl,
 } from "@chakra-ui/react";
 import { FiUpload } from "react-icons/fi";
 import { useRef, useState, ChangeEvent } from "react";
@@ -189,16 +191,17 @@ const ImageResizer = (): JSX.Element => {
         {({ isSubmitting }) => (
           <Form>
             <Flex alignContent="center" verticalAlign="center" my={4}>
-              <InputGroup lineHeight="40px">
-                <Input
-                  as={Field}
-                  placeholder="Width"
-                  mr={2}
-                  type="number"
-                  name="width"
-                  disabled={!ogImage?.src}
-                />
-                <ErrorMessage name="width" />
+              <HStack lineHeight="40px">
+                <FormControl>
+                  <Input
+                    as={Field}
+                    placeholder="Width"
+                    type="number"
+                    name="width"
+                    disabled={!ogImage?.src}
+                  />
+                  <ErrorMessage name="width" />
+                </FormControl>
                 <chakra.span
                   textAlign="center"
                   display="inline-block"
@@ -206,16 +209,17 @@ const ImageResizer = (): JSX.Element => {
                 >
                   x
                 </chakra.span>
-                <Input
-                  as={Field}
-                  placeholder="Height"
-                  ml={2}
-                  type="number"
-                  name="height"
-                  disabled={!ogImage?.src}
-                />
-                <ErrorMessage name="height" />
-              </InputGroup>
+                <FormControl>
+                  <Input
+                    as={Field}
+                    placeholder="Height"
+                    type="number"
+                    name="height"
+                    disabled={!ogImage?.src}
+                  />
+                  <ErrorMessage name="height" />
+                </FormControl>
+              </HStack>
               <Button
                 ml={2}
                 p={2}
