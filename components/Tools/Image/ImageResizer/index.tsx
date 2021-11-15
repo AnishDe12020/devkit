@@ -256,6 +256,7 @@ const ImageResizer = (): JSX.Element => {
       <ExportAsPng
         componentRef={resizedImageRef}
         disabled={!resizedImage?.src}
+        mt={4}
       />
     </Box>
   );
