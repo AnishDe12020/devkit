@@ -15,6 +15,7 @@ import { useRef, useState, ChangeEvent } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import getAspectRatio from "@/utils/getAspectRatio";
 import Resizer from "react-image-file-resizer";
+import getImageDimensions from "@/utils/getImageDimensions";
 import dynamic from "next/dynamic";
 
 const ExportAsPng = dynamic(() => import("@/components/Common/ExportAsPng"), {
@@ -32,7 +33,6 @@ interface IImage {
 
 const ImageResizer = (): JSX.Element => {
   const inputElRef = useRef<HTMLInputElement>(null);
-  const ogImageRef = useRef<HTMLImageElement>(null);
   const resizedImageRef = useRef<HTMLImageElement>(null);
   const [ogImage, setOgImage] = useState<IImage>();
   const [resizedImage, setResizedImage] = useState<IImage>();
@@ -60,22 +60,20 @@ const ImageResizer = (): JSX.Element => {
   };
 
   const handleOgImageLoad = (): void => {
-    if (!ogImageRef.current) return;
-    const ogImage = ogImageRef.current;
-    const { offsetWidth, offsetHeight } = ogImage;
-    const aspectRatio: number[] = getAspectRatio(offsetWidth, offsetHeight);
-    setOgImage(prev => ({ ...prev, offsetWidth, offsetHeight, aspectRatio }));
+    if (!ogImage?.src) return;
+    const [width, height] = getImageDimensions(ogImage!.src!);
+    const aspectRatio: number[] = getAspectRatio(width, height);
+    setOgImage(prev => ({ ...prev, width, height, aspectRatio }));
   };
 
   const handleResizedImageLoad = (): void => {
-    if (!resizedImageRef.current) return;
-    const resizedImage = resizedImageRef.current;
-    const { offsetWidth, offsetHeight } = resizedImage;
-    const aspectRatio: number[] = getAspectRatio(offsetWidth, offsetHeight);
+    if (!ogImage?.src) return;
+    const [width, height] = getImageDimensions(resizedImage!.src!);
+    const aspectRatio: number[] = getAspectRatio(width, height);
     setResizedImage(prev => ({
       ...prev,
-      offsetWidth,
-      offsetHeight,
+      width,
+      height,
       aspectRatio,
     }));
   };
@@ -105,7 +103,6 @@ const ImageResizer = (): JSX.Element => {
           <ChakraImage
             src={ogImage.src}
             alt={ogImage.alt}
-            ref={ogImageRef}
             onLoad={handleOgImageLoad}
           />
         )}
