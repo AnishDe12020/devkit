@@ -130,8 +130,14 @@ const ImageResizer = (): JSX.Element => {
           if (values.width <= 0) {
             errors.width = "Width must be greater than 0";
           }
+          if (values.width >= (ogImage?.width as number)) {
+            errors.width = "Width must be less than original image width";
+          }
           if (values.height <= 0) {
             errors.height = "Height must be greater than 0";
+          }
+          if (values.height >= (ogImage?.height as number)) {
+            errors.height = "Height must be less than original image height";
           }
           return errors;
         }}
