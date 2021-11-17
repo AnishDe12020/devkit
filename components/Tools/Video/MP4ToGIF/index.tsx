@@ -5,9 +5,14 @@ import { Box, Button, Image } from "@chakra-ui/react";
 import FileUpload from "@/components/Common/FileUpload";
 const ffmpeg = createFFmpeg({ log: true });
 
+interface IVideo {
+  videoFile: File;
+  videoURL: string;
+}
+
 const MP4ToGIF = (): JSX.Element => {
   const [ready, setReady] = useState(false);
-  const [video, setVideo] = useState<File>();
+  const [video, setVideo] = useState<IVideo>();
   const [gif, setGif] = useState<string>();
 
   const load: () => void = async () => {
@@ -27,11 +32,16 @@ const MP4ToGIF = (): JSX.Element => {
     const fileList = e.target.files;
     if (!fileList) return;
     const file = fileList[0];
-    setVideo(file);
+    setVideo({ videoFile: file, videoURL: URL.createObjectURL(file) });
   };
 
   const handleConvert: () => void = async () => {
-    ffmpeg.FS("writeFile", "toBeConverted.mp4", await fetchFile(video as File));
+    if (!video) return;
+    ffmpeg.FS(
+      "writeFile",
+      "toBeConverted.mp4",
+      await fetchFile(video?.videoFile as File)
+    );
     await ffmpeg.run("-i", "toBeConverted.mp4", "-f", "gif", "converted.gif");
     const data = ffmpeg.FS("readFile", "converted.gif");
 
@@ -41,7 +51,7 @@ const MP4ToGIF = (): JSX.Element => {
     setGif(url);
   };
 
-  return ready ? (
+  return (
     <>
       <FileUpload
         onChange={handleVideoUpload}
@@ -50,16 +60,18 @@ const MP4ToGIF = (): JSX.Element => {
       />
       {video && (
         <Box mt={4} maxW="500px">
-          <video controls src={URL.createObjectURL(video)} />
+          <video controls src={video?.videoURL} />
         </Box>
       )}
-      <Button onClick={handleConvert} mt={4} disabled={!ready}>
+      <Button
+        onClick={handleConvert}
+        mt={4}
+        disabled={!ready && !video?.videoURL}
+      >
         Convert to GIF
       </Button>
       {gif && <Image mt={4} src={gif} maxW="500px" alt="Converted GIF" />}
     </>
-  ) : (
-    <p>Loading...</p>
   );
 };
 
