@@ -66,7 +66,7 @@ const MP4ToGIF = (): JSX.Element => {
       <Button
         onClick={handleConvert}
         mt={4}
-        disabled={!ready && !video?.videoURL}
+        disabled={!ready || !video?.videoURL}
       >
         Convert to GIF
       </Button>
