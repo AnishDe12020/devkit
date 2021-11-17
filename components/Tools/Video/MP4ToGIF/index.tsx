@@ -1,7 +1,7 @@
 import { useState, useEffect, ChangeEvent } from "react";
 
 import { createFFmpeg, fetchFile } from "@ffmpeg/ffmpeg";
-import { Box, Button, Image } from "@chakra-ui/react";
+import { Box, Button, Image, Link } from "@chakra-ui/react";
 import FileUpload from "@/components/Common/FileUpload";
 const ffmpeg = createFFmpeg({ log: true });
 
@@ -64,15 +64,32 @@ const MP4ToGIF = (): JSX.Element => {
           <video controls src={video?.videoURL} />
         </Box>
       )}
+      <Box>
+        <Button
+          onClick={handleConvert}
+          mt={4}
+          disabled={!ready || !video?.videoURL}
+          w={{ base: "100%", md: "auto" }}
+        >
+          Convert to GIF
+        </Button>
+      </Box>
+      {gif && (
+        <Box mt={4} maxW="500px">
+          <Image src={gif} alt="Converted GIF" />
+        </Box>
+      )}
+
       <Button
-        onClick={handleConvert}
         mt={4}
-        disabled={!ready || !video?.videoURL}
+        as={Link}
+        href={gif}
+        download
+        disabled={!gif}
         w={{ base: "100%", md: "auto" }}
       >
-        Convert to GIF
+        Download GIF
       </Button>
-      {gif && <Image mt={4} src={gif} maxW="300px" alt="Converted GIF" />}
     </>
   );
 };
