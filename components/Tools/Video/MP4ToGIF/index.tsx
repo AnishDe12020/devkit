@@ -1,7 +1,16 @@
 import { useState, useEffect, ChangeEvent } from "react";
 
 import { createFFmpeg, fetchFile } from "@ffmpeg/ffmpeg";
-import { Box, Button, Image, Link, Progress, Textarea } from "@chakra-ui/react";
+import {
+  Alert,
+  AlertIcon,
+  Box,
+  Button,
+  Image,
+  Link,
+  Progress,
+  Textarea,
+} from "@chakra-ui/react";
 import FileUpload from "@/components/Common/FileUpload";
 const ffmpeg = createFFmpeg({ log: true });
 
@@ -65,6 +74,12 @@ const MP4ToGIF = (): JSX.Element => {
 
   return (
     <>
+      <Alert status="info" mb={4} borderRadius={8}>
+        <AlertIcon />
+        Conversions are done locally using FFMPEG.WASM and hence nothing is
+        uplaoded to the cloud and this can be done offline. That said this task
+        is quiet resource intensive.
+      </Alert>
       <FileUpload
         onChange={handleVideoUpload}
         label="Upload Video"
