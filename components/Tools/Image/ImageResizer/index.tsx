@@ -19,6 +19,7 @@ import getAspectRatio from "@/utils/getAspectRatio";
 import Resizer from "react-image-file-resizer";
 import getImageDimensions from "@/utils/getImageDimensions";
 import dynamic from "next/dynamic";
+import FileUpload from "@/components/Common/FileUpload";
 
 const ExportAsPng = dynamic(() => import("@/components/Common/ExportAsPng"), {
   ssr: false,
@@ -82,7 +83,7 @@ const ImageResizer = (): JSX.Element => {
 
   return (
     <Box>
-      <InputGroup>
+      {/* <InputGroup>
         <Button
           leftIcon={<FiUpload />}
           aria-label="Upload image"
@@ -99,7 +100,13 @@ const ImageResizer = (): JSX.Element => {
           ref={inputElRef}
           onChange={handleFileChange}
         />
-      </InputGroup>
+      </InputGroup> */}
+      <FileUpload
+        onChange={handleFileChange}
+        label="Upload Image"
+        accept="image/*"
+        mb={4}
+      />
       <>
         {ogImage?.src && (
           <ChakraImage
