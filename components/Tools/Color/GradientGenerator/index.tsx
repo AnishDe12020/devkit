@@ -103,7 +103,7 @@ const Gradient = (): JSX.Element => {
   };
 
   return (
-    <Center>
+    <Center mx={{ base: 2, md: 0 }}>
       <Flex flexDir="column" w="100%">
         <GradientPreview
           gradientCSS={gradient.css}
@@ -133,7 +133,7 @@ const Gradient = (): JSX.Element => {
             <SliderThumb bgGradient={gradient.css}></SliderThumb>
           </Slider>
         </Box>
-        <Grid templateColumns="repeat(2, 1fr)" gap={6}>
+        <Grid templateColumns="repeat(auto-fit, minmax(300px, 1fr))" gap={6}>
           {gradient.colors.map((color, index) => (
             <Color
               color={color}
@@ -150,13 +150,24 @@ const Gradient = (): JSX.Element => {
         <chakra.hr mt={4} />
 
         <HStack mt={4} spacing={4}>
-          <ExportAsUrl colors={gradient.colors} direction={gradient.direction}>
+          <ExportAsUrl
+            fontSize={{ base: "sm", md: "md" }}
+            colors={gradient.colors}
+            direction={gradient.direction}
+          >
             Export as URL
           </ExportAsUrl>
-          <CSSModal colors={gradient.colors} direction={gradient.direction}>
+          <CSSModal
+            fontSize={{ base: "sm", md: "md" }}
+            colors={gradient.colors}
+            direction={gradient.direction}
+          >
             Copy CSS
           </CSSModal>
-          <ExportAsPng componentRef={gradientComponentRef} />
+          <ExportAsPng
+            fontSize={{ base: "sm", md: "md" }}
+            componentRef={gradientComponentRef}
+          />
         </HStack>
       </Flex>
     </Center>
