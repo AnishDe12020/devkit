@@ -57,6 +57,7 @@ const MP4ToGIF = (): JSX.Element => {
         onChange={handleVideoUpload}
         label="Upload Video"
         accept="video/*"
+        w={{ base: "100%", md: "auto" }}
       />
       {video && (
         <Box mt={4} maxW="500px">
@@ -67,10 +68,11 @@ const MP4ToGIF = (): JSX.Element => {
         onClick={handleConvert}
         mt={4}
         disabled={!ready || !video?.videoURL}
+        w={{ base: "100%", md: "auto" }}
       >
         Convert to GIF
       </Button>
-      {gif && <Image mt={4} src={gif} maxW="500px" alt="Converted GIF" />}
+      {gif && <Image mt={4} src={gif} maxW="300px" alt="Converted GIF" />}
     </>
   );
 };
