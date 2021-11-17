@@ -1,7 +1,7 @@
 import { useState, useEffect, ChangeEvent } from "react";
 
 import { createFFmpeg, fetchFile } from "@ffmpeg/ffmpeg";
-import { Box, Button, Image, Link } from "@chakra-ui/react";
+import { Box, Button, Image, Link, Progress, Textarea } from "@chakra-ui/react";
 import FileUpload from "@/components/Common/FileUpload";
 const ffmpeg = createFFmpeg({ log: true });
 
@@ -14,14 +14,26 @@ const MP4ToGIF = (): JSX.Element => {
   const [ready, setReady] = useState(false);
   const [video, setVideo] = useState<IVideo>();
   const [gif, setGif] = useState<string>();
+  const [convertProgress, setConvertProgress] = useState(0);
+  const [convertLogs, setConvertLogs] = useState<string[]>([]);
 
   const load: () => void = async () => {
-    if (ffmpeg.isLoaded()) {
-      setReady(true);
-    } else {
+    if (!ffmpeg.isLoaded()) {
       await ffmpeg.load();
-      setReady(true);
     }
+
+    ffmpeg.setProgress(({ ratio }) => {
+      console.log(ratio);
+      if (ratio >= 0 && ratio <= 1) {
+        setConvertProgress(ratio * 100);
+      }
+    });
+
+    ffmpeg.setLogger(({ message }) => {
+      console.log(message);
+      setConvertLogs(prev => [...prev, message + "\n"]);
+    });
+    setReady(true);
   };
 
   useEffect(() => {
@@ -73,6 +85,13 @@ const MP4ToGIF = (): JSX.Element => {
         >
           Convert to GIF
         </Button>
+        <Textarea
+          mt={4}
+          isReadOnly
+          value={convertLogs}
+          placeholder="Conversion Logs"
+        />
+        <Progress mt={2} value={convertProgress} borderRadius={8} />
       </Box>
       {gif && (
         <Box mt={4} maxW="500px">
