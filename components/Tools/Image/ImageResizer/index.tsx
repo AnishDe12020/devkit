@@ -80,29 +80,12 @@ const ImageResizer = (): JSX.Element => {
 
   return (
     <Box>
-      {/* <InputGroup>
-        <Button
-          leftIcon={<FiUpload />}
-          aria-label="Upload image"
-          onClick={() => inputElRef.current?.click()}
-          mb={4}
-        >
-          Upload Image
-        </Button>
-        <Input
-          type="file"
-          accept="image/*"
-          multiple={false}
-          hidden
-          ref={inputElRef}
-          onChange={handleFileChange}
-        />
-      </InputGroup> */}
       <FileUpload
         onChange={handleFileChange}
         label="Upload Image"
         accept="image/*"
         mb={4}
+        w={{ base: "100%", md: "auto" }}
       />
       <>
         {ogImage?.src && (
@@ -275,6 +258,7 @@ const ImageResizer = (): JSX.Element => {
         componentRef={resizedImageRef}
         disabled={!resizedImage?.src}
         mt={4}
+        w={{ base: "100%", md: "auto" }}
       />
     </Box>
   );
