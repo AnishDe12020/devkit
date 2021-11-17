@@ -1,7 +1,6 @@
 import {
   Input,
   Box,
-  InputGroup,
   Button,
   Image as ChakraImage,
   Text,
@@ -12,7 +11,6 @@ import {
   chakra,
   FormControl,
 } from "@chakra-ui/react";
-import { FiUpload } from "react-icons/fi";
 import { useRef, useState, ChangeEvent } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import getAspectRatio from "@/utils/getAspectRatio";
@@ -35,7 +33,6 @@ interface IImage {
 }
 
 const ImageResizer = (): JSX.Element => {
-  const inputElRef = useRef<HTMLInputElement>(null);
   const resizedImageRef = useRef<HTMLImageElement>(null);
   const [ogImage, setOgImage] = useState<IImage>();
   const [resizedImage, setResizedImage] = useState<IImage>();
