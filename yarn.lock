@@ -1745,10 +1745,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@ffmpeg/core@^0.8.3":
-  version "0.8.5"
-  resolved "https://registry.yarnpkg.com/@ffmpeg/core/-/core-0.8.5.tgz#2d0b7d4409a4348fa6a1888c247de706ffc0e63f"
-  integrity sha512-hemVFmhVLbD/VZaCG2BvCzFglKytMIMJ5aJfc12eXN4O4cG0wXnGTMVzlK1KKW/6viHhJMPkc9h4UDnJW8Uivg==
+"@ffmpeg/core@^0.10.0":
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/@ffmpeg/core/-/core-0.10.0.tgz#f6a58361b22d7c23c6f7071b9fff6d572bc3f499"
+  integrity sha512-qunWJl5PezpXEm31tb8Qu5z37B5KVA1VYZCpXchMhuAb3X9T7PuE3SlhOwphEoRhzaOa3lpofDfzihAUMFaVPQ==
 
 "@ffmpeg/ffmpeg@^0.10.1":
   version "0.10.1"
