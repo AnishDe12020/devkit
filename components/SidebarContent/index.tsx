@@ -13,7 +13,7 @@ import categories from "@/data/categories";
 import tools from "@/data/tools";
 import Fuse from "fuse.js";
 
-import CategoryComponent from "@/components/SidebarContent/Category";
+import CategoryComponent from "@/components/SidebarContent/CategoryComponent";
 import SidebarLink from "@/components/SidebarContent/SidebarLink";
 import ChangeColorModeButton from "../Common/ChangeColorModeButton";
 
