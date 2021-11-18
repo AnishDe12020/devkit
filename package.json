@@ -19,7 +19,7 @@
     "prepare": "node ./scripts/prepare.js"
   },
   "dependencies": {
-    "@chakra-ui/react": "^1.6.10",
+    "@chakra-ui/react": "^1.7.2",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@ffmpeg/core": "^0.10.0",
