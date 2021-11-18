@@ -5,9 +5,13 @@ import { useRouter } from "next/router";
 
 interface CategoryProps {
   category: Category;
+  onClose: () => void;
 }
 
-const CategoryComponent = ({ category }: CategoryProps): JSX.Element => {
+const CategoryComponent = ({
+  category,
+  onClose,
+}: CategoryProps): JSX.Element => {
   const categoryTitle = useColorModeValue("gray.800", "gray.200");
   const router = useRouter();
   return (
@@ -26,6 +30,7 @@ const CategoryComponent = ({ category }: CategoryProps): JSX.Element => {
             key={tool.id}
             href={`/${category.slug}/${tool.slug}`}
             active={tool.slug === router.query?.slug?.[1]}
+            onClose={onClose}
           >
             {tool.name}
           </SidebarLink>

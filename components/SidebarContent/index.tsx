@@ -69,6 +69,7 @@ const SidebarContent = ({
           active={undefined === router.query?.slug}
           ml={0}
           fontSize={["lg", "xl"]}
+          onClose={onClose}
         >
           Home
         </SidebarLink>
@@ -86,12 +87,17 @@ const SidebarContent = ({
                 active={false}
                 href={`${tool.item.categorySlug}/${tool.item.slug}`}
                 key={tool.refIndex}
+                onClose={onClose}
               >
                 {tool.item.name}
               </SidebarLink>
             ))
           : categories.map(category => (
-              <CategoryComponent key={category.id} category={category} />
+              <CategoryComponent
+                key={category.id}
+                category={category}
+                onClose={onClose}
+              />
             ))}
       </Flex>
     </Box>

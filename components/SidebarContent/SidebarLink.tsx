@@ -7,6 +7,7 @@ interface SidebarLinkProps {
   active: boolean;
   children: ReactNode;
   key?: any;
+  onClose: () => void;
   [key: string]: any;
 }
 
@@ -14,6 +15,7 @@ const SidebarLink = ({
   href,
   active,
   children,
+  onClose,
   ...otherProps
 }: SidebarLinkProps): JSX.Element => {
   const primaryColor = useColorModeValue("green.600", "green.400");
@@ -32,6 +34,7 @@ const SidebarLink = ({
         bg={active ? secondaryBg : undefined}
         fontWeight={active ? "semibold" : "normal"}
         color={active ? secondaryColor : primaryColor}
+        onClick={onClose}
         _hover={{
           bg: secondaryBg,
           color: secondaryColor,
