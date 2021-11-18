@@ -1,4 +1,11 @@
-import { Box, Flex, CloseButton, Input, BoxProps } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  CloseButton,
+  Input,
+  BoxProps,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -8,6 +15,7 @@ import Fuse from "fuse.js";
 
 import CategoryComponent from "@/components/SidebarContent/Category";
 import SidebarLink from "@/components/SidebarContent/SidebarLink";
+import ChangeColorModeButton from "../Common/ChangeColorModeButton";
 
 interface SidebarContentProps extends BoxProps {
   onClose: () => void;
@@ -45,9 +53,14 @@ const SidebarContent = ({
       <Flex
         display={{ base: "flex", md: "none" }}
         justifyContent="flex-end"
-        mr={8}
+        mr={6}
         mt={2}
       >
+        <ChangeColorModeButton
+          aria-label={"Toggle Color Mode"}
+          size={useBreakpointValue({ base: "sm", md: "md" })}
+          mr={2}
+        />
         <CloseButton onClick={onClose} />
       </Flex>
       <Flex mt={2} flexDir={"column"}>

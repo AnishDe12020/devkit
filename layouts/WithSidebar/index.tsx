@@ -7,11 +7,11 @@ import {
   DrawerOverlay,
   Heading,
   useDisclosure,
-  useColorMode,
   useBreakpointValue,
 } from "@chakra-ui/react";
 import SidebarContent from "@/components/SidebarContent";
-import { FiMenu, FiMoon, FiSun } from "react-icons/fi";
+import { FiMenu } from "react-icons/fi";
+import ChangeColorModeButton from "@/components/Common/ChangeColorModeButton";
 
 interface WithSidebarProps {
   title?: string;
@@ -20,7 +20,6 @@ interface WithSidebarProps {
 
 const WithSidebar = ({ title, children }: WithSidebarProps): JSX.Element => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Box
       as="section"
@@ -42,7 +41,7 @@ const WithSidebar = ({ title, children }: WithSidebarProps): JSX.Element => {
         <Flex
           as="header"
           align="center"
-          justify="space-between"
+          justify={{ base: "flex-end", md: "space-between" }}
           w="full"
           px="4"
           h="14"
@@ -50,22 +49,19 @@ const WithSidebar = ({ title, children }: WithSidebarProps): JSX.Element => {
           <Heading display={{ base: "none", md: "block" }}>
             {title || ""}
           </Heading>
+
+          <ChangeColorModeButton
+            aria-label={"Toggle Color Mode"}
+            size={useBreakpointValue({ base: "sm", md: "md" })}
+          />
           <IconButton
             aria-label="Menu"
             display={{ base: "inline-flex", md: "none" }}
             onClick={onOpen}
             icon={<FiMenu />}
             size="sm"
+            ml={4}
           />
-
-          <Flex align="center">
-            <IconButton
-              onClick={toggleColorMode}
-              icon={colorMode === "light" ? <FiSun /> : <FiMoon />}
-              aria-label={"Toggle Color Mode"}
-              size={useBreakpointValue({ base: "sm", md: "md" })}
-            />
-          </Flex>
         </Flex>
 
         <Box as="main" p="4">
