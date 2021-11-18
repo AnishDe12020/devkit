@@ -8,6 +8,7 @@ import {
   Heading,
   useDisclosure,
   useBreakpointValue,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import SidebarContent from "@/components/SidebarContent";
 import { FiMenu } from "react-icons/fi";
@@ -20,6 +21,7 @@ interface WithSidebarProps {
 
 const WithSidebar = ({ title, children }: WithSidebarProps): JSX.Element => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const drawerBgColor = useColorModeValue("white", "gray.800");
   return (
     <Box
       as="section"
@@ -33,7 +35,7 @@ const WithSidebar = ({ title, children }: WithSidebarProps): JSX.Element => {
       />
       <Drawer isOpen={isOpen} onClose={onClose} placement="left" size="full">
         <DrawerOverlay />
-        <DrawerContent>
+        <DrawerContent bgColor={drawerBgColor}>
           <SidebarContent w="full" borderRight="none" onClose={onClose} />
         </DrawerContent>
       </Drawer>
