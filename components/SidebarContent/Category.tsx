@@ -13,7 +13,12 @@ const CategoryComponent = ({ category }: CategoryProps): JSX.Element => {
   return (
     <Box mt={2}>
       <VStack align="start">
-        <Text color={categoryTitle} fontSize="3xl" ml={2} fontWeight="semibold">
+        <Text
+          color={categoryTitle}
+          fontSize={["lg", "xl"]}
+          ml={{ base: 1, md: 2 }}
+          fontWeight="semibold"
+        >
           {category.name}
         </Text>
         {category.children.map(tool => (

@@ -23,11 +23,11 @@ const SidebarLink = ({
   return (
     <NextLink href={href} passHref>
       <Link
-        fontSize="md"
+        fontSize={["sm", "md"]}
         rounded="md"
-        px={3}
+        px={[2, 3]}
         py={2}
-        ml={2}
+        ml={{ base: 1, md: 2 }}
         w={{ base: 60, md: 48 }}
         bg={active ? secondaryBg : undefined}
         fontWeight={active ? "semibold" : "normal"}

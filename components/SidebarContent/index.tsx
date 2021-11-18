@@ -50,19 +50,19 @@ const SidebarContent = ({
       >
         <CloseButton onClick={onClose} />
       </Flex>
-      <Flex mt={4} flexDir={"column"}>
+      <Flex mt={2} flexDir={"column"}>
         <SidebarLink
           href="/"
           active={undefined === router.query?.slug}
           ml={0}
-          fontSize="xl"
+          fontSize={["lg", "xl"]}
         >
           Home
         </SidebarLink>
         <Input
           value={query}
           onChange={handleQueryChange}
-          mt={4}
+          mt={{ base: 2, md: 4 }}
           w={{ base: 60, md: 48 }}
           placeholder="Search Tools"
           mb={results.length > 0 ? 4 : 0}
