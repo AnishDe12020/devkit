@@ -7,6 +7,7 @@ const MP4ToGIF: Tool = {
     "Converts a given MP4 video file to a GIF by using FFMPEG, locally",
   componentFileName: "MP4ToGIF",
   slug: "mp4-gif",
+  categorySlug: "video",
 };
 
 export default MP4ToGIF;

@@ -4,6 +4,7 @@ export interface Tool {
   description: string;
   componentFileName: string;
   slug: string;
+  categorySlug: string;
 }
 
 export interface Category {

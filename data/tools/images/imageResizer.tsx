@@ -6,6 +6,7 @@ const ImageResizer: Tool = {
   description: "Resizes images to a given value",
   componentFileName: "ImageResizer",
   slug: "image-resizer",
+  categorySlug: "image",
 };
 
 export default ImageResizer;

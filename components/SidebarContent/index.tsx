@@ -1,7 +1,10 @@
-import { Box, Flex, CloseButton, BoxProps } from "@chakra-ui/react";
+import { Box, Flex, CloseButton, Input, BoxProps } from "@chakra-ui/react";
 
 import { useRouter } from "next/router";
+import { useState } from "react";
 import categories from "@/data/categories";
+import tools from "@/data/tools";
+import Fuse from "fuse.js";
 
 import CategoryComponent from "@/components/SidebarContent/Category";
 import SidebarLink from "@/components/SidebarContent/SidebarLink";
@@ -15,6 +18,17 @@ const SidebarContent = ({
   ...otherProps
 }: SidebarContentProps): JSX.Element => {
   const router = useRouter();
+  const [query, setQuery] = useState<string>("");
+
+  const handleQueryChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setQuery(e.target.value);
+  };
+
+  const fuse = new Fuse(tools, {
+    keys: ["name", "slug", "description"],
+  });
+
+  const results = fuse.search(query);
 
   return (
     <Box
@@ -45,9 +59,27 @@ const SidebarContent = ({
         >
           Home
         </SidebarLink>
-        {categories.map(category => (
-          <CategoryComponent key={category.id} category={category} />
-        ))}
+        <Input
+          value={query}
+          onChange={handleQueryChange}
+          mt={4}
+          w={{ base: 60, md: 48 }}
+          placeholder="Search Tools"
+          mb={results.length > 0 ? 4 : 0}
+        />
+        {results.length > 0
+          ? results.map(tool => (
+              <SidebarLink
+                active={false}
+                href={`${tool.item.categorySlug}/${tool.item.slug}`}
+                key={tool.refIndex}
+              >
+                {tool.item.name}
+              </SidebarLink>
+            ))
+          : categories.map(category => (
+              <CategoryComponent key={category.id} category={category} />
+            ))}
       </Flex>
     </Box>
   );

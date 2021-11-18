@@ -6,6 +6,7 @@ const GradientGenerator: Tool = {
   description: "Creates a gradient from one color to another",
   componentFileName: "GradientGenerator",
   slug: "gradient-generator",
+  categorySlug: "color",
 };
 
 export default GradientGenerator;
