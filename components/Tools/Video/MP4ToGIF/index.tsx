@@ -77,7 +77,7 @@ const MP4ToGIF = (): JSX.Element => {
       <Alert status="info" mb={4} borderRadius={8}>
         <AlertIcon />
         Conversions are done locally using FFMPEG.WASM and hence nothing is
-        uplaoded to the cloud and this can be done offline. That said this task
+        uploaded to the cloud and this can be done offline. That said this task
         is quiet resource intensive.
       </Alert>
       <FileUpload
