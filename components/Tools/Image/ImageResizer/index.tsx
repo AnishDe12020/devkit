@@ -61,7 +61,9 @@ const ImageResizer = (): JSX.Element => {
 
   const handleOgImageLoad = (): void => {
     if (!ogImage?.src) return;
-    const [width, height] = getImageDimensions(ogImage!.src!);
+
+    const [width, height] = getImageDimensions(ogImage.src);
+
     const aspectRatio: number[] = getAspectRatio(width, height);
     setOgImage(prev => ({ ...prev, width, height, aspectRatio }));
   };
@@ -94,7 +96,7 @@ const ImageResizer = (): JSX.Element => {
             alt={ogImage.alt}
             onLoad={handleOgImageLoad}
             maxHeight="300px"
-            maxWidth="500px"
+            maxWidth={{ base: "70vw", md: "50vw" }}
           />
         )}
         {ogImage?.height && ogImage?.width && ogImage?.aspectRatio && (
@@ -161,19 +163,6 @@ const ImageResizer = (): JSX.Element => {
             "file"
           );
 
-          Resizer.imageFileResizer(
-            ogImage?.file as File,
-            values.width,
-            values.height,
-            "JPEG",
-            100,
-            0,
-            (uri: any) => {
-              console.log(uri);
-            },
-            "base64"
-          );
-
           setSubmitting(false);
         }}
       >
@@ -235,7 +224,7 @@ const ImageResizer = (): JSX.Element => {
               ref={resizedImageRef}
               onLoad={handleResizedImageLoad}
               maxHeight="300px"
-              maxWidth="500px"
+              maxWidth={{ base: "70vw", md: "50vw" }}
             />
           )}
           {resizedImage?.height &&
