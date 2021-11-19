@@ -13,6 +13,7 @@ import {
 import SidebarContent from "@/components/SidebarContent";
 import { FiMenu } from "react-icons/fi";
 import ChangeColorModeButton from "@/components/Common/ChangeColorModeButton";
+import { useRef } from "react";
 
 interface WithSidebarProps {
   title?: string;
@@ -22,6 +23,8 @@ interface WithSidebarProps {
 const WithSidebar = ({ title, children }: WithSidebarProps): JSX.Element => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const drawerBgColor = useColorModeValue("white", "gray.800");
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
   return (
     <Box
       as="section"
@@ -33,10 +36,21 @@ const WithSidebar = ({ title, children }: WithSidebarProps): JSX.Element => {
         display={{ base: "none", md: "unset" }}
         onClose={() => onClose}
       />
-      <Drawer isOpen={isOpen} onClose={onClose} placement="left" size="full">
+      <Drawer
+        isOpen={isOpen}
+        onClose={onClose}
+        placement="left"
+        size="full"
+        initialFocusRef={closeButtonRef}
+      >
         <DrawerOverlay />
         <DrawerContent bgColor={drawerBgColor}>
-          <SidebarContent w="full" borderRight="none" onClose={onClose} />
+          <SidebarContent
+            w="full"
+            borderRight="none"
+            onClose={onClose}
+            closeButtonRef={closeButtonRef}
+          />
         </DrawerContent>
       </Drawer>
       <Box ml={{ base: 0, md: 60 }} transition=".3s ease">

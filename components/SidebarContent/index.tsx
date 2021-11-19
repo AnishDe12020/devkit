@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/react";
 
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, RefObject, ChangeEvent } from "react";
 import categories from "@/data/categories";
 import tools from "@/data/tools";
 import Fuse from "fuse.js";
@@ -19,16 +19,18 @@ import ChangeColorModeButton from "../Common/ChangeColorModeButton";
 
 interface SidebarContentProps extends BoxProps {
   onClose: () => void;
+  closeButtonRef?: RefObject<HTMLButtonElement>;
 }
 
 const SidebarContent = ({
   onClose,
+  closeButtonRef,
   ...otherProps
 }: SidebarContentProps): JSX.Element => {
   const router = useRouter();
   const [query, setQuery] = useState<string>("");
 
-  const handleQueryChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleQueryChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setQuery(e.target.value);
   };
 
@@ -61,7 +63,7 @@ const SidebarContent = ({
           size={useBreakpointValue({ base: "sm", md: "md" })}
           mr={2}
         />
-        <CloseButton onClick={onClose} />
+        <CloseButton onClick={onClose} ref={closeButtonRef} />
       </Flex>
       <Flex mt={2} flexDir={"column"}>
         <SidebarLink
