@@ -1,5 +1,7 @@
-import { Box, chakra, useColorModeValue } from "@chakra-ui/react";
+import { Box, Grid, chakra, useColorModeValue } from "@chakra-ui/react";
 import DevKitLogo from "@/styles/icons/DevKitLogo";
+import Tool from "./Tool";
+import tools from "@/data/tools";
 
 interface HomeComponentProps {
   [x: string]: any;
@@ -56,6 +58,19 @@ const HomeComponent = (props: HomeComponentProps): JSX.Element => (
             </chakra.span>
           </chakra.h1>
         </Box>
+        <Grid
+          mt={16}
+          justifyItems="center"
+          templateColumns="repeat(auto-fit, minmax(300px, 1fr))"
+        >
+          {tools.map(tool => (
+            <Tool
+              key={tool.name}
+              toolName={tool.name}
+              href={`${tool.categorySlug}/${tool.slug}`}
+            />
+          ))}
+        </Grid>
       </Box>
     </Box>
   </Box>
