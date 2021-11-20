@@ -1,10 +1,4 @@
-import {
-  Button,
-  Link,
-  ButtonProps,
-  chakra,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Button, Link, ButtonProps, useColorModeValue } from "@chakra-ui/react";
 import NextLink from "next/link";
 
 interface ToolComponentProps extends ButtonProps {
@@ -23,10 +17,12 @@ const Tool = ({ toolName, href, ...otherProps }: ToolComponentProps) => (
       alignContent="center"
       as={Link}
       my={4}
+      fontSize="lg"
+      fontWeight="bold"
+      lineHeight="6"
+      {...otherProps}
     >
-      <chakra.dt fontSize="lg" fontWeight="bold" lineHeight="6">
-        {toolName}
-      </chakra.dt>
+      {toolName}
     </Button>
   </NextLink>
 );
