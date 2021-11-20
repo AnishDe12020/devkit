@@ -168,7 +168,7 @@ const ImageResizer = (): JSX.Element => {
       >
         {({ isSubmitting }) => (
           <Form>
-            <Flex alignContent="center" verticalAlign="center" my={4}>
+            <Flex alignContent="center" verticalAlign="center" mt={4} mb={2}>
               <HStack lineHeight="40px">
                 <FormControl>
                   <Input
@@ -198,17 +198,18 @@ const ImageResizer = (): JSX.Element => {
                   <ErrorMessage name="height" />
                 </FormControl>
               </HStack>
-              <Button
-                ml={2}
-                p={2}
-                isLoading={isSubmitting}
-                type="submit"
-                disabled={!ogImage?.src}
-              >
-                Resize
-              </Button>
             </Flex>
-            <Alert status="info" mb={4} borderRadius={8}>
+            <Button
+              my={{ base: 2, md: 4 }}
+              p={2}
+              isLoading={isSubmitting}
+              type="submit"
+              disabled={!ogImage?.src}
+              w={{ base: "100%", md: "auto" }}
+            >
+              Resize
+            </Button>
+            <Alert status="info" mb={4} mt={2} borderRadius={8}>
               <AlertIcon />
               Images can only be downscaled
             </Alert>
