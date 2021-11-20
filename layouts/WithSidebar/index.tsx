@@ -39,7 +39,7 @@ const WithSidebar = ({ title, children }: WithSidebarProps): JSX.Element => {
       <Drawer
         isOpen={isOpen}
         onClose={onClose}
-        placement="left"
+        placement="right"
         size="full"
         initialFocusRef={closeButtonRef}
       >
