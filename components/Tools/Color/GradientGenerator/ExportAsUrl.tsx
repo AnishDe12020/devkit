@@ -21,7 +21,7 @@ interface ExportAsUrlProps {
   [x: string]: any;
 }
 
-const BASE_URL = "https://devkit.vercel.app/color/gradient-generator";
+const BASE_URL = "https://www.devkit.one/color/gradient-generator";
 
 const ExportAsUrl = (props: ExportAsUrlProps): JSX.Element => {
   let { colors, direction, children, ...otherProps } = props;
