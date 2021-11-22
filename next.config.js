@@ -32,15 +32,6 @@ module.exports = withPWA({
           },
         ],
       },
-      {
-        source: "/(.*)",
-        headers: [
-          {
-            key: "Content-Security-Policy",
-            value: "script-src 'self' vitals.vercel-insights.com",
-          },
-        ],
-      },
     ];
   },
 });
