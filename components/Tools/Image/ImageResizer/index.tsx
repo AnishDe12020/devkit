@@ -104,11 +104,11 @@ const ImageResizer = (): JSX.Element => {
             <Text
               mt={4}
               fontSize="xl"
-            >{`Original Image Dimensions: ${ogImage.width}x${ogImage.height}`}</Text>
+            >{`Original Image Dimensions- ${ogImage.width}×${ogImage.height}`}</Text>
             <Text
               mt={4}
               fontSize="xl"
-            >{`Original Image Aspect Ratio: ${ogImage.aspectRatio[0]}x${ogImage.aspectRatio[1]}`}</Text>
+            >{`Original Image Aspect Ratio- ${ogImage.aspectRatio[0]}:${ogImage.aspectRatio[1]}`}</Text>
           </>
         )}
       </>
@@ -235,11 +235,11 @@ const ImageResizer = (): JSX.Element => {
                 <Text
                   mt={4}
                   fontSize="xl"
-                >{`Resized Image Dimensions: ${resizedImage.width}x${resizedImage.height}`}</Text>
+                >{`Resized Image Dimensions- ${resizedImage.width}×${resizedImage.height}`}</Text>
                 <Text
                   mt={4}
                   fontSize="xl"
-                >{`Resized Image Aspect Ratio: ${resizedImage.aspectRatio[0]}x${resizedImage.aspectRatio[1]}`}</Text>
+                >{`Resized Image Aspect Ratio- ${resizedImage.aspectRatio[0]}:${resizedImage.aspectRatio[1]}`}</Text>
               </>
             )}
         </>
