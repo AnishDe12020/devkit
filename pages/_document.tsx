@@ -30,12 +30,6 @@ class MyDocument extends Document {
           />
           <meta name="full-screen" content="yes" />
           <meta name="browsermode" content="application" />
-          <script
-            async
-            defer
-            data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
-            src={process.env.NEXT_PUBLIC_UMAMI_JS_URL}
-          />
         </Head>
         <body>
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
