@@ -1,8 +1,8 @@
-export default {
+const seoConfig = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://devkit.vercel.app/",
+    url: "https://www.devkit.one/",
     site_name: "DevKit",
     title: "DevKit",
     description: "Tools for developers, by developers",
@@ -16,8 +16,10 @@ export default {
     ],
   },
   twitter: {
-    handle: "@AnishDe12020",
-    site: "@AnishDe12020",
+    handle: "@DevKitHQ",
+    site: "@DevKitHQ",
     cardType: "summary_large_image",
   },
 };
+
+export default seoConfig;
