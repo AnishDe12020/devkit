@@ -1,5 +1,6 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import Head from "next/head";
+import { NextSeo } from "next-seo";
+
 import categories from "@/data/categories";
 import dynamic from "next/dynamic";
 import { Category, Tool } from "@/data/types";
@@ -9,32 +10,53 @@ interface ToolsPageProps {
   categoryFolderName: string;
   toolFileName: string;
   toolName: string;
+  toolDescription: string;
+  path: string;
 }
 
 const Tools: NextPage<ToolsPageProps> = ({
   categoryFolderName,
   toolFileName,
   toolName,
+  toolDescription,
+  path,
 }: ToolsPageProps) => {
   const ToolComponent = dynamic(
     () => import(`@/components/Tools/${categoryFolderName}/${toolFileName}`)
   );
 
   return (
-    <div>
-      <Head>
-        <title>DevKit</title>
-        <meta
-          name="description"
-          content="Tools for developers, by developers"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+    <>
+      <NextSeo
+        title={`${toolName} | DevKit`}
+        description={toolDescription}
+        openGraph={{
+          url: `https://www.devkit.one/${path}`,
+          title: `${toolName} | DevKit`,
+          description: toolDescription,
+          site_name: toolName,
+          type: "website",
+          locale: "en_US",
+          images: [
+            {
+              url: "https://i.imgur.com/Opo96rx.png",
+              width: 1200,
+              height: 627,
+              alt: "DevKit OG Image",
+              type: "image/png",
+            },
+          ],
+        }}
+        twitter={{
+          handle: "@DevKitHQ",
+          site: "@DevKitHQ",
+          cardType: "summary_large_image",
+        }}
+      />
       <WithSidebar title={toolName}>
         <ToolComponent />
       </WithSidebar>
-    </div>
+    </>
   );
 };
 
@@ -54,12 +76,16 @@ export const getStaticProps: GetStaticProps<
 
   const toolFileName: string = toolObject.componentFileName;
   const toolName: string = toolObject.name;
+  const toolDescription: string = toolObject.description;
+  const path: string = `${params!.slug[0]}/${params!.slug[1]}`;
 
   return {
     props: {
       categoryFolderName,
       toolFileName,
       toolName,
+      toolDescription,
+      path,
     },
   };
 };

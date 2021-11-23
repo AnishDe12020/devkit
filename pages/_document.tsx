@@ -20,6 +20,7 @@ class MyDocument extends Document {
         <Head>
           <link rel="manifest" href="/manifest.json" />
           <link rel="apple-touch-icon" href="/logo-512x512.png" />
+          <link rel="icon" href="/favicon.ico" />
           <meta name="theme-color" content="#000000" />
           <meta name="mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-title" content="DevKit" />
