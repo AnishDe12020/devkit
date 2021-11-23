@@ -3,8 +3,11 @@ import {
   Flex,
   CloseButton,
   Input,
+  Link,
+  Icon,
   BoxProps,
   useBreakpointValue,
+  useColorModeValue,
 } from "@chakra-ui/react";
 
 import { useRouter } from "next/router";
@@ -16,6 +19,7 @@ import Fuse from "fuse.js";
 import CategoryComponent from "@/components/SidebarContent/CategoryComponent";
 import SidebarLink from "@/components/SidebarContent/SidebarLink";
 import ChangeColorModeButton from "../Common/ChangeColorModeButton";
+import { SiGithub, SiTwitter } from "react-icons/si";
 
 interface SidebarContentProps extends BoxProps {
   onClose: () => void;
@@ -55,13 +59,40 @@ const SidebarContent = ({
       <Flex
         display={{ base: "flex", md: "none" }}
         justifyContent="flex-end"
+        alignItems="center"
         mr={6}
         mt={2}
       >
+        <Link isExternal href="https://github.com/AnishDe12020/devkit">
+          <Icon
+            as={SiGithub}
+            w="5"
+            h="5"
+            _hover={{
+              opacity: 0.7,
+            }}
+            display="block"
+            color={useColorModeValue("gray.700", "gray.400")}
+          />
+        </Link>
+        <Link isExternal href="https://twitter.com/DevKitHQ">
+          <Icon
+            as={SiTwitter}
+            w="5"
+            h="5"
+            _hover={{
+              opacity: 0.7,
+            }}
+            display="block"
+            color={useColorModeValue("gray.700", "gray.400")}
+            ml={4}
+          />
+        </Link>
         <ChangeColorModeButton
           aria-label={"Toggle Color Mode"}
           size={useBreakpointValue({ base: "sm", md: "md" })}
-          mr={2}
+          mr={4}
+          ml={4}
         />
         <CloseButton onClick={onClose} ref={closeButtonRef} />
       </Flex>

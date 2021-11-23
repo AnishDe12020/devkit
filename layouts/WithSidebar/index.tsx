@@ -5,15 +5,18 @@ import {
   Drawer,
   DrawerContent,
   DrawerOverlay,
+  Link,
   Heading,
   useDisclosure,
   useBreakpointValue,
   useColorModeValue,
+  Icon,
 } from "@chakra-ui/react";
 import SidebarContent from "@/components/SidebarContent";
 import { FiMenu } from "react-icons/fi";
 import ChangeColorModeButton from "@/components/Common/ChangeColorModeButton";
 import { useRef } from "react";
+import { SiGithub, SiTwitter } from "react-icons/si";
 
 interface WithSidebarProps {
   title?: string;
@@ -66,10 +69,38 @@ const WithSidebar = ({ title, children }: WithSidebarProps): JSX.Element => {
             {title || ""}
           </Heading>
 
-          <ChangeColorModeButton
-            aria-label={"Toggle Color Mode"}
-            size={useBreakpointValue({ base: "sm", md: "md" })}
-          />
+          <Flex alignItems="center">
+            <Link isExternal href="https://github.com/AnishDe12020/devkit">
+              <Icon
+                as={SiGithub}
+                w="5"
+                h="5"
+                _hover={{
+                  opacity: 0.7,
+                }}
+                display="block"
+                color={useColorModeValue("gray.700", "gray.400")}
+              />
+            </Link>
+            <Link isExternal href="https://twitter.com/DevKitHQ">
+              <Icon
+                as={SiTwitter}
+                w="5"
+                h="5"
+                _hover={{
+                  opacity: 0.7,
+                }}
+                display="block"
+                color={useColorModeValue("gray.700", "gray.400")}
+                ml={4}
+              />
+            </Link>
+            <ChangeColorModeButton
+              ml={4}
+              aria-label={"Toggle Color Mode"}
+              size={useBreakpointValue({ base: "sm", md: "md" })}
+            />
+          </Flex>
           <IconButton
             aria-label="Menu"
             display={{ base: "inline-flex", md: "none" }}
