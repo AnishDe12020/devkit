@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "gouravkhunger",
+      "name": "Gourav Khunger",
+      "avatar_url": "https://avatars.githubusercontent.com/u/46792249?v=4",
+      "profile": "https://gouravkhunger.xyz",
+      "contributions": [
+        "content"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "devkit",
+  "projectOwner": "AnishDe12020",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
