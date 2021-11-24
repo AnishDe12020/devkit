@@ -1,6 +1,6 @@
 import { Tool } from "@/data/types";
 
-const MP4ToGIF: Tool = {
+const GIFToMP4: Tool = {
   id: 2,
   name: "GIF To MP4",
   description:
@@ -10,4 +10,4 @@ const MP4ToGIF: Tool = {
   categorySlug: "video",
 };
 
-export default MP4ToGIF;
+export default GIFToMP4;

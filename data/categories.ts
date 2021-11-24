@@ -2,7 +2,8 @@ import { Category } from "@/data/types";
 
 import gradientGenerator from "@/data/tools/color/gradeintGenerator";
 import ImageResizer from "@/data/tools/images/imageResizer";
-import MP4ToGIF from "./tools/video/mp4ToGif";
+import MP4ToGIF from "@/data/tools/video/mp4ToGif";
+import GIFToMP4 from "@/data/tools/video/gifToMP4";
 
 const categories: Category[] = [
   {
@@ -22,7 +23,7 @@ const categories: Category[] = [
   {
     id: 3,
     name: "Video",
-    children: [MP4ToGIF],
+    children: [MP4ToGIF, GIFToMP4],
     slug: "video",
     directory: "Video",
   },
