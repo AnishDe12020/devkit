@@ -10,7 +10,11 @@ import { HiMail } from "react-icons/hi";
 
 const Socials = (props: StackProps): JSX.Element => (
   <HStack spacing={4} {...props}>
-    <Link isExternal href="https://github.com/AnishDe12020/devkit">
+    <Link
+      aria-label="GitHub"
+      isExternal
+      href="https://github.com/AnishDe12020/devkit"
+    >
       <Icon
         as={SiGithub}
         w="5"
@@ -20,9 +24,10 @@ const Socials = (props: StackProps): JSX.Element => (
         }}
         display="block"
         color={useColorModeValue("gray.700", "gray.400")}
+        aria-label="Github"
       />
     </Link>
-    <Link isExternal href="https://twitter.com/DevKitHQ">
+    <Link aria-label="Twitter" isExternal href="https://twitter.com/DevKitHQ">
       <Icon
         as={SiTwitter}
         w="5"
@@ -32,9 +37,10 @@ const Socials = (props: StackProps): JSX.Element => (
         }}
         display="block"
         color={useColorModeValue("gray.700", "gray.400")}
+        aria-label="Twitter"
       />
     </Link>
-    <Link isExternal href="mailto:contact@devkit.one">
+    <Link aria-label="Email" isExternal href="mailto:contact@devkit.one">
       <Icon
         as={HiMail}
         w="5"
@@ -44,6 +50,7 @@ const Socials = (props: StackProps): JSX.Element => (
         }}
         display="block"
         color={useColorModeValue("gray.700", "gray.400")}
+        aria-label="Email"
       />
     </Link>
   </HStack>
