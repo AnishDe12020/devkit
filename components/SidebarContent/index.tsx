@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/react";
 
 import { useRouter } from "next/router";
-import { useState, RefObject, ChangeEvent } from "react";
+import { useState, useEffect, RefObject, ChangeEvent } from "react";
 import categories from "@/data/categories";
 import tools from "@/data/tools";
 import Fuse from "fuse.js";
@@ -30,6 +30,12 @@ const SidebarContent = ({
 }: SidebarContentProps): JSX.Element => {
   const router = useRouter();
   const [query, setQuery] = useState<string>("");
+
+  useEffect(() => {
+    if (router.query.q) {
+      setQuery(router.query.q as string);
+    }
+  }, [router.query.q]);
 
   const handleQueryChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setQuery(e.target.value);
