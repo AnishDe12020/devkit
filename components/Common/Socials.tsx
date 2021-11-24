@@ -1,15 +1,15 @@
 import {
-  Flex,
+  HStack,
   Icon,
   Link,
-  FlexProps,
+  StackProps,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { SiGithub, SiTwitter } from "react-icons/si";
 import { HiMail } from "react-icons/hi";
 
-const Socials = (props: FlexProps): JSX.Element => (
-  <Flex {...props}>
+const Socials = (props: StackProps): JSX.Element => (
+  <HStack spacing={4} {...props}>
     <Link isExternal href="https://github.com/AnishDe12020/devkit">
       <Icon
         as={SiGithub}
@@ -32,7 +32,6 @@ const Socials = (props: FlexProps): JSX.Element => (
         }}
         display="block"
         color={useColorModeValue("gray.700", "gray.400")}
-        ml={4}
       />
     </Link>
     <Link isExternal href="mailto:contact@devkit.one">
@@ -45,10 +44,9 @@ const Socials = (props: FlexProps): JSX.Element => (
         }}
         display="block"
         color={useColorModeValue("gray.700", "gray.400")}
-        ml={4}
       />
     </Link>
-  </Flex>
+  </HStack>
 );
 
 export default Socials;
