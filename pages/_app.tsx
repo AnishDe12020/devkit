@@ -10,12 +10,13 @@ import Script from "next/script";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
-      {process.env.NEXT_PUBLIC_UMAMI_ENABLE === "true" && (
-        <Script
-          src={process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL}
-          data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
-        />
-      )}
+      {process.env.NEXT_PUBLIC_UMAMI_ENABLE === "true" &&
+        process.env.NODE_ENV === "production" && (
+          <Script
+            src={process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL}
+            data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+          />
+        )}
       <DefaultSeo {...SEO} />
       <Global
         styles={css`
