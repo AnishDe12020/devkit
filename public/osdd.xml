@@ -1,0 +1,5 @@
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+    <ShortName>DevKit</ShortName>
+    <Description>DevKit - Tools for Developers, by the Developer Community</Description>
+    <Url type="text/html" method="get" template="https://www.devkit.one/?q={searchTerms}"/>
+</OpenSearchDescription>
