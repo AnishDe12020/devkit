@@ -5,10 +5,17 @@ import { DefaultSeo } from "next-seo";
 import theme from "@/styles/theme";
 import SEO from "../seo.config";
 import { Global, css } from "@emotion/react";
+import Script from "next/script";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
+      {process.env.NEXT_PUBLIC_UMAMI_ENABLE === "true" && (
+        <Script
+          src={process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL}
+          data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+        />
+      )}
       <DefaultSeo {...SEO} />
       <Global
         styles={css`
