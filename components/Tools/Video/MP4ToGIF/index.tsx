@@ -1,4 +1,4 @@
-import { useState, useEffect, ChangeEvent } from "react";
+import { useState, ChangeEvent } from "react";
 
 import { createFFmpeg, fetchFile } from "@ffmpeg/ffmpeg";
 import {
@@ -20,7 +20,6 @@ interface IVideo {
 }
 
 const MP4ToGIF = (): JSX.Element => {
-  const [ready, setReady] = useState(false);
   const [video, setVideo] = useState<IVideo>();
   const [gif, setGif] = useState<string>();
   const [convertProgress, setConvertProgress] = useState(0);
@@ -28,26 +27,22 @@ const MP4ToGIF = (): JSX.Element => {
 
   const load: () => void = async () => {
     if (!ffmpeg.isLoaded()) {
+      setConvertLogs(prev => [...prev, "Loading FFMPEG...\n"]);
       await ffmpeg.load();
     }
 
     ffmpeg.setProgress(({ ratio }) => {
-      console.log(ratio);
       if (ratio >= 0 && ratio <= 1) {
         setConvertProgress(ratio * 100);
       }
     });
 
     ffmpeg.setLogger(({ message }) => {
-      console.log(message);
       setConvertLogs(prev => [...prev, message + "\n"]);
     });
-    setReady(true);
-  };
 
-  useEffect(() => {
-    load();
-  }, []);
+    setConvertLogs(prev => [...prev, "FFMPEG Loaded!\n"]);
+  };
 
   const handleVideoUpload = (e: ChangeEvent<HTMLInputElement>): void => {
     const fileList = e.target.files;
@@ -58,6 +53,7 @@ const MP4ToGIF = (): JSX.Element => {
 
   const handleConvert: () => void = async () => {
     if (!video) return;
+    await load();
     ffmpeg.FS(
       "writeFile",
       "toBeConverted.mp4",
@@ -70,6 +66,7 @@ const MP4ToGIF = (): JSX.Element => {
       new Blob([data.buffer], { type: "image/gif" })
     );
     setGif(url);
+    setConvertLogs(prev => [...prev, "Conversion completed!\n"]);
   };
 
   return (
@@ -95,7 +92,7 @@ const MP4ToGIF = (): JSX.Element => {
         <Button
           onClick={handleConvert}
           mt={4}
-          disabled={!ready || !video?.videoURL}
+          disabled={!video?.videoURL}
           w={{ base: "100%", md: "auto" }}
         >
           Convert to GIF
