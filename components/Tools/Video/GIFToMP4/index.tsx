@@ -112,6 +112,7 @@ const MP4ToGIF = (): JSX.Element => {
         </Button>
         <Textarea
           mt={4}
+          h="300px"
           isReadOnly
           value={convertLogs}
           placeholder="Conversion Logs"
