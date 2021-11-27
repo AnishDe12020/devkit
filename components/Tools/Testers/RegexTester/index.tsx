@@ -7,7 +7,6 @@ import {
   Checkbox,
   CheckboxGroup,
   Grid,
-  Text,
   Textarea,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
@@ -62,10 +61,15 @@ const RegexTester = () => {
         value={text}
         onChange={e => setText(e.target.value)}
         my={4}
+        h="200px"
       />
-      <Text as="h2" my={2} fontWeight="bold" fontSize="4xl">
-        Match: {regexMatch.length >= 1 ? regexMatch.join("") : "None"}
-      </Text>
+      <Textarea
+        my={2}
+        value={regexMatch.length >= 1 ? regexMatch.join("\n") : ""}
+        isReadOnly
+        h="400px"
+        placeholder="Match"
+      />
     </>
   );
 };
