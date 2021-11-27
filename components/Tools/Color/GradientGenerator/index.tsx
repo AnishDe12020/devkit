@@ -85,6 +85,15 @@ const Gradient = (): JSX.Element => {
     });
   };
 
+  const handleColorDelete = (index: number): void => {
+    const colors: string[] = gradient.colors.filter((c, i) => i !== index);
+    setGradient({
+      ...gradient,
+      css: `linear(${gradient.direction}deg, ${colors.join(", ")})`,
+      colors,
+    });
+  };
+
   const handleDirectionUpdate = (value: number): void => {
     setGradient({
       ...gradient,
@@ -140,6 +149,7 @@ const Gradient = (): JSX.Element => {
               index={index}
               key={index}
               handleColorUpdate={handleColorUpdate}
+              handleColorDelete={handleColorDelete}
             />
           ))}
         </Grid>
