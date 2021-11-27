@@ -17,7 +17,7 @@ const RegexTester = () => {
   const [text, setText] = useState<string>("");
   const [testError, setTestError] = useState<string>("");
   const [regexMatch, setRegexMatch] = useState<string[]>([]);
-  const [flags, setFlags] = useState<string[]>([]);
+  const [flags, setFlags] = useState<string[]>(["g"]);
 
   useEffect(() => {
     if (regex) {
@@ -41,7 +41,7 @@ const RegexTester = () => {
 
       <CheckboxGroup
         colorScheme="green"
-        defaultValue={["g"]}
+        defaultValue={flags}
         onChange={value => setFlags(value as string[])}
       >
         <Grid mt={2} templateColumns="repeat(auto-fit, minmax(100px, 1fr))">
