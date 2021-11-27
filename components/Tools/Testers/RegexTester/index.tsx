@@ -6,7 +6,7 @@ import {
   Box,
   Checkbox,
   CheckboxGroup,
-  HStack,
+  Grid,
   Text,
   Textarea,
 } from "@chakra-ui/react";
@@ -44,13 +44,13 @@ const RegexTester = () => {
         defaultValue={["g"]}
         onChange={value => setFlags(value as string[])}
       >
-        <HStack mt={2}>
+        <Grid mt={2} templateColumns="repeat(auto-fit, minmax(100px, 1fr))">
           <Checkbox value="g">Global (g)</Checkbox>
           <Checkbox value="i">Case-insensitive (i)</Checkbox>
           <Checkbox value="m">Multi-line (m)</Checkbox>
           <Checkbox value="s">Dotall (s)</Checkbox>
           <Checkbox value="u">Unicode (u)</Checkbox>
-        </HStack>
+        </Grid>
       </CheckboxGroup>
       {testError && (
         <Box my={2} color="red.500">
