@@ -1,0 +1,73 @@
+import {
+  InputGroup,
+  InputLeftAddon,
+  InputRightAddon,
+  Input,
+  Box,
+  Checkbox,
+  CheckboxGroup,
+  HStack,
+  Text,
+  Textarea,
+} from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+
+const RegexTester = () => {
+  const [regex, setRegex] = useState<string>("");
+  const [text, setText] = useState<string>("");
+  const [testError, setTestError] = useState<string>("");
+  const [regexMatch, setRegexMatch] = useState<string[]>([]);
+  const [flags, setFlags] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (regex) {
+      try {
+        setTestError("");
+        const match = text.match(new RegExp(regex, flags.join("")));
+        console.log(match);
+        setRegexMatch(match ? match : []);
+      } catch (e: any) {
+        setTestError(e.message);
+      }
+    }
+  }, [text, regex, flags]);
+  return (
+    <>
+      <InputGroup>
+        <InputLeftAddon>/</InputLeftAddon>
+        <Input value={regex} onChange={e => setRegex(e.target.value)} />
+        <InputRightAddon>{`/${flags.join("")}`}</InputRightAddon>
+      </InputGroup>
+
+      <CheckboxGroup
+        colorScheme="green"
+        defaultValue={["g"]}
+        onChange={value => setFlags(value as string[])}
+      >
+        <HStack mt={2}>
+          <Checkbox value="g">Global (g)</Checkbox>
+          <Checkbox value="i">Case-insensitive (i)</Checkbox>
+          <Checkbox value="m">Multi-line (m)</Checkbox>
+          <Checkbox value="s">Dotall (s)</Checkbox>
+          <Checkbox value="u">Unicode (u)</Checkbox>
+        </HStack>
+      </CheckboxGroup>
+      {testError && (
+        <Box my={2} color="red.500">
+          {testError}
+        </Box>
+      )}
+      <Textarea
+        placeholder="Text to test against"
+        value={text}
+        onChange={e => setText(e.target.value)}
+        my={4}
+      />
+      <Text as="h2" my={2} fontWeight="bold" fontSize="4xl">
+        Match: {regexMatch.length >= 1 ? regexMatch.join("") : "None"}
+      </Text>
+    </>
+  );
+};
+
+export default RegexTester;

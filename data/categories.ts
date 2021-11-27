@@ -4,6 +4,7 @@ import gradientGenerator from "@/data/tools/color/gradeintGenerator";
 import ImageResizer from "@/data/tools/images/imageResizer";
 import MP4ToGIF from "@/data/tools/video/mp4ToGif";
 import GIFToMP4 from "@/data/tools/video/gifToMP4";
+import RegexTester from "@/data/tools/testers/regexTester";
 
 const categories: Category[] = [
   {
@@ -26,6 +27,13 @@ const categories: Category[] = [
     children: [MP4ToGIF, GIFToMP4],
     slug: "video",
     directory: "Video",
+  },
+  {
+    id: 4,
+    name: "Testers",
+    children: [RegexTester],
+    slug: "testers",
+    directory: "Testers",
   },
 ];
 
