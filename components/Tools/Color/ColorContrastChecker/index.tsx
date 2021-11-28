@@ -59,10 +59,11 @@ const ColorContrastChecker = (): JSX.Element => {
           </Center>
         </InputGroup>
       </Grid>
-
-      <Text mt={4} fontSize="2xl">
-        {contrastRatio[0]} : {contrastRatio[1]}
-      </Text>
+      <Center mt={16}>
+        <Text mt={4} fontSize="4xl">
+          {contrastRatio[0]} : {contrastRatio[1]}
+        </Text>
+      </Center>
     </Box>
   );
 };
