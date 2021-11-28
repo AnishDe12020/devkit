@@ -68,7 +68,7 @@ const RegexTester = () => {
         value={regexMatch.length >= 1 ? regexMatch.join("\n") : ""}
         isReadOnly
         h="400px"
-        placeholder="Match"
+        placeholder="Matches"
       />
     </>
   );
