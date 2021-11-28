@@ -5,12 +5,13 @@ import ImageResizer from "@/data/tools/images/imageResizer";
 import MP4ToGIF from "@/data/tools/video/mp4ToGif";
 import GIFToMP4 from "@/data/tools/video/gifToMP4";
 import RegexTester from "@/data/tools/testers/regexTester";
+import ColorContrastChecker from "@/data/tools/color/colorContrastChecker";
 
 const categories: Category[] = [
   {
     id: 1,
     name: "Color",
-    children: [gradientGenerator],
+    children: [gradientGenerator, ColorContrastChecker],
     slug: "color",
     directory: "Color",
   },
