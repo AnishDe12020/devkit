@@ -6,6 +6,7 @@ import theme from "@/styles/theme";
 import SEO from "../seo.config";
 import { Global, css } from "@emotion/react";
 import Script from "next/script";
+import NextNProgress from "nextjs-progressbar";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -34,6 +35,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           }
         `}
       />
+      <NextNProgress options={{ showSpinner: false }} color="#48BB78" />
       <Component {...pageProps} />
     </ChakraProvider>
   );
