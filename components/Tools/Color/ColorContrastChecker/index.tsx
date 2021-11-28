@@ -1,5 +1,3 @@
-import calculateContrastRatio from "@/utils/calculateContrastRatio";
-
 import {
   Box,
   Grid,
@@ -14,25 +12,26 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import chroma from "chroma-js";
 
 const ColorContrastChecker = (): JSX.Element => {
   const [color1, setColor1] = useState<string>("#000000");
   const [color2, setColor2] = useState<string>("#ffffff");
 
-  const [contrastRatio, setContrastRatio] = useState<number[]>(
-    calculateContrastRatio(color1, color2)
+  const [contrastRatio, setContrastRatio] = useState<number>(
+    chroma.contrast(color1, color2)
   );
 
   const handleColor1Update = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const value = e.target.value;
     setColor1(value);
-    setContrastRatio(calculateContrastRatio(value, color2));
+    setContrastRatio(chroma.contrast(value, color2));
   };
 
   const handleColor2Update = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const value = e.target.value;
     setColor2(value);
-    setContrastRatio(calculateContrastRatio(color1, value));
+    setContrastRatio(chroma.contrast(color1, value));
   };
 
   return (
@@ -65,7 +64,7 @@ const ColorContrastChecker = (): JSX.Element => {
       </Grid>
       <Center mt={16}>
         <Text mt={4} fontSize="4xl">
-          {contrastRatio[0]} : {contrastRatio[1]}
+          {contrastRatio.toFixed(2)}
         </Text>
       </Center>
       <Editable
@@ -82,12 +81,10 @@ const ColorContrastChecker = (): JSX.Element => {
       </Editable>
       <Flex mt={2} justifyContent="space-around">
         <Text fontSize="lg">
-          AA-level:{" "}
-          {contrastRatio[0] / contrastRatio[1] < 1 / 4.5 ? "PASS" : "FAIL"}
+          AA-level: {contrastRatio > 4.5 ? "PASS" : "FAIL"}
         </Text>
         <Text fontSize="lg">
-          AAA-level:{" "}
-          {contrastRatio[0] / contrastRatio[1] < 1 / 7 ? "PASS" : "FAIL"}
+          AAA-level: {contrastRatio > 7 ? "PASS" : "FAIL"}
         </Text>
       </Flex>
       <Editable
@@ -105,12 +102,10 @@ const ColorContrastChecker = (): JSX.Element => {
       </Editable>
       <Flex mt={2} justifyContent="space-around">
         <Text fontSize="lg">
-          AA-level:{" "}
-          {contrastRatio[0] / contrastRatio[1] < 1 / 3 ? "PASS" : "FAIL"}
+          AA-level: {contrastRatio > 3 ? "PASS" : "FAIL"}
         </Text>
         <Text fontSize="lg">
-          AAA-level:{" "}
-          {contrastRatio[0] / contrastRatio[1] < 1 / 4.5 ? "PASS" : "FAIL"}
+          AAA-level: {contrastRatio > 4.5 ? "PASS" : "FAIL"}
         </Text>
       </Flex>
     </Box>

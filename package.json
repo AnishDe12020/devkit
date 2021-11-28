@@ -25,6 +25,7 @@
     "@ffmpeg/core": "^0.10.0",
     "@ffmpeg/ffmpeg": "^0.9.8",
     "@types/file-saver": "^2.0.3",
+    "chroma-js": "^2.1.2",
     "codemirror": "^5.63.3",
     "file-saver": "^2.0.5",
     "formik": "^2.2.9",
@@ -45,6 +46,7 @@
   "devDependencies": {
     "@commitlint/cli": "^14.1.0",
     "@commitlint/config-conventional": "^14.1.0",
+    "@types/chroma-js": "^2.1.3",
     "@types/react": "17.0.31",
     "eslint": "<8.0.0",
     "eslint-config-google": "^0.14.0",
