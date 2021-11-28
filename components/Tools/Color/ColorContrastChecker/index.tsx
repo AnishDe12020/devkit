@@ -8,6 +8,10 @@ import {
   Center,
   InputRightAddon,
   Text,
+  Editable,
+  EditablePreview,
+  EditableInput,
+  Flex,
 } from "@chakra-ui/react";
 import { useState } from "react";
 
@@ -64,6 +68,51 @@ const ColorContrastChecker = (): JSX.Element => {
           {contrastRatio[0]} : {contrastRatio[1]}
         </Text>
       </Center>
+      <Editable
+        bgColor={color2}
+        textColor={color1}
+        defaultValue="Normal Text. Size 18pt"
+        p={4}
+        borderRadius={8}
+        mt={4}
+        fontSize="18pt"
+      >
+        <EditablePreview />
+        <EditableInput />
+      </Editable>
+      <Flex mt={2} justifyContent="space-around">
+        <Text fontSize="lg">
+          AA-level:{" "}
+          {contrastRatio[0] / contrastRatio[1] < 1 / 4.5 ? "PASS" : "FAIL"}
+        </Text>
+        <Text fontSize="lg">
+          AAA-level:{" "}
+          {contrastRatio[0] / contrastRatio[1] < 1 / 7 ? "PASS" : "FAIL"}
+        </Text>
+      </Flex>
+      <Editable
+        bgColor={color2}
+        textColor={color1}
+        defaultValue="Bold Text. Size 14pt"
+        p={4}
+        borderRadius={8}
+        mt={4}
+        fontSize="14pt"
+        fontWeight="bold"
+      >
+        <EditablePreview />
+        <EditableInput />
+      </Editable>
+      <Flex mt={2} justifyContent="space-around">
+        <Text fontSize="lg">
+          AA-level:{" "}
+          {contrastRatio[0] / contrastRatio[1] < 1 / 3 ? "PASS" : "FAIL"}
+        </Text>
+        <Text fontSize="lg">
+          AAA-level:{" "}
+          {contrastRatio[0] / contrastRatio[1] < 1 / 4.5 ? "PASS" : "FAIL"}
+        </Text>
+      </Flex>
     </Box>
   );
 };
