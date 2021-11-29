@@ -21,7 +21,7 @@ const GradientPreview = ({
   gradientCSS,
   gradientComponentRef,
 }: GradientPreviewProps): JSX.Element => (
-  <Tabs variant="solid-rounded">
+  <Tabs variant="solid-rounded" colorScheme="green">
     <TabList>
       <Tab borderRadius="md">Box</Tab>
       <Tab borderRadius="md">Text</Tab>
