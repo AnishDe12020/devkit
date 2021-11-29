@@ -1,7 +1,7 @@
 import { Tool } from "@/data/types";
 
 const ColorContrastChecker: Tool = {
-  id: 1,
+  id: 2,
   name: "Color Contrast Checker",
   description: "Checks the color contrast between 2 colors",
   componentFileName: "ColorContrastChecker",
