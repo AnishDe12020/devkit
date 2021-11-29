@@ -23,6 +23,15 @@
         "code",
         "doc"
       ]
+    },
+    {
+      "login": "krishguptadev",
+      "name": "Krish Gupta",
+      "avatar_url": "https://avatars.githubusercontent.com/u/91655303?v=4",
+      "profile": "https://krishguptadev.tech",
+      "contributions": [
+        "infra"
+      ]
     }
   ],
   "contributorsPerLine": 7,
