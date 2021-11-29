@@ -39,7 +39,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://gouravkhunger.xyz"><img src="https://avatars.githubusercontent.com/u/46792249?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Gourav Khunger</b></sub></a><br /><a href="#content-gouravkhunger" title="Content">🖋</a></td>
-    <td align="center"><a href="https://www.avneesh.tech/"><img src="https://avatars.githubusercontent.com/u/76690419?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Avneesh Agarwal</b></sub></a><br /><a href="https://github.com/AnishDe12020/devkit/commits?author=avneesh0612" title="Code">💻</a></td>
+    <td align="center"><a href="https://www.avneesh.tech/"><img src="https://avatars.githubusercontent.com/u/76690419?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Avneesh Agarwal</b></sub></a><br /><a href="https://github.com/AnishDe12020/devkit/commits?author=avneesh0612" title="Code">💻</a> <a href="https://github.com/AnishDe12020/devkit/commits?author=avneesh0612" title="Documentation">📖</a></td>
   </tr>
 </table>
 
