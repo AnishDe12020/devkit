@@ -10,9 +10,18 @@ import {
   EditablePreview,
   EditableInput,
   Flex,
+  Divider,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import chroma from "chroma-js";
+
+interface IWCAGTestResults {
+  smallAA: boolean;
+  largeAA: boolean;
+  smallAAA: boolean;
+  largeAAA: boolean;
+}
 
 const ColorContrastChecker = (): JSX.Element => {
   const [color1, setColor1] = useState<string>("#000000");
@@ -22,17 +31,38 @@ const ColorContrastChecker = (): JSX.Element => {
     chroma.contrast(color1, color2)
   );
 
+  const [wcagTestResults, setWcagTestResults] = useState<IWCAGTestResults>({
+    smallAA: contrastRatio >= 4.5,
+    largeAA: contrastRatio >= 3,
+    smallAAA: contrastRatio >= 7,
+    largeAAA: contrastRatio >= 4.5,
+  });
+
   const handleColor1Update = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const value = e.target.value;
     setColor1(value);
-    setContrastRatio(chroma.contrast(value, color2));
+    handleColorUpdate(value, color2);
   };
 
   const handleColor2Update = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const value = e.target.value;
     setColor2(value);
-    setContrastRatio(chroma.contrast(color1, value));
+    handleColorUpdate(color1, value);
   };
+
+  const handleColorUpdate = (c1: string, c2: string) => {
+    const newContrastRatio = chroma.contrast(c1, c2);
+    setContrastRatio(newContrastRatio);
+    setWcagTestResults({
+      smallAA: contrastRatio >= 4.5,
+      largeAA: contrastRatio >= 3,
+      smallAAA: contrastRatio >= 7,
+      largeAAA: contrastRatio >= 4.5,
+    });
+  };
+
+  const wcagTestPassColor = useColorModeValue("green.500", "green.400");
+  const wcagTestFailColor = useColorModeValue("red.500", "red.400");
 
   return (
     <Box>
@@ -67,6 +97,12 @@ const ColorContrastChecker = (): JSX.Element => {
           {contrastRatio.toFixed(2)}
         </Text>
       </Center>
+      <Divider color={useColorModeValue("gray.300", "gray.700")} />
+      <Center>
+        <Text mt={4} fontSize="2xl">
+          WCAG Tests
+        </Text>
+      </Center>
       <Editable
         bgColor={color2}
         textColor={color1}
@@ -80,11 +116,21 @@ const ColorContrastChecker = (): JSX.Element => {
         <EditableInput />
       </Editable>
       <Flex mt={2} justifyContent="space-around">
-        <Text fontSize="lg">
-          AA-level: {contrastRatio > 4.5 ? "PASS" : "FAIL"}
+        <Text
+          fontSize="lg"
+          color={
+            wcagTestResults.smallAA ? wcagTestPassColor : wcagTestFailColor
+          }
+        >
+          AA-level: {wcagTestResults.smallAA ? "PASS" : "FAIL"}
         </Text>
-        <Text fontSize="lg">
-          AAA-level: {contrastRatio > 7 ? "PASS" : "FAIL"}
+        <Text
+          fontSize="lg"
+          color={
+            wcagTestResults.smallAA ? wcagTestPassColor : wcagTestFailColor
+          }
+        >
+          AAA-level: {wcagTestResults.smallAAA ? "PASS" : "FAIL"}
         </Text>
       </Flex>
       <Editable
@@ -101,11 +147,21 @@ const ColorContrastChecker = (): JSX.Element => {
         <EditableInput />
       </Editable>
       <Flex mt={2} justifyContent="space-around">
-        <Text fontSize="lg">
-          AA-level: {contrastRatio > 3 ? "PASS" : "FAIL"}
+        <Text
+          fontSize="lg"
+          color={
+            wcagTestResults.largeAA ? wcagTestPassColor : wcagTestFailColor
+          }
+        >
+          AA-level: {wcagTestResults.largeAA ? "PASS" : "FAIL"}
         </Text>
-        <Text fontSize="lg">
-          AAA-level: {contrastRatio > 4.5 ? "PASS" : "FAIL"}
+        <Text
+          fontSize="lg"
+          color={
+            wcagTestResults.largeAAA ? wcagTestPassColor : wcagTestFailColor
+          }
+        >
+          AAA-level: {wcagTestResults.largeAAA ? "PASS" : "FAIL"}
         </Text>
       </Flex>
     </Box>
