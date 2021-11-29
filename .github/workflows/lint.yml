@@ -31,4 +31,3 @@ jobs:
       - name: Run linters
         run: |
           yarn lint
-          yarn prettier
