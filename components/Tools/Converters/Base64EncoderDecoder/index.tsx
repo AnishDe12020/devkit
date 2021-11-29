@@ -41,10 +41,18 @@ const Base64EncoderDecoder = () => {
         placeholder="Input (String or Base64)"
       />
       <Flex my={4}>
-        <Button w="" mr={4} onClick={handleBase64EncodeClick}>
+        <Button
+          mr={4}
+          w={{ base: "100%", md: "auto" }}
+          onClick={handleBase64EncodeClick}
+        >
           Encode
         </Button>
-        <Button value={output} onClick={handleBase64DecodeClick}>
+        <Button
+          w={{ base: "100%", md: "auto" }}
+          value={output}
+          onClick={handleBase64DecodeClick}
+        >
           Decode
         </Button>
       </Flex>
