@@ -24,14 +24,13 @@ function MyApp({ Component, pageProps }: AppProps) {
           ::-webkit-scrollbar {
             width: 0.5rem;
           }
-          ::-webkit-scrollbar-track {
-            background: #252525;
-          }
+
           ::-webkit-scrollbar-thumb {
-            background: #494949;
+            background: #7d7d7d;
+            border-radius: 0.25rem;
           }
           ::-webkit-scrollbar-thumb:hover {
-            background: #757575;
+            background: #cacaca;
           }
         `}
       />

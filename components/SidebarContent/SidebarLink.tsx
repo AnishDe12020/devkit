@@ -18,9 +18,9 @@ const SidebarLink = ({
   onClose,
   ...otherProps
 }: SidebarLinkProps): JSX.Element => {
-  const primaryColor = useColorModeValue("green.600", "green.400");
-  const secondaryBg = useColorModeValue("green.300", "green.700");
-  const secondaryColor = useColorModeValue("green.800", "green.200");
+  const primaryColor = useColorModeValue("green.700", "green.300");
+  const secondaryBg = useColorModeValue("green.600", "green.400");
+  const secondaryColor = useColorModeValue("white", "gray.800");
 
   return (
     <NextLink href={href} passHref>

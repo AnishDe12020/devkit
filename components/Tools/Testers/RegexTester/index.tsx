@@ -10,13 +10,22 @@ import {
   Textarea,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 const RegexTester = () => {
-  const [regex, setRegex] = useState<string>("");
-  const [text, setText] = useState<string>("");
+  const router = useRouter();
+
+  const [regex, setRegex] = useState<string>(
+    (router?.query.regex as string) || ""
+  );
+  const [text, setText] = useState<string>(
+    (router?.query.text as string) || ""
+  );
   const [testError, setTestError] = useState<string>("");
   const [regexMatch, setRegexMatch] = useState<string[]>([]);
-  const [flags, setFlags] = useState<string[]>(["g"]);
+  const [flags, setFlags] = useState<string[]>(
+    (router?.query.flags as string)?.split("") || ["g"]
+  );
 
   useEffect(() => {
     if (regex) {

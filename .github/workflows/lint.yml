@@ -29,7 +29,5 @@ jobs:
         run: yarn ci 
 
       - name: Run linters
-        uses: wearerequired/lint-action@v1
-        with:
-          eslint: true
-          prettier: true
+        run: |
+          yarn lint
