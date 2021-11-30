@@ -1,8 +1,13 @@
 import { Button, Textarea, Flex, useToast } from "@chakra-ui/react";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 const Base64EncoderDecoder = () => {
-  const [input, setInput] = useState<string>("");
+  const router = useRouter();
+
+  const [input, setInput] = useState<string>(
+    (router?.query.input as string) || ""
+  );
   const [output, setOutput] = useState<string>("");
 
   const toast = useToast();
