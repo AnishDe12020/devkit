@@ -1,0 +1,18 @@
+name: Feature
+description: Suggest a New Feature
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before suggesting a new feature, please look for similar ones in existing issues. 
+        
+        ---
+        
+        Thank you for taking the time to suggest a new feature, we need some information.
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Feature description
+      description: Provide a synopsis about the feature requested
+    validations:
+      required: true
