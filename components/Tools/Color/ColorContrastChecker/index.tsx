@@ -61,10 +61,10 @@ const ColorContrastChecker = (): JSX.Element => {
     const newContrastRatio = chroma.contrast(c1, c2);
     setContrastRatio(newContrastRatio);
     setWcagTestResults({
-      smallAA: contrastRatio >= 4.5,
-      largeAA: contrastRatio >= 3,
-      smallAAA: contrastRatio >= 7,
-      largeAAA: contrastRatio >= 4.5,
+      smallAA: newContrastRatio >= 4.5,
+      largeAA: newContrastRatio >= 3,
+      smallAAA: newContrastRatio >= 7,
+      largeAAA: newContrastRatio >= 4.5,
     });
   };
 
