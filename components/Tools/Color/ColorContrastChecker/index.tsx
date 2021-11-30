@@ -15,6 +15,7 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import chroma from "chroma-js";
+import { useRouter } from "next/router";
 
 interface IWCAGTestResults {
   smallAA: boolean;
@@ -24,8 +25,14 @@ interface IWCAGTestResults {
 }
 
 const ColorContrastChecker = (): JSX.Element => {
-  const [color1, setColor1] = useState<string>("#000000");
-  const [color2, setColor2] = useState<string>("#ffffff");
+  const router = useRouter();
+
+  const [color1, setColor1] = useState<string>(
+    router?.query.color1 ? "#" + router?.query.color1 : "#000000"
+  );
+  const [color2, setColor2] = useState<string>(
+    router?.query.color2 ? "#" + router?.query.color2 : "#ffffff"
+  );
 
   const [contrastRatio, setContrastRatio] = useState<number>(
     chroma.contrast(color1, color2)
