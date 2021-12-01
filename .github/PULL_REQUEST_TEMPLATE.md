@@ -6,9 +6,14 @@ resolves #`issueNumber`
 
 - [ ] You've followed the code structure 
 - [ ] You've linked the PR to correct Issue
+- [ ] Passes the CI pipeline tests (lint, formatting, other ones)
 
 ## Proposed Changes
 
   -
   -
   -
+
+## Additonal Info
+
+### You can attach screenshots here, updated dependencies (if any), any breaking changes, etc.
