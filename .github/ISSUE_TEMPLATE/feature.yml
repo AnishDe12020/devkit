@@ -16,3 +16,11 @@ body:
       description: Provide a synopsis about the feature requested
     validations:
       required: true
+  - type: dropdown
+    id: type of feature
+    attributes:
+      label: Type of feature
+      options:
+        - "New Tool"
+        - "New Feature in Tool"
+        - "New feature for the whole app as whole"
