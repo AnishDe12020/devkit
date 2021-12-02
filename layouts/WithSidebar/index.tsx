@@ -66,7 +66,7 @@ const WithSidebar = ({ title, children }: WithSidebarProps): JSX.Element => {
           px="4"
           h="14"
         >
-          <Heading display={{ base: "none", md: "block" }}>
+          <Heading ml={4} display={{ base: "none", md: "block" }}>
             {title || ""}
           </Heading>
 
@@ -88,7 +88,7 @@ const WithSidebar = ({ title, children }: WithSidebarProps): JSX.Element => {
           />
         </Flex>
 
-        <Box as="main" p="4">
+        <Box as="main" p={{ base: 4, md: 8 }}>
           {children}
         </Box>
       </Box>
