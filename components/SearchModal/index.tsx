@@ -8,6 +8,8 @@ import {
   useEventListener,
   Flex,
   Button,
+  HStack,
+  Kbd,
 } from "@chakra-ui/react";
 import tools from "@/data/tools";
 import Fuse from "fuse.js";
@@ -76,8 +78,19 @@ const SearchModal = () => {
 
   return (
     <>
-      <Button onClick={onOpen}>
+      <Button
+        role="search"
+        display="flex"
+        alignItems="center"
+        onClick={onOpen}
+        justifyContent="space-between"
+        my={4}
+        w={{ base: 60, md: 48 }}
+      >
         <FiSearch />
+        <HStack>
+          Press <Kbd>Crtl</Kbd> + <Kbd>K</Kbd>
+        </HStack>
       </Button>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
