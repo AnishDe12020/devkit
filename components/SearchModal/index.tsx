@@ -25,8 +25,15 @@ const SearchModal = () => {
   const [activeSearchResultIndex, setActiveSearchResultIndex] =
     useState<number>(0);
 
+  const [isApple, setIsApple] = useState<boolean>(false);
+
+  useEffect(() => {
+    setIsApple(/(Mac|iPhone|iPad|iPod)/i.test(navigator.userAgent));
+  }, [isApple]);
+
   useEventListener("keydown", e => {
-    if (e.key.toLowerCase() === "k" && e.ctrlKey) {
+    const hotkey = isApple ? "metaKey" : "ctrlKey";
+    if (e.key.toLowerCase() === "k" && e[hotkey]) {
       e.preventDefault();
       isOpen ? onClose() : onOpen();
     }
@@ -89,7 +96,7 @@ const SearchModal = () => {
       >
         <FiSearch />
         <HStack>
-          Press <Kbd>Crtl</Kbd> + <Kbd>K</Kbd>
+          Press <Kbd>{isApple ? "⌘" : "Ctrl"}</Kbd> + <Kbd>K</Kbd>
         </HStack>
       </Button>
       <Modal isOpen={isOpen} onClose={onClose}>
