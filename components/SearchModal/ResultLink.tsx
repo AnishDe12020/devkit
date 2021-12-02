@@ -1,4 +1,4 @@
-import { Link, useColorModeValue } from "@chakra-ui/react";
+import { Link, Kbd, useColorModeValue } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { ReactNode } from "react";
 
@@ -39,9 +39,12 @@ const ResultLink = ({
           bg: secondaryBg,
           color: secondaryColor,
         }}
+        display="flex"
+        justifyContent="space-between"
         {...otherProps}
       >
         {children}
+        {active && <Kbd color="black">Enter</Kbd>}
       </Link>
     </NextLink>
   );
