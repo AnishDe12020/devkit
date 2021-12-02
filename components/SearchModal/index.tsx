@@ -100,6 +100,11 @@ const SearchModal = () => {
               value={query}
               onChange={handleQueryChange}
               onKeyDown={handleKeyDown}
+              variant="filled"
+              placeholder="Search for tools"
+              _focus={{
+                outline: "none",
+              }}
             />
             <Flex direction="column" mt={2}>
               {searchResults.length > 0 &&
