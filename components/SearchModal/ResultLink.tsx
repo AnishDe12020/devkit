@@ -25,6 +25,7 @@ const ResultLink = ({
   return (
     <NextLink href={href} passHref>
       <Link
+        my={2}
         fontSize={["sm", "md"]}
         rounded="md"
         px={[2, 3]}
