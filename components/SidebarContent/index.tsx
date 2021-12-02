@@ -2,21 +2,19 @@ import {
   Box,
   Flex,
   CloseButton,
-  Input,
   BoxProps,
   useBreakpointValue,
 } from "@chakra-ui/react";
 
 import { useRouter } from "next/router";
-import { useState, useEffect, RefObject, ChangeEvent } from "react";
+import { RefObject } from "react";
 import categories from "@/data/categories";
-import tools from "@/data/tools";
-import Fuse from "fuse.js";
 
 import CategoryComponent from "@/components/SidebarContent/CategoryComponent";
 import SidebarLink from "@/components/SidebarContent/SidebarLink";
 import ChangeColorModeButton from "@/components/Common/ChangeColorModeButton";
 import Socials from "@/components/Common/Socials";
+import SearchModal from "@/components/SearchModal";
 
 interface SidebarContentProps extends BoxProps {
   onClose: () => void;
@@ -29,23 +27,6 @@ const SidebarContent = ({
   ...otherProps
 }: SidebarContentProps): JSX.Element => {
   const router = useRouter();
-  const [query, setQuery] = useState<string>("");
-
-  useEffect(() => {
-    if (router.query.q) {
-      setQuery(router.query.q as string);
-    }
-  }, [router.query.q]);
-
-  const handleQueryChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    setQuery(e.target.value);
-  };
-
-  const fuse = new Fuse(tools, {
-    keys: ["name", "slug", "description"],
-  });
-
-  const results = fuse.search(query);
 
   return (
     <Box
@@ -85,32 +66,15 @@ const SidebarContent = ({
         >
           Home
         </SidebarLink>
-        <Input
-          value={query}
-          onChange={handleQueryChange}
-          mt={{ base: 2, md: 4 }}
-          w={{ base: 60, md: 48 }}
-          placeholder="Search Tools"
-          mb={results.length > 0 ? 4 : 0}
-        />
-        {results.length > 0
-          ? results.map(tool => (
-              <SidebarLink
-                active={false}
-                href={`${tool.item.categorySlug}/${tool.item.slug}`}
-                key={tool.refIndex}
-                onClose={onClose}
-              >
-                {tool.item.name}
-              </SidebarLink>
-            ))
-          : categories.map(category => (
-              <CategoryComponent
-                key={category.id}
-                category={category}
-                onClose={onClose}
-              />
-            ))}
+
+        <SearchModal />
+        {categories.map(category => (
+          <CategoryComponent
+            key={category.id}
+            category={category}
+            onClose={onClose}
+          />
+        ))}
       </Flex>
     </Box>
   );

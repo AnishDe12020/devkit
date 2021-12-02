@@ -7,12 +7,14 @@ import {
   useDisclosure,
   useEventListener,
   Flex,
+  Button,
 } from "@chakra-ui/react";
 import tools from "@/data/tools";
 import Fuse from "fuse.js";
 import { useState, useEffect, ChangeEvent, KeyboardEventHandler } from "react";
 import ResultLink from "@/components/SearchModal/ResultLink";
 import router from "next/router";
+import { FiSearch } from "react-icons/fi";
 
 const SearchModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -73,31 +75,36 @@ const SearchModal = () => {
   }, [query]);
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
-      <ModalOverlay />
-      <ModalContent>
-        <ModalBody>
-          <Input
-            value={query}
-            onChange={handleQueryChange}
-            onKeyDown={handleKeyDown}
-          />
-          <Flex direction="column" mt={2}>
-            {searchResults.length > 0 &&
-              searchResults.map(tool => (
-                <ResultLink
-                  href={`${tool.item.categorySlug}/${tool.item.slug}`}
-                  key={tool.refIndex}
-                  onClose={onClose}
-                  active={activeSearchResultIndex === tool.index}
-                >
-                  {tool.item.name}
-                </ResultLink>
-              ))}
-          </Flex>
-        </ModalBody>
-      </ModalContent>
-    </Modal>
+    <>
+      <Button onClick={onOpen}>
+        <FiSearch />
+      </Button>
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalBody>
+            <Input
+              value={query}
+              onChange={handleQueryChange}
+              onKeyDown={handleKeyDown}
+            />
+            <Flex direction="column" mt={2}>
+              {searchResults.length > 0 &&
+                searchResults.map(tool => (
+                  <ResultLink
+                    href={`${tool.item.categorySlug}/${tool.item.slug}`}
+                    key={tool.refIndex}
+                    onClose={onClose}
+                    active={activeSearchResultIndex === tool.index}
+                  >
+                    {tool.item.name}
+                  </ResultLink>
+                ))}
+            </Flex>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    </>
   );
 };
 

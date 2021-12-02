@@ -16,7 +16,6 @@ import ChangeColorModeButton from "@/components/Common/ChangeColorModeButton";
 import { useRef } from "react";
 
 import Socials from "@/components/Common/Socials";
-import SearchModal from "@/components/SearchModal";
 
 interface WithSidebarProps {
   title?: string;
@@ -35,7 +34,6 @@ const WithSidebar = ({ title, children }: WithSidebarProps): JSX.Element => {
       mt={{ base: 2, md: 8 }}
       mr={{ base: 0, md: 4 }}
     >
-      <SearchModal />
       <SidebarContent
         display={{ base: "none", md: "unset" }}
         onClose={() => onClose}
