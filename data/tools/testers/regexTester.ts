@@ -7,6 +7,7 @@ const RegexTester: Tool = {
   componentFileName: "RegexTester",
   slug: "regex",
   categorySlug: "testers",
+  acceptedDataTypes: ["regex", "text"],
 };
 
 export default RegexTester;
