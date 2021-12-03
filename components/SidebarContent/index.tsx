@@ -56,7 +56,7 @@ const SidebarContent = ({
         />
         <CloseButton onClick={onClose} ref={closeButtonRef} />
       </Flex>
-      <Flex mt={2} flexDir={"column"}>
+      <Flex mt={2} mb={8} flexDir={"column"}>
         <SidebarLink
           href="/"
           active={undefined === router.query?.slug}
