@@ -1,1 +1,2 @@
-export * from "@/utils/testDataTypes/index";
+export * from "@/utils/testDataTypes/text";
+export * from "@/utils/testDataTypes/base64";
