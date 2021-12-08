@@ -4,7 +4,7 @@ import { Controlled } from "react-codemirror2";
 import { useState } from "react";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material.css";
-var change: Function = require("html-to-jsx");
+const change: Function = require("html-to-jsx");
 
 const HtmlToJsx = () => {
   const [value, setvalue] = useState<string>("");
