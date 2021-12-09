@@ -24,6 +24,7 @@
     "@emotion/styled": "^11.6.0",
     "@ffmpeg/core": "^0.10.0",
     "@ffmpeg/ffmpeg": "^0.9.8",
+    "@types/codemirror": "^5.60.5",
     "@types/file-saver": "^2.0.4",
     "chroma-js": "^2.1.2",
     "codemirror": "^5.63.3",
@@ -31,6 +32,7 @@
     "formik": "^2.2.9",
     "framer-motion": "^4",
     "fuse.js": "^6.4.6",
+    "html-to-jsx": "0.0.4",
     "next": "^12.0.7",
     "next-pwa": "^5.4.0",
     "next-seo": "^4.28.1",
@@ -40,8 +42,7 @@
     "react-component-export-image": "^1.0.6",
     "react-dom": "17.0.2",
     "react-icons": "^4.3.1",
-    "react-image-file-resizer": "^0.4.7",
-	"html-to-jsx": "0.0.4"
+    "react-image-file-resizer": "^0.4.7"
   },
   "devDependencies": {
     "@commitlint/cli": "^14.1.0",
