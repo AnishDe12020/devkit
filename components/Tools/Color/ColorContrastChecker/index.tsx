@@ -134,7 +134,7 @@ const ColorContrastChecker = (): JSX.Element => {
         <Text
           fontSize="lg"
           color={
-            wcagTestResults.smallAA ? wcagTestPassColor : wcagTestFailColor
+            wcagTestResults.smallAAA ? wcagTestPassColor : wcagTestFailColor
           }
         >
           AAA-level: {wcagTestResults.smallAAA ? "PASS" : "FAIL"}

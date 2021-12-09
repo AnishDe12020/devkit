@@ -8,6 +8,7 @@ const MP4ToGIF: Tool = {
   componentFileName: "MP4ToGIF",
   slug: "mp4-gif",
   categorySlug: "video",
+  acceptedDataTypes: ["mp4"],
 };
 
 export default MP4ToGIF;

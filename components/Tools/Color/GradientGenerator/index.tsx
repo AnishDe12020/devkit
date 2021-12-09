@@ -49,7 +49,7 @@ const Gradient = (): JSX.Element => {
   );
 
   const [gradient, setGradient] = useState<IGradient>({
-    css: `linear(${direction ? direction : 90}deg, ${
+    css: `linear-gradient(${direction ? direction : 90}deg, ${
       colors ? colors.join(", ") : "#ff008c, #d30916"
     });`,
     colors: colors ? colors : ["#ff008c", "#d30916"],
@@ -80,7 +80,7 @@ const Gradient = (): JSX.Element => {
     );
     setGradient({
       ...gradient,
-      css: `linear(${gradient.direction}deg, ${colors.join(", ")})`,
+      css: `linear-gradient(${gradient.direction}deg, ${colors.join(", ")})`,
       colors,
     });
   };
@@ -89,7 +89,7 @@ const Gradient = (): JSX.Element => {
     const colors: string[] = gradient.colors.filter((c, i) => i !== index);
     setGradient({
       ...gradient,
-      css: `linear(${gradient.direction}deg, ${colors.join(", ")})`,
+      css: `linear-gradient(${gradient.direction}deg, ${colors.join(", ")})`,
       colors,
     });
   };
@@ -97,7 +97,7 @@ const Gradient = (): JSX.Element => {
   const handleDirectionUpdate = (value: number): void => {
     setGradient({
       ...gradient,
-      css: `linear(${value}deg, ${gradient.colors.join(", ")})`,
+      css: `linear-gradient(${value}deg, ${gradient.colors.join(", ")})`,
       direction: value,
     });
   };
@@ -107,7 +107,7 @@ const Gradient = (): JSX.Element => {
     setGradient({
       ...gradient,
       colors,
-      css: `linear(${gradient.direction}deg, ${colors.join(", ")})`,
+      css: `linear-gradient(${gradient.direction}deg, ${colors.join(", ")})`,
     });
   };
 
@@ -122,7 +122,7 @@ const Gradient = (): JSX.Element => {
         <Box mt={8}>
           <Text my={2}>Raw CSS</Text>
           <Input
-            placeholder="Enter raw css. E.g: linear(to right, #ff0000, #00ff00)"
+            placeholder="Enter raw css. E.g: linear-gradient(to right, #ff0000, #00ff00)"
             value={gradient.css}
             onChange={e => handleCSSUpdate(e.target.value)}
           />

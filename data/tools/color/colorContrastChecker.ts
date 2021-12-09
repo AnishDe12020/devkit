@@ -7,6 +7,7 @@ const ColorContrastChecker: Tool = {
   componentFileName: "ColorContrastChecker",
   slug: "color-contrast-checker",
   categorySlug: "color",
+  acceptedDataTypes: ["hex"],
 };
 
 export default ColorContrastChecker;
