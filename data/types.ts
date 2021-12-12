@@ -5,7 +5,7 @@ export interface Tool {
   componentFileName: string;
   slug: string;
   categorySlug: string;
-  acceptedDataTypes: DataTypes[];
+  acceptedDataTypes?: DataTypes[];
 }
 
 export interface Category {
@@ -23,4 +23,6 @@ export type DataTypes =
   | "image"
   | "gif"
   | "mp4"
-  | "regex";
+  | "regex"
+  | "html"
+  | "jsx";
