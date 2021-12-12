@@ -25,6 +25,7 @@
     "@emotion/styled": "^11.6.0",
     "@ffmpeg/core": "^0.10.0",
     "@ffmpeg/ffmpeg": "^0.9.8",
+    "@snyk/protect": "latest",
     "@types/file-saver": "^2.0.4",
     "chroma-js": "^2.1.2",
     "codemirror": "^5.63.3",
@@ -41,14 +42,13 @@
     "react-component-export-image": "^1.0.6",
     "react-dom": "17.0.2",
     "react-icons": "^4.3.1",
-    "react-image-file-resizer": "^0.4.7",
-    "html-to-jsx": "0.0.4",
-    "@snyk/protect": "latest"
+    "react-image-file-resizer": "^0.4.7"
   },
   "devDependencies": {
     "@commitlint/cli": "^14.1.0",
     "@commitlint/config-conventional": "^14.1.0",
     "@types/chroma-js": "^2.1.3",
+    "@types/codemirror": "^5.60.5",
     "@types/react": "17.0.31",
     "eslint": "<8.0.0",
     "eslint-config-google": "^0.14.0",
@@ -57,8 +57,7 @@
     "husky": "^7.0.4",
     "prettier": "2.4.1",
     "standard-version": "^9.3.2",
-    "typescript": "4.4.4",
-    "@types/codemirror": "^5.60.5"
+    "typescript": "4.4.4"
   },
   "snyk": true
 }
