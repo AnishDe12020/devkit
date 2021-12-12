@@ -41,6 +41,15 @@
       "contributions": [
         "tool"
       ]
+    },
+    {
+      "login": "kr-anurag",
+      "name": "Anurag",
+      "avatar_url": "https://avatars.githubusercontent.com/u/77309809?v=4",
+      "profile": "http://twitter.com/kr_anurag_",
+      "contributions": [
+        "projectManagement"
+      ]
     }
   ],
   "contributorsPerLine": 7,
