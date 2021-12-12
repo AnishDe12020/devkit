@@ -7,6 +7,7 @@ const Base64EncoderDecoder: Tool = {
   componentFileName: "Base64EncoderDecoder",
   slug: "base64-encoder-decoder",
   categorySlug: "converters",
+  acceptedDataTypes: ["text", "base64"],
 };
 
 export default Base64EncoderDecoder;

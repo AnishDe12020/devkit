@@ -7,6 +7,7 @@ const ImageResizer: Tool = {
   componentFileName: "ImageResizer",
   slug: "image-resizer",
   categorySlug: "image",
+  acceptedDataTypes: ["image"],
 };
 
 export default ImageResizer;

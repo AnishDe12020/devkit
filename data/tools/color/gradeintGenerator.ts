@@ -7,6 +7,7 @@ const GradientGenerator: Tool = {
   componentFileName: "GradientGenerator",
   slug: "gradient-generator",
   categorySlug: "color",
+  acceptedDataTypes: ["hex"],
 };
 
 export default GradientGenerator;
