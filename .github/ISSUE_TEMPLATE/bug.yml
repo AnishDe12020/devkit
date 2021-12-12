@@ -29,11 +29,15 @@ body:
     attributes:
       label: Expected Behaviour
       description: What should be the expected behaviour?
+    validations:
+      required: true
   - type: textarea
     id: steps
     attributes:
       label: Steps to reproduce
       description: Which steps do we need to take to reproduce this error?
+    validations:
+      required: true
   - type: textarea
     id: additional-info
     attributes:
