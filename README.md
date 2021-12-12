@@ -1,6 +1,6 @@
 # DevKit
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 DevKit is a simple progressive-web-application with tools a developer needs when coding. The project is completely free and open-source and does not need one to sign-up or provide it with any data, in fact we don't have a backend!!! 
 
@@ -42,6 +42,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://www.avneesh.tech/"><img src="https://avatars.githubusercontent.com/u/76690419?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Avneesh Agarwal</b></sub></a><br /><a href="https://github.com/AnishDe12020/devkit/commits?author=avneesh0612" title="Code">💻</a> <a href="https://github.com/AnishDe12020/devkit/commits?author=avneesh0612" title="Documentation">📖</a></td>
     <td align="center"><a href="https://krishguptadev.tech"><img src="https://avatars.githubusercontent.com/u/91655303?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Krish Gupta</b></sub></a><br /><a href="#infra-krishguptadev" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
     <td align="center"><a href="https://github.com/diganta413"><img src="https://avatars.githubusercontent.com/u/69595396?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Diganta Ghosh</b></sub></a><br /><a href="#tool-diganta413" title="Tools">🔧</a></td>
+    <td align="center"><a href="http://twitter.com/kr_anurag_"><img src="https://avatars.githubusercontent.com/u/77309809?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Anurag</b></sub></a><br /><a href="#projectManagement-kr-anurag" title="Project Management">📆</a></td>
   </tr>
 </table>
 
