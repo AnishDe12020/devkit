@@ -28,7 +28,7 @@
     "@snyk/protect": "latest",
     "@types/file-saver": "^2.0.4",
     "chroma-js": "^2.1.2",
-    "codemirror": "^5.63.3",
+    "codemirror": "^5.64.0",
     "file-saver": "^2.0.5",
     "formik": "^2.2.9",
     "framer-motion": "^4",
