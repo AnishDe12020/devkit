@@ -14,6 +14,6 @@ resolves #`issueNumber`
   -
   -
 
-## Additonal Info
+<!-- Additonal Info -->
 
 ### You can attach screenshots here, updated dependencies (if any), any breaking changes, etc.
