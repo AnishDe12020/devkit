@@ -23,6 +23,12 @@
     },
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "scripts/prepare.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "scripts/prepare.js",
+    "utils/html-to-jsx.js"
+  ],
   "exclude": ["node_modules"]
 }

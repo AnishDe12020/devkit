@@ -4,7 +4,6 @@ import { Controlled } from "react-codemirror2";
 import { useState } from "react";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material.css";
-const change: Function = require("html-to-jsx");
 
 const HtmlToJsx = () => {
   const [value, setvalue] = useState<string>("");
@@ -14,9 +13,12 @@ const HtmlToJsx = () => {
     setvalue(value);
   };
 
-  const convert = (e: any) => {
-    const s: string = change(value);
-    setvalue2(s);
+  const convert = async () => {
+    const HTMLToJSX = (await import("@/utils/html-to-jsx")).default;
+    const converter = new HTMLToJSX({
+      createClass: false,
+    });
+    setvalue2(converter.convert(value));
   };
 
   return (
