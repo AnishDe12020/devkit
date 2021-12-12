@@ -7,6 +7,7 @@ const HtmlToJsx: Tool = {
   componentFileName: "HtmlToJsx",
   slug: "html-to-jsx",
   categorySlug: "converters",
+  acceptedDataTypes: ["html","jsx"]
 };
 
 export default HtmlToJsx;
