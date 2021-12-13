@@ -6,11 +6,11 @@ import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material.css";
 
 const HtmlToJsx = () => {
-  const [value, setvalue] = useState<string>("");
-  const [value2, setvalue2] = useState<string>("");
+  const [html, setHtml] = useState<string>("");
+  const [jsx, setJsx] = useState<string>("");
 
   const handlechange = (editor: Editor, data: EditorChange, value: string) => {
-    setvalue(value);
+    setHtml(value);
   };
 
   const convert = async () => {
@@ -18,7 +18,7 @@ const HtmlToJsx = () => {
     const converter = new HTMLToJSX({
       createClass: false,
     });
-    setvalue2(converter.convert(value));
+    setJsx(converter.convert(html));
   };
 
   return (
@@ -30,7 +30,7 @@ const HtmlToJsx = () => {
           </Text>
           <Controlled
             onBeforeChange={handlechange}
-            value={value}
+            value={html}
             options={{
               lineNumbers: true,
               mode: "xml",
@@ -45,7 +45,7 @@ const HtmlToJsx = () => {
           </Text>
           <Controlled
             onBeforeChange={handlechange}
-            value={value2}
+            value={jsx}
             options={{
               lineNumbers: true,
               mode: "xml",
