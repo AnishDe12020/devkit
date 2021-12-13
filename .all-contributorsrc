@@ -50,6 +50,15 @@
       "contributions": [
         "projectManagement"
       ]
+    },
+    {
+      "login": "Panquesito7",
+      "name": "David Leal",
+      "avatar_url": "https://avatars.githubusercontent.com/u/51391473?v=4",
+      "profile": "https://stackoverflow.com/story/panquesito7",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
