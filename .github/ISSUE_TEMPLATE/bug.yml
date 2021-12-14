@@ -1,5 +1,8 @@
-name: Bug
-description: File a bug report
+name: 🐛Bug Report
+description: File a bug report here
+title: "[BUG]: "
+labels: ["bug"]
+assignees: ["AnishDe12020"]
 body:
   - type: markdown
     attributes:
@@ -14,7 +17,7 @@ body:
     attributes:
       label: Broswer
       description: "Which Web Browser do you use? Please provide the version as well."
-      placeholder: "Google Chrome"
+      placeholder: "Google Chrome 94"
     validations:
       required: true  
   - type: textarea
@@ -42,4 +45,4 @@ body:
     id: additional-info
     attributes:
       label: Additional Information
-      description: You can attach screenshots, screen recording, or anything related
+      description: You can attach screenshots, screen recording, logs, or anything related
