@@ -39,6 +39,11 @@ body:
     attributes:
       label: Steps to reproduce
       description: Which steps do we need to take to reproduce this error?
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Scroll down to '...'
+        4. See error
     validations:
       required: true
   - type: textarea
