@@ -10,7 +10,7 @@ const seoConfig = {
     description: "Tools for developers, by the Developer Community",
     images: [
       {
-        url: "https://i.imgur.com/Opo96rx.png",
+        url: "https://devkit.one/og.png",
         width: 1200,
         height: 627,
         alt: "DevKit OG Image",
