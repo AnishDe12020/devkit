@@ -39,7 +39,7 @@ const Tools: NextPage<ToolsPageProps> = ({
           locale: "en_US",
           images: [
             {
-              url: "https://i.imgur.com/Opo96rx.png",
+              url: "https://devkit.one/og.jpg",
               width: 1200,
               height: 627,
               alt: "DevKit OG Image",

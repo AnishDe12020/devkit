@@ -19,7 +19,7 @@ const Home: NextPage = () => {
           locale: "en_US",
           images: [
             {
-              url: "https://devkit.one/og.png",
+              url: "https://devkit.one/og.jpg",
               width: 1200,
               height: 627,
               alt: "DevKit OG Image",
