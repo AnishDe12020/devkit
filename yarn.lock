@@ -1994,10 +1994,10 @@
   resolved "https://registry.npmjs.org/@rushstack/eslint-patch/-/eslint-patch-1.0.8.tgz"
   integrity sha512-ZK5v4bJwgXldAUA8r3q9YKfCwOqoHTK/ZqRjSeRXQrBXWouoPnS4MQtgC4AXGiiBuUu5wxrRgTlv0ktmM4P1Aw==
 
-"@snyk/protect@1.793.0":
-  version "1.793.0"
-  resolved "https://registry.yarnpkg.com/@snyk/protect/-/protect-1.793.0.tgz#9421cc01c627bf54eb67f708018a6a8cdf874f17"
-  integrity sha512-WG4Xs5djHurhVpv/DqD18BhakGybnTGNJoFAuNLBY6QAUjsfd1fBiUm9ISPK+taChl+uDojNf0A6zhRp/l8uLQ==
+"@snyk/protect@1.794.0":
+  version "1.794.0"
+  resolved "https://registry.yarnpkg.com/@snyk/protect/-/protect-1.794.0.tgz#d51eb852684944ca393cd0f2762d61273967c530"
+  integrity sha512-w+WIG7OLbT+9iT5jm6Z/0sj+kuGCdACvqvO/m/qfMM58EQo1/CvVxSiSkIjpzhkaJDaY0GgwCLJyqa5mmOV9ZQ==
 
 "@surma/rollup-plugin-off-main-thread@^2.2.3":
   version "2.2.3"
