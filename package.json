@@ -25,7 +25,7 @@
     "@emotion/styled": "^11.6.0",
     "@ffmpeg/core": "^0.10.0",
     "@ffmpeg/ffmpeg": "^0.9.8",
-    "@snyk/protect": "1.806.0",
+    "@snyk/protect": "1.809.0",
     "@types/file-saver": "^2.0.4",
     "chroma-js": "^2.1.2",
     "codemirror": "^5.65.0",
