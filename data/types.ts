@@ -25,4 +25,6 @@ export type DataTypes =
   | "mp4"
   | "regex"
   | "html"
+  | "json"
+  | "yaml"
   | "jsx";

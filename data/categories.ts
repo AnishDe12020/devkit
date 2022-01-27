@@ -8,6 +8,7 @@ import RegexTester from "@/data/tools/testers/regexTester";
 import ColorContrastChecker from "@/data/tools/color/colorContrastChecker";
 import Base64EncoderDecoder from "@/data/tools/converters/base64EncoderDecoder";
 import HtmlToJsx from "@/data/tools/converters/HtmlToJsx";
+import JsonYaml from "@/data/tools/converters/JsonYaml";
 
 const categories: Category[] = [
   {
@@ -41,7 +42,7 @@ const categories: Category[] = [
   {
     id: 5,
     name: "Converters",
-    children: [Base64EncoderDecoder, HtmlToJsx],
+    children: [Base64EncoderDecoder, HtmlToJsx, JsonYaml],
     slug: "converters",
     directory: "Converters",
   },
