@@ -12,12 +12,14 @@ import {
   FormLabel,
   useClipboard,
 } from "@chakra-ui/react";
-import { CopyIcon, CloseIcon } from "@chakra-ui/icons";
+import { FiCopy, FiX } from "react-icons/fi";
 import { Editor, EditorChange } from "codemirror";
 import { Controlled } from "react-codemirror2";
 import { useState, useEffect } from "react";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material.css";
+
+import CopyIconButton from "@/components/Common/CopyIconButton";
 
 type ConvertType = "toYAML" | "toJSON";
 const defaultIndent = 2;
@@ -27,7 +29,7 @@ const JsonYaml = () => {
   const [output, setOutput] = useState<string>("");
   const [indent, setIndent] = useState<number>(defaultIndent);
   const [convertType, setConvertType] = useState<ConvertType>("toYAML");
-  const { onCopy } = useClipboard(output);
+  const { hasCopied, onCopy } = useClipboard(output);
 
   const handleChange = (editor: Editor, data: EditorChange, value: string) => {
     setInput(value);
@@ -55,9 +57,9 @@ const JsonYaml = () => {
 
   return (
     <VStack spacing="5">
-      <HStack spacing="5" w="100%">
+      <HStack spacing="5" w="100%" justifyContent={"center"}>
         {/* Input Box */}
-        <Box w="45%">
+        <Box flexGrow="1">
           <Flex justifyContent={"space-between"}>
             <Text fontSize="2xl" mb="10px" ml="45%">
               Input
@@ -65,7 +67,7 @@ const JsonYaml = () => {
             <HStack spacing="2">
               <IconButton
                 aria-label="Clear"
-                icon={<CloseIcon />}
+                icon={<FiX />}
                 onClick={e => setInput("")}
               />
             </HStack>
@@ -81,16 +83,17 @@ const JsonYaml = () => {
           />
         </Box>
         {/* Output Box */}
-        <Box w="45%">
+        <Box flexGrow="1">
           <Flex justifyContent={"space-between"}>
             <Text fontSize="2xl" mb="10px" ml="45%">
               Output
             </Text>
             <HStack spacing="2">
-              <IconButton
-                aria-label="Copy"
-                icon={<CopyIcon />}
-                onClick={onCopy}
+              <CopyIconButton
+                ariaLabel="Copy"
+                icon={<FiCopy />}
+                onCopy={onCopy}
+                hasCopied={hasCopied}
               />
             </HStack>
           </Flex>
