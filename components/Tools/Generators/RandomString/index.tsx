@@ -2,6 +2,10 @@ import {
   Flex,
   Box,
   VStack,
+<<<<<<< HEAD
+=======
+  HStack,
+>>>>>>> feat: add random string generator
   Text,
   NumberInput,
   NumberInputField,
@@ -57,7 +61,11 @@ const RandomString = () => {
       if (flags.length === 0) {
         return "";
       }
+<<<<<<< HEAD
       // create character pool
+=======
+      // create charactor pool
+>>>>>>> feat: add random string generator
       let pool = flags.reduce((p: string, flag: string) => {
         switch (flag) {
           case "number":
@@ -124,13 +132,20 @@ const RandomString = () => {
       <Flex w="100%">
         <VStack spacing="3">
           <FormControl as="fieldset">
+<<<<<<< HEAD
+=======
+            {/* min/max settings */}
+>>>>>>> feat: add random string generator
             <FormLabel as="legend">Length</FormLabel>
             <NumberInput
               value={optLength}
               min={1}
               max={maxLength}
               onChange={handleOptLengthChange}
+<<<<<<< HEAD
               ml="5px"
+=======
+>>>>>>> feat: add random string generator
             >
               <NumberInputField />
               <NumberInputStepper>
@@ -144,7 +159,10 @@ const RandomString = () => {
               min={1}
               max={maxLength}
               onChange={handleOptRowChange}
+<<<<<<< HEAD
               ml="5px"
+=======
+>>>>>>> feat: add random string generator
             >
               <NumberInputField />
               <NumberInputStepper>
@@ -152,15 +170,25 @@ const RandomString = () => {
                 <NumberDecrementStepper />
               </NumberInputStepper>
             </NumberInput>
+<<<<<<< HEAD
           </FormControl>
           {/* character settings */}
           <FormControl as="fieldset">
             <FormLabel as="legend">Character</FormLabel>
             <VStack spacing={2} align={"left"} ml="5%">
+=======
+            {/* charactor settings */}
+            <FormLabel as="legend">Charactors</FormLabel>
+            <VStack spacing={2} align={"left"}>
+>>>>>>> feat: add random string generator
               <CheckboxGroup
                 defaultValue={flags}
                 onChange={value => setFlags(value as string[])}
               >
+<<<<<<< HEAD
+=======
+                {" "}
+>>>>>>> feat: add random string generator
                 <Checkbox defaultIsChecked value="number">
                   0-9
                 </Checkbox>
@@ -174,7 +202,11 @@ const RandomString = () => {
                   !@#$%^&*
                 </Checkbox>
                 <Checkbox value="avoid">
+<<<<<<< HEAD
                   Avoid letters that can be mistaken (e.g.: iloqILOQ019!)
+=======
+                  Avoid misreading chars (iloqILOQ019!)
+>>>>>>> feat: add random string generator
                 </Checkbox>
               </CheckboxGroup>
             </VStack>
