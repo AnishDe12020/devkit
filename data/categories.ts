@@ -9,6 +9,7 @@ import ColorContrastChecker from "@/data/tools/color/colorContrastChecker";
 import Base64EncoderDecoder from "@/data/tools/converters/base64EncoderDecoder";
 import HtmlToJsx from "@/data/tools/converters/HtmlToJsx";
 import JsonYaml from "@/data/tools/converters/JsonYaml";
+import RandomString from "@/data/tools/generators/randomString";
 
 const categories: Category[] = [
   {
@@ -45,6 +46,13 @@ const categories: Category[] = [
     children: [Base64EncoderDecoder, HtmlToJsx, JsonYaml],
     slug: "converters",
     directory: "Converters",
+  },
+  {
+    id: 6,
+    name: "Generators",
+    children: [RandomString],
+    slug: "generators",
+    directory: "Generators",
   },
 ];
 
