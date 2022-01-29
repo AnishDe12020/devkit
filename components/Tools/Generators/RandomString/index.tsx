@@ -2,7 +2,6 @@ import {
   Flex,
   Box,
   VStack,
-  HStack,
   Text,
   NumberInput,
   NumberInputField,
@@ -97,17 +96,18 @@ const RandomString = () => {
       {/* Output Box */}
       <Box flexGrow="1" w="100%">
         <Flex>
-          <Text fontSize="lg" ml="45%" marginLeft={"10px"}>
+          <Text fontSize="lg" marginLeft={"5px"}>
             Output
           </Text>
-          <HStack spacing="2" marginLeft={"auto"}>
+          <Box margin={"0 3px 3px auto"}>
             <CopyIconButton
               ariaLabel="Copy"
               icon={<FiCopy />}
               onCopy={onCopy}
               hasCopied={hasCopied}
+              size="sm"
             />
-          </HStack>
+          </Box>
         </Flex>
         <Controlled
           onBeforeChange={() => {}}
@@ -130,6 +130,7 @@ const RandomString = () => {
               min={1}
               max={maxLength}
               onChange={handleOptLengthChange}
+              ml="5px"
             >
               <NumberInputField />
               <NumberInputStepper>
@@ -143,6 +144,7 @@ const RandomString = () => {
               min={1}
               max={maxLength}
               onChange={handleOptRowChange}
+              ml="5px"
             >
               <NumberInputField />
               <NumberInputStepper>
@@ -150,9 +152,11 @@ const RandomString = () => {
                 <NumberDecrementStepper />
               </NumberInputStepper>
             </NumberInput>
-            {/* character settings */}
+          </FormControl>
+          {/* character settings */}
+          <FormControl as="fieldset">
             <FormLabel as="legend">Character</FormLabel>
-            <VStack spacing={2} align={"left"}>
+            <VStack spacing={2} align={"left"} ml="5%">
               <CheckboxGroup
                 defaultValue={flags}
                 onChange={value => setFlags(value as string[])}
