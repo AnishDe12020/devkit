@@ -174,7 +174,7 @@ const RandomString = () => {
                   !@#$%^&*
                 </Checkbox>
                 <Checkbox value="avoid">
-                  Avoid misreading chars (iloqILOQ019!)
+                  Avoid letters that can be mistaken (e.g.: iloqILOQ019!)
                 </Checkbox>
               </CheckboxGroup>
             </VStack>
