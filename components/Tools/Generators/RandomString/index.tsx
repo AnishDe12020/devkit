@@ -58,7 +58,7 @@ const RandomString = () => {
       if (flags.length === 0) {
         return "";
       }
-      // create charactor pool
+      // create character pool
       let pool = flags.reduce((p: string, flag: string) => {
         switch (flag) {
           case "number":
@@ -150,8 +150,8 @@ const RandomString = () => {
                 <NumberDecrementStepper />
               </NumberInputStepper>
             </NumberInput>
-            {/* charactor settings */}
-            <FormLabel as="legend">Charactors</FormLabel>
+            {/* character settings */}
+            <FormLabel as="legend">Character</FormLabel>
             <VStack spacing={2} align={"left"}>
               <CheckboxGroup
                 defaultValue={flags}
