@@ -99,11 +99,16 @@ const UnixTime = () => {
           </NumberInput>
         </FormControl>
         {/* Result table */}
-        <Table variant="simple" w="45%" align="left">
+        <Table
+          variant="simple"
+          maxW={{ sm: "100%", md: "100%", lg: "60%", xl: "40%" }}
+        >
           <Tbody>
             <Tr>
-              <Td bgColor={"rgba(0,0,0,.04)"}>UTC</Td>
-              <Td>{unixUTC}</Td>
+              <Td bgColor={"rgba(0,0,0,.04)"} pe={0}>
+                UTC
+              </Td>
+              <Td pe={0}>{unixUTC}</Td>
               <td>
                 <CopyIconButton
                   ariaLabel="Copy"
@@ -138,7 +143,9 @@ const UnixTime = () => {
           <FormLabel as="legend">From Date</FormLabel>
           <HStack spacing="2" marginLeft={"auto"}>
             <VStack aligh="left">
-              <FormLabel as="legend">Year</FormLabel>
+              <FormLabel as="legend" mb={0}>
+                Year
+              </FormLabel>
               <NumberInput
                 value={year}
                 size="sm"
@@ -150,7 +157,9 @@ const UnixTime = () => {
               </NumberInput>
             </VStack>
             <VStack>
-              <FormLabel as="legend">Month</FormLabel>
+              <FormLabel as="legend" mb={0}>
+                Month
+              </FormLabel>
               <NumberInput
                 value={month}
                 size="sm"
@@ -162,7 +171,9 @@ const UnixTime = () => {
               </NumberInput>
             </VStack>
             <VStack>
-              <FormLabel as="legend">Day</FormLabel>
+              <FormLabel as="legend" mb={0}>
+                Day
+              </FormLabel>
               <NumberInput
                 size="sm"
                 value={day}
@@ -174,7 +185,9 @@ const UnixTime = () => {
               </NumberInput>
             </VStack>
             <VStack>
-              <FormLabel as="legend">Hour(24)</FormLabel>
+              <FormLabel as="legend" mb={0}>
+                Hour(24)
+              </FormLabel>
               <NumberInput
                 value={hour}
                 size="sm"
@@ -186,7 +199,9 @@ const UnixTime = () => {
               </NumberInput>
             </VStack>
             <VStack>
-              <FormLabel as="legend">Minutes</FormLabel>
+              <FormLabel as="legend" mb={0}>
+                Minutes
+              </FormLabel>
               <NumberInput
                 value={min}
                 size="sm"
@@ -198,7 +213,9 @@ const UnixTime = () => {
               </NumberInput>
             </VStack>
             <VStack>
-              <FormLabel as="legend">Seconds</FormLabel>
+              <FormLabel as="legend" mb={0}>
+                Seconds
+              </FormLabel>
               <NumberInput
                 value={second}
                 size="sm"
@@ -212,11 +229,16 @@ const UnixTime = () => {
           </HStack>
         </FormControl>
         {/* Result table */}
-        <Table variant="simple" w="45%" align="left">
+        <Table
+          variant="simple"
+          maxW={{ sm: "100%", md: "100%", lg: "60%", xl: "40%" }}
+        >
           <Tbody>
             <Tr>
-              <Td bgColor={"rgba(0,0,0,.04)"}>UnixTime</Td>
-              <Td>{dateLocal}</Td>
+              <Td bgColor={"rgba(0,0,0,.04)"} pe={0}>
+                UnixTime
+              </Td>
+              <Td pe={0}>{dateLocal}</Td>
               <td>
                 <CopyIconButton
                   ariaLabel="Copy"
