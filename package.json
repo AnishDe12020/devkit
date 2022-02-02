@@ -26,7 +26,7 @@
     "@ffmpeg/core": "^0.10.0",
     "@ffmpeg/ffmpeg": "^0.9.8",
     "@snyk/protect": "1.812.0",
-    "@types/file-saver": "^2.0.4",
+    "@types/file-saver": "^2.0.5",
     "@types/js-yaml": "^4.0.5",
     "chroma-js": "^2.1.2",
     "codemirror": "^5.65.0",
