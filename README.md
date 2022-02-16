@@ -2,6 +2,13 @@
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
+
+**Important: DevKit is no longer actively maintained. Bug reports and feature requests are still welcome but I cannot gurantee if they will be fixed/implemented.**
+
+**However, pull requests are welcome and will be merged once they look fine.**
+
+**Dependencies will be upgraded regularly (dependabot and snyk automatically opens pull requests for this)**
+
 DevKit is a simple progressive-web-application with tools a developer needs when coding. The project is completely free and open-source and does not need one to sign-up or provide it with any data, in fact we don't have a backend!!! 
 
 > Note: This project is in a very early stage of development with only a few tools as of now but the core developer, that is me and contributors are making it better day-by-day
