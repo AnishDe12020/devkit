@@ -28,7 +28,7 @@
     "@snyk/protect": "1.812.0",
     "@types/file-saver": "^2.0.5",
     "@types/js-yaml": "^4.0.5",
-    "chroma-js": "^2.1.2",
+    "chroma-js": "^2.3.0",
     "codemirror": "^5.65.1",
     "file-saver": "^2.0.5",
     "formik": "^2.2.9",
