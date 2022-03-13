@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@chakra-ui/react": "^1.7.3",
-    "@emotion/react": "^11.7.1",
+    "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.8.1",
     "@ffmpeg/core": "^0.10.0",
     "@ffmpeg/ffmpeg": "^0.9.8",
