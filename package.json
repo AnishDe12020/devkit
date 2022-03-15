@@ -29,7 +29,7 @@
     "@types/file-saver": "^2.0.5",
     "@types/js-yaml": "^4.0.5",
     "chroma-js": "^2.3.0",
-    "codemirror": "^5.65.1",
+    "codemirror": "^5.65.2",
     "file-saver": "^2.0.5",
     "formik": "^2.2.9",
     "framer-motion": "^4",
