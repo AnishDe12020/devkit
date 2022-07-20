@@ -59,6 +59,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "shirou",
+      "name": "shirou",
+      "avatar_url": "https://avatars.githubusercontent.com/u/177213?v=4",
+      "profile": "http://tdoc.info/en/blog/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,

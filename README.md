@@ -1,7 +1,14 @@
 # DevKit
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
+
+**Important: DevKit is no longer actively maintained. Bug reports and feature requests are still welcome but I cannot gurantee if they will be fixed/implemented.**
+
+**However, pull requests are welcome and will be merged once they look fine.**
+
+**Dependencies will be upgraded regularly (dependabot and snyk automatically opens pull requests for this)**
+
 DevKit is a simple progressive-web-application with tools a developer needs when coding. The project is completely free and open-source and does not need one to sign-up or provide it with any data, in fact we don't have a backend!!! 
 
 > Note: This project is in a very early stage of development with only a few tools as of now but the core developer, that is me and contributors are making it better day-by-day
@@ -44,6 +51,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/diganta413"><img src="https://avatars.githubusercontent.com/u/69595396?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Diganta Ghosh</b></sub></a><br /><a href="#tool-diganta413" title="Tools">🔧</a></td>
     <td align="center"><a href="http://twitter.com/kr_anurag_"><img src="https://avatars.githubusercontent.com/u/77309809?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Anurag</b></sub></a><br /><a href="#projectManagement-kr-anurag" title="Project Management">📆</a></td>
     <td align="center"><a href="https://stackoverflow.com/story/panquesito7"><img src="https://avatars.githubusercontent.com/u/51391473?v=4?s=100" width="100px;" alt=""/><br /><sub><b>David Leal</b></sub></a><br /><a href="https://github.com/AnishDe12020/devkit/commits?author=Panquesito7" title="Documentation">📖</a></td>
+    <td align="center"><a href="http://tdoc.info/en/blog/"><img src="https://avatars.githubusercontent.com/u/177213?v=4?s=100" width="100px;" alt=""/><br /><sub><b>shirou</b></sub></a><br /><a href="https://github.com/AnishDe12020/devkit/commits?author=shirou" title="Code">💻</a></td>
   </tr>
 </table>
 
