@@ -24,7 +24,7 @@
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.9.3",
     "@ffmpeg/core": "^0.10.0",
-    "@ffmpeg/ffmpeg": "^0.9.8",
+    "@ffmpeg/ffmpeg": "^0.11.0",
     "@snyk/protect": "1.812.0",
     "@types/file-saver": "^2.0.5",
     "@types/js-yaml": "^4.0.5",
