@@ -1864,10 +1864,10 @@
   resolved "https://registry.yarnpkg.com/@ffmpeg/core/-/core-0.11.0.tgz#fc24fe5af587f83cd2575d0e45de455d8eed9ba9"
   integrity sha512-9Tt/+2PMpkGPXUK8n6He9G8Y+qR6qmCPSCw9iEKZxHHOvJ9BE/r0Fccj+YgDZTlyu6rXxc9x6EqCaFBIt7qzjA==
 
-"@ffmpeg/ffmpeg@^0.9.8":
-  version "0.9.8"
-  resolved "https://registry.npmjs.org/@ffmpeg/ffmpeg/-/ffmpeg-0.9.8.tgz"
-  integrity sha512-QradleJx78hHJBtI1wRsus1L1jxQB3v4h6k8c3CERI9fssm+NSSppuofmsOei7uq7iQEYq3oK9tJNAyEsRoNng==
+"@ffmpeg/ffmpeg@^0.11.0":
+  version "0.11.4"
+  resolved "https://registry.yarnpkg.com/@ffmpeg/ffmpeg/-/ffmpeg-0.11.4.tgz#faf3c68af0f73cbd79178afa0286187c0f2d0013"
+  integrity sha512-uOr23vBp6/aslxR/+gyK6umxyDsGCy7ke1OuAPYi9MW1SgIBJDnE2ZwJW/zXAot0eZZQhtnWHQEDbdRCwSF7NA==
   dependencies:
     is-url "^1.2.4"
     node-fetch "^2.6.1"
