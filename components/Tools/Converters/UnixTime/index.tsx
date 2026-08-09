@@ -1,6 +1,6 @@
 import {
   VStack,
-  HStack,
+  Flex,
   Table,
   Tbody,
   Tr,
@@ -141,8 +141,8 @@ const UnixTime = () => {
       <VStack w="100%" align="left">
         <FormControl as="fieldset">
           <FormLabel as="legend">From Date</FormLabel>
-          <HStack spacing="2" marginLeft={"auto"}>
-            <VStack aligh="left">
+          <Flex flexWrap="wrap" justifyContent="center" spacing={2} w="full">
+            <VStack align="left">
               <FormLabel as="legend" mb={0}>
                 Year
               </FormLabel>
@@ -226,7 +226,7 @@ const UnixTime = () => {
                 <NumberInputField />
               </NumberInput>
             </VStack>
-          </HStack>
+          </Flex>
         </FormControl>
         {/* Result table */}
         <Table
