@@ -1,4 +1,4 @@
-import { Flex, Box, Button, Spacer, Text } from "@chakra-ui/react";
+import { Flex, Box, Button, Text } from "@chakra-ui/react";
 import { Editor, EditorChange } from "codemirror";
 import { Controlled } from "react-codemirror2";
 import { useState } from "react";
@@ -23,9 +23,9 @@ const HtmlToJsx = () => {
 
   return (
     <div>
-      <Flex>
-        <Box w="45%">
-          <Text fontSize="3xl" mb="10px" ml="40%">
+      <Flex flexWrap="wrap" w="full">
+        <Box w={{ base: "full", md: "45%" }} flexBasis={{ base: "100%", md: "45%" }} mr={{ base: 0, md: 4 }} mb={{ base: 4, md: 0 }}>
+          <Text fontSize="3xl" mb="10px" textAlign="center">
             Html
           </Text>
           <Controlled
@@ -38,9 +38,8 @@ const HtmlToJsx = () => {
             }}
           />
         </Box>
-        <Spacer />
-        <Box w="45%">
-          <Text fontSize="3xl" mb="10px" ml="45%">
+        <Box w={{ base: "full", md: "45%" }} flexBasis={{ base: "100%", md: "45%" }}>
+          <Text fontSize="3xl" mb="10px" textAlign="center">
             JSX
           </Text>
           <Controlled
@@ -55,7 +54,7 @@ const HtmlToJsx = () => {
           />
         </Box>
       </Flex>
-      <Button ml="45%" mt="10%" onClick={convert}>
+      <Button w="full" mt={4} onClick={convert}>
         Convert To Jsx
       </Button>
     </div>

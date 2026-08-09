@@ -57,11 +57,11 @@ const JsonYaml = () => {
 
   return (
     <VStack spacing="5">
-      <HStack spacing="5" w="100%" justifyContent={"center"}>
+      <Flex flexWrap="wrap" w="full" justifyContent="center" spacing={4}>
         {/* Input Box */}
-        <Box flexGrow="1">
-          <Flex justifyContent={"space-between"}>
-            <Text fontSize="2xl" mb="10px" ml="45%">
+        <Box w={{ base: "full", md: "auto" }} flexBasis={{ base: "100%", md: "auto" }} flexGrow="1">
+          <Flex justifyContent="space-between" flexWrap="wrap" mb={2}>
+            <Text fontSize="2xl" ml={{ base: 0, md: "45%" }}>
               Input
             </Text>
             <HStack spacing="2">
@@ -83,9 +83,9 @@ const JsonYaml = () => {
           />
         </Box>
         {/* Output Box */}
-        <Box flexGrow="1">
-          <Flex justifyContent={"space-between"}>
-            <Text fontSize="2xl" mb="10px" ml="45%">
+        <Box w={{ base: "full", md: "auto" }} flexBasis={{ base: "100%", md: "auto" }} flexGrow="1">
+          <Flex justifyContent="space-between" flexWrap="wrap" mb={2}>
+            <Text fontSize="2xl" ml={{ base: 0, md: "45%" }}>
               Output
             </Text>
             <HStack spacing="2">
@@ -108,7 +108,7 @@ const JsonYaml = () => {
             }}
           />
         </Box>
-      </HStack>
+      </Flex>
 
       {/* Configuration part */}
       <Flex w="100%">
